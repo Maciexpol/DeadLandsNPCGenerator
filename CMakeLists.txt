@@ -20,12 +20,15 @@ set(PROJECT_SOURCES
         mainwindow.h
         mainwindow.ui
         resources.qrc
-        src/sessions/sessionmanager.h
-        src/sessions/sessionmanager.cpp
-        src/generator/character.h
-        src/generator/character.cpp
-        src/generator/hydrants.h
-        src/generator/hydrants.cpp
+        src/sessions/sessionmanager.h src/sessions/sessionmanager.cpp
+        src/generator/character.h src/generator/character.cpp
+        src/generator/hydrants.h src/generator/hydrants.cpp
+        src/generator/dices.h src/generator/dices.cpp
+        src/generator/attributes.h src/generator/attributes.cpp
+        src/generator/attribute.h src/generator/attribute.cpp
+        src/generator/overview.h src/generator/overview.cpp
+        src/generator/dice.h src/generator/dice.cpp
+        src/generator/ability.h src/generator/ability.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

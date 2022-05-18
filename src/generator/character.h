@@ -1,23 +1,30 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
+#include "attributes.h"
+#include "dices.h"
 #include "hydrants.h"
 
+
 /*!
- * \brief The Character class
+ * \brief Character data
  *
  * Holds character data and manages its' generation.
  */
 class Character
 {
 private:
+    Attributes attributes;
+    Dices dices;
     Hydrants hydrants;
 
 public:
     Character();
 
-    //! Returns Hydrants of the character
-    void getHydrants() const{return this->getHydrants();}
+    Attributes getAttributes() const{return this->attributes;}
+    Hydrants getHydrants() const{return this->hydrants;}
+    Dices getDices() const{return this->dices;}
+
 };
 
 #endif // CHARACTER_H

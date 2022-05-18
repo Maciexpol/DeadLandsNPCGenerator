@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['deadlandsnpcgenerator_0',['DeadlandsNPCGenerator',['../md__r_e_a_d_m_e.html',1,'']]]
+  ['calculate_5fpoints_0',['calculate_points',['../class_attributes.html#a65df419930d69fffcf23d560b3788705',1,'Attributes']]],
+  ['character_1',['Character',['../class_character.html',1,'']]]
 ];

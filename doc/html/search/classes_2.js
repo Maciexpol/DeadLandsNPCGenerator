@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['mainwindow_0',['MainWindow',['../class_main_window.html',1,'']]]
+  ['dice_0',['Dice',['../class_dice.html',1,'']]],
+  ['dices_1',['Dices',['../class_dices.html',1,'']]]
 ];

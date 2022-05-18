@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gethydrants_0',['getHydrants',['../class_character.html#afa951086fbad2ba96158129078576d13',1,'Character']]]
+  ['calculate_5fpoints_0',['calculate_points',['../class_attributes.html#a65df419930d69fffcf23d560b3788705',1,'Attributes']]]
 ];

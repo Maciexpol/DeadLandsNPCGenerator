@@ -19,8 +19,13 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
-        src/sessionmanager.h
-        src/sessionmanager.cpp
+        resources.qrc
+        src/sessions/sessionmanager.h
+        src/sessions/sessionmanager.cpp
+        src/generator/character.h
+        src/generator/character.cpp
+        src/generator/hydrants.h
+        src/generator/hydrants.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

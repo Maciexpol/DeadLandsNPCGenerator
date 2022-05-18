@@ -30,11 +30,11 @@
     <property name="title">
      <string>Session</string>
     </property>
-    <addaction name="actionNew"/>
-    <addaction name="actionOpen"/>
-    <addaction name="actionClose"/>
-    <addaction name="actionDelete"/>
-    <addaction name="actionSave"/>
+    <addaction name="actionSessionNew"/>
+    <addaction name="actionSessionOpen"/>
+    <addaction name="actionSessionClose"/>
+    <addaction name="actionSessionDelete"/>
+    <addaction name="actionSessionSave"/>
    </widget>
    <widget class="QMenu" name="menuCharacter">
     <property name="title">
@@ -48,7 +48,7 @@
    <addaction name="menuSession"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionNew">
+  <action name="actionSessionNew">
    <property name="text">
     <string>New</string>
    </property>
@@ -56,7 +56,7 @@
     <string>Create new session</string>
    </property>
   </action>
-  <action name="actionOpen">
+  <action name="actionSessionOpen">
    <property name="text">
     <string>Open</string>
    </property>
@@ -64,7 +64,7 @@
     <string>Open other session</string>
    </property>
   </action>
-  <action name="actionDelete">
+  <action name="actionSessionDelete">
    <property name="text">
     <string>Delete</string>
    </property>
@@ -72,7 +72,7 @@
     <string>Delete current session</string>
    </property>
   </action>
-  <action name="actionSave">
+  <action name="actionSessionSave">
    <property name="text">
     <string>Save</string>
    </property>
@@ -80,7 +80,7 @@
     <string>Save current session</string>
    </property>
   </action>
-  <action name="actionClose">
+  <action name="actionSessionClose">
    <property name="text">
     <string>Close</string>
    </property>

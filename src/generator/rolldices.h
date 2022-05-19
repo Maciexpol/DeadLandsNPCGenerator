@@ -72,9 +72,24 @@ namespace RollDices {
              // TODO:
              //  Problem - at the beggining - unskipable 2's,
              //            need to take cards from the end
+             //  -- Check if it works --
              QVector<Card> finalCards;
 
              std::sort(deck.begin(), deck.end(), compareCards);
+
+             // adding 2's
+             qint16 i = 0;
+             while(deck[i].getFace() == FACES::two){
+                 finalCards.push_back(deck[i]);
+                 i++;
+             }
+
+             // adding rest the best dices
+             i = deck.size() - 1;
+             while(finalCards.size() < 10){
+                 finalCards.push_back(deck[i]);
+                 i--;
+             }
 
              return finalCards;
         }

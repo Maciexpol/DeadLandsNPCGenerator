@@ -32,6 +32,9 @@ namespace RollDices {
         }
 
         QVector<Card> rollCards(){
+            // TODO:
+            //  Check if it returns exactly 12 cards
+
             // generate "deck" - numbers
             QVector<qint16> numbers = generateBasicDeck();
 
@@ -51,10 +54,41 @@ namespace RollDices {
             return cards;
         }
 
+        bool compareCards(Card a, Card b){
+            // TODO:
+            //  Check if it works
+            if(a.getFace() == b.getFace()){
+                if(a.getSuit() < b.getSuit())
+                    return true;
+                return false;
+            }
+            else if(a.getFace() < b.getFace())
+                return true;
+            return false;
+        }
 
-        QVector<Card> selectCards(QVector<Card> deck);
 
-        QVector<Dice> translateCards(QVector<Card> deck);
+        QVector<Card> selectCards(QVector<Card> deck){
+             // TODO:
+             //  Problem - at the beggining - unskipable 2's,
+             //            need to take cards from the end
+             QVector<Card> finalCards;
+
+             std::sort(deck.begin(), deck.end(), compareCards);
+
+             return finalCards;
+        }
+
+        QVector<Dice> translateCards(QVector<Card> deck){
+            QVector<Dice> dices{};
+
+            // translating cards to dices
+            for(auto card : deck){
+                dices.push_back(Dice(card));
+            }
+
+            return dices;
+        }
     }
 
     QVector<Dice> generateDices();

@@ -22,6 +22,7 @@ private slots:
     void numbersTranslation();
     void cardsRolling();
     void cardsSelection();
+    void sortingCards();
 };
 
 QTEST_MAIN(RollDicesTest)

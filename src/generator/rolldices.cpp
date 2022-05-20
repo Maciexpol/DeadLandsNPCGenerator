@@ -5,6 +5,7 @@
 
 using namespace RollDices;
 
+
 QVector<Card> Private::translateNumbers(QVector<qint16> numbers){
     QVector<Card> output{};
     // add translated number for card into output
@@ -38,6 +39,10 @@ QVector<Card> Private::rollCards(){
     return cards;
 }
 
+void Private::sortCards(QVector<Card> & deck){
+     std::sort(deck.begin(), deck.end());
+}
+
 QVector<Card> Private::selectCards(QVector<Card> deck){
      // TODO:
      //  Problem - at the beggining - unskipable 2's,
@@ -45,7 +50,7 @@ QVector<Card> Private::selectCards(QVector<Card> deck){
      //  -- Check if it works --
      QVector<Card> finalCards;
 
-     std::sort(deck.begin(), deck.end(), RollDices::compareCards);
+     sortCards(finalCards);
 
      // adding 2's
      qint16 i = 0;
@@ -79,19 +84,6 @@ QVector<Dice> translateCards(QVector<Card> deck){
     }
 
     return dices;
-}
-
-bool compareCards(Card a, Card b){
-    // TODO:
-    //  Check if it works
-    if(a.getFace() == b.getFace()){
-        if(a.getSuit() < b.getSuit())
-            return true;
-        return false;
-    }
-    else if(a.getFace() < b.getFace())
-        return true;
-    return false;
 }
 
 QVector<qint16> generateBasicDeck(){

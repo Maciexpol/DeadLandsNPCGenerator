@@ -20,10 +20,10 @@ enum FACES{
 // Every color has 13 cards
 // We can split 54 cards using floor to suits
 enum SUITS{
-    spades = 0,
-    hearts = 1,
-    diamnods = 2,
-    clubs = 3,
+    clubs = 0,
+    diamonds = 1,
+    hearts = 2,
+    spades = 3,
     joker = 4
 };
 
@@ -41,6 +41,21 @@ private:
 
 public:
     Card(int number);
+
+    bool operator == (Card a)
+        {return face == a.getFace() and suit == a.getSuit();}
+
+    bool operator < (Card a)
+        {return face < a.getFace() and suit <= a.getSuit();}
+
+    bool operator > (Card a)
+        {return face > a.getFace() and suit >= a.getSuit();}
+
+    bool operator <= (Card a)
+        {return face <= a.getFace() and suit <= a.getSuit();}
+
+    bool operator >= (Card a)
+        {return face >= a.getFace() and suit >= a.getSuit();}
 
     void setFace(int number)
         {face = FACES(convertFace(number));}

@@ -26,6 +26,7 @@ set(PROJECT_SOURCES
         src/generator/trait.h src/generator/trait.cpp
         src/generator/dices.h src/generator/dices.cpp
         src/generator/attributes.h src/generator/attributes.cpp
+        src/generator/tile.h src/generator/tile.cpp
         src/generator/attribute.h src/generator/attribute.cpp
         src/generator/overview.h src/generator/overview.cpp
         src/generator/dice.h src/generator/dice.cpp

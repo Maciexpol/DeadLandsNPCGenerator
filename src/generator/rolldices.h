@@ -10,16 +10,18 @@
 
 namespace RollDices {
 
-    QVector<Dice> translateCards(QVector<Card> deck);
-    QVector<Dice> generateDices();
-    QVector<qint16> generateBasicDeck();
-
     namespace Private{
         void sortCards(QVector<Card> & deck);
         QVector<Card> translateNumbers(QVector<qint16> numbers);
         QVector<Card> rollCards();
         QVector<Card> selectCards(QVector<Card> deck);
     }
+
+    QVector<qint16> generateBasicDeck();
+    QVector<Dice> translateCards(QVector<Card> deck);
+
+    QVector<Dice> generateDices();
+
 }
 
 #endif // ROLLDICES_H

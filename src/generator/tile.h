@@ -6,9 +6,12 @@
 class Tile
 {
 private:
+    ATTRIBUTES attribute;
 
 public:
-    Tile();
+    Tile(ATTRIBUTES inputAttribute)
+        {attribute = inputAttribute;}
+
 };
 
 #endif // TILE_H

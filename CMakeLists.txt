@@ -27,6 +27,8 @@ set(PROJECT_SOURCES
         src/generator/trait.h src/generator/trait.cpp
 
         # -- tiles priority generator --
+        src/generator/tilemanager.h src/generator/tilemanager.cpp
+        src/generator/tiles.h src/generator/tiles.cpp
         src/generator/tile.h src/generator/tile.cpp
 
         # -- generator namespace --

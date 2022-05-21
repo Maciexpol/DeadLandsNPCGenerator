@@ -34,6 +34,9 @@ set(PROJECT_SOURCES
         src/generator/rolldices.h src/generator/rolldices.cpp
         src/generator/card.h src/generator/card.cpp
         tests/rolldicestest.h tests/rolldicestest.cpp
+        src/generator/abilities.h src/generator/abilities.cpp
+
+        src/sessions/session.h src/sessions/session.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

@@ -1,6 +1,3 @@
 #include "attribute.h"
 
-Attribute::Attribute()
-{
-
-}
+Attribute::Attribute() : name(cognition), dice(Dice()), abilities(Abilities()){};

@@ -15,28 +15,39 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
+        # -- frontend section --
         main.cpp
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
         resources.qrc
-        src/sessions/sessionmanager.h src/sessions/sessionmanager.cpp
-        src/generator/character.h src/generator/character.cpp
+
+        # -- edgesandhindrances class --
         src/generator/edgesandhindrances.h src/generator/edgesandhindrances.cpp
         src/generator/trait.h src/generator/trait.cpp
-        src/generator/dices.h src/generator/dices.cpp
-        src/generator/attributes.h src/generator/attributes.cpp
+
+        # -- tiles priority generator --
         src/generator/tile.h src/generator/tile.cpp
-        src/generator/attribute.h src/generator/attribute.cpp
-        src/generator/overview.h src/generator/overview.cpp
+
+        # -- generator namespace --
         src/generator/dice.h src/generator/dice.cpp
-        src/generator/ability.h src/generator/ability.cpp
         src/generator/rolldices.h src/generator/rolldices.cpp
         src/generator/card.h src/generator/card.cpp
+
+        # -- character class --
+        src/generator/character.h src/generator/character.cpp
+        src/generator/dices.h src/generator/dices.cpp
+        src/generator/attributes.h src/generator/attributes.cpp
+        src/generator/attribute.h src/generator/attribute.cpp
+        src/generator/overview.h src/generator/overview.cpp
         src/generator/abilities.h src/generator/abilities.cpp
+        src/generator/ability.h src/generator/ability.cpp
 
+        # -- sessions system
         src/sessions/session.h src/sessions/session.cpp
+        src/sessions/sessionmanager.h src/sessions/sessionmanager.cpp
 
+        # -- tests --
         # tests/rolldicestest.h tests/rolldicestest.cpp
 )
 

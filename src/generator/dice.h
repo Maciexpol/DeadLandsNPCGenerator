@@ -7,16 +7,13 @@
 class Dice
 {
 private:
-    qint16 number{};
-    qint16 dice{};
+    qint16 number;
+    qint16 dice;
 
 public:
 
-    qint16 getNumber() const
-        {return number;}
-
-    qint16 getDice() const
-        {return dice;}
+    qint16 getNumber() const{return this->number;}
+    qint16 getDice() const{return this->dice;}
 
     Dice();
     // TODO:

@@ -22,7 +22,6 @@ set(PROJECT_SOURCES
         resources.qrc
         src/sessions/sessionmanager.h src/sessions/sessionmanager.cpp
         src/generator/character.h src/generator/character.cpp
-        src/generator/hydrants.h src/generator/hydrants.cpp
         src/generator/dices.h src/generator/dices.cpp
         src/generator/attributes.h src/generator/attributes.cpp
         src/generator/attribute.h src/generator/attribute.cpp

@@ -12,10 +12,10 @@ private:
 
 public:
 
-    qint16 getNumber()
+    qint16 getNumber() const
         {return number;}
 
-    qint16 getDice()
+    qint16 getDice() const
         {return dice;}
 
     Dice();

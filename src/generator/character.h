@@ -3,7 +3,6 @@
 
 #include "attributes.h"
 #include "dices.h"
-#include "hydrants.h"
 
 
 /*!
@@ -16,13 +15,11 @@ class Character
 private:
     Attributes attributes;
     Dices dices;
-    Hydrants hydrants;
 
 public:
     Character();
 
     Attributes getAttributes() const{return this->attributes;}
-    Hydrants getHydrants() const{return this->hydrants;}
     Dices getDices() const{return this->dices;}
 
 };

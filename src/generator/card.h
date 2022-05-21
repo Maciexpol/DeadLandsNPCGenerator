@@ -63,10 +63,10 @@ public:
     void setSuit(int number)
         {suit = SUITS(convertSuits(number));}
 
-    FACES const getFace()
+    FACES getFace() const
         {return face;}
 
-    SUITS const getSuit()
+    SUITS getSuit() const
         {return suit;}
 
 };

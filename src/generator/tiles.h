@@ -14,3 +14,10 @@ public:
 };
 
 #endif // TILES_H
+
+// we iterate from the right (the highest priority)
+// every element has some chance for being dropped to the end
+// this chance is increasing every iterate
+//
+// thanks to that if we drop something important at the end
+// there is big chance for bubble it to the front

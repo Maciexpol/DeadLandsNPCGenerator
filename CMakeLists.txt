@@ -30,9 +30,9 @@ set(PROJECT_SOURCES
         src/generator/overview.h src/generator/overview.cpp
         src/generator/dice.h src/generator/dice.cpp
         src/generator/ability.h src/generator/ability.cpp
-        src/generator/rolldices.h src/generator/rolldices.cpp
+        #src/generator/rolldices.h src/generator/rolldices.cpp
         src/generator/card.h src/generator/card.cpp
-        tests/rolldicestest.h tests/rolldicestest.cpp
+        #tests/rolldicestest.h tests/rolldicestest.cpp
         src/generator/abilities.h src/generator/abilities.cpp
 
         src/sessions/session.h src/sessions/session.cpp

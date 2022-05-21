@@ -49,6 +49,12 @@
         <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,1,0,0,5,0">
          <item>
           <widget class="QLabel" name="sessionName">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="text">
             <string>Name</string>
            </property>
@@ -63,6 +69,24 @@
          </item>
          <item>
           <widget class="QLabel" name="sessionDescription">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>70</height>
+            </size>
+           </property>
            <property name="text">
             <string>Desc</string>
            </property>
@@ -76,7 +100,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label">
+          <widget class="QLabel" name="listLabel">
            <property name="text">
             <string>Characters in this session</string>
            </property>
@@ -88,30 +112,30 @@
          <item>
           <layout class="QGridLayout" name="gridLayout">
            <item row="1" column="0">
-            <widget class="QPushButton" name="pushButton_2">
+            <widget class="QPushButton" name="sessionNew">
              <property name="text">
-              <string>PushButton</string>
+              <string>New</string>
              </property>
             </widget>
            </item>
            <item row="2" column="0">
-            <widget class="QPushButton" name="pushButton">
+            <widget class="QPushButton" name="sessionClose">
              <property name="text">
-              <string>PushButton</string>
+              <string>Close</string>
              </property>
             </widget>
            </item>
            <item row="1" column="1">
-            <widget class="QPushButton" name="pushButton_3">
+            <widget class="QPushButton" name="sessionSave">
              <property name="text">
-              <string>PushButton</string>
+              <string>Save</string>
              </property>
             </widget>
            </item>
            <item row="2" column="1">
-            <widget class="QPushButton" name="pushButton_4">
+            <widget class="QPushButton" name="sessionDelete">
              <property name="text">
-              <string>PushButton</string>
+              <string>Delete</string>
              </property>
             </widget>
            </item>

@@ -28,8 +28,9 @@ private:
     Abilities abilities;
 
 public:
-    Attribute();
-    Attribute(ATTRIBUTES name, Dice dice, Abilities abilities);
+    Attribute(ATTRIBUTES inputName, Dice inputDice, Abilities inputAbilities);
+    Attribute(ATTRIBUTES inputName, Abilities inputAbilities);
+    Attribute(ATTRIBUTES inputName);
 
     Dice getDice() const{return this->dice;}
     Abilities getAbilities() const{return this->abilities;}

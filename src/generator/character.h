@@ -4,7 +4,9 @@
 #include "../serializable.h"
 #include "attributes.h"
 #include "dices.h"
-
+#include "edgesandhindrances.h"
+#include "overview.h"
+#include "rolldices.h"
 
 /*!
  * \brief Character data
@@ -16,6 +18,8 @@ class Character : Serializable
 private:
     Attributes attributes;
     Dices dices;
+    EdgesAndHindrances edgesAndHindrances;
+    Overview overview;
 
 public:
     Character();
@@ -25,6 +29,8 @@ public:
 
     QDomElement XmlSerialize(QDomDocument &doc) const override;
     void XmlDeserialize(const QDomElement &element) override;
+
+    void rollDices();
 
 };
 

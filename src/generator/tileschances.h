@@ -23,3 +23,4 @@ public:
 };
 
 #endif // TILESCHANCES_H
+

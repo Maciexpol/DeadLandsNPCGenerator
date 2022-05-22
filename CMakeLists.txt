@@ -30,6 +30,7 @@ set(PROJECT_SOURCES
         src/generator/tilemanager.h src/generator/tilemanager.cpp
         src/generator/tiles.h src/generator/tiles.cpp
         src/generator/tile.h src/generator/tile.cpp
+        src/generator/tileschances.h src/generator/tileschances.cpp
 
         # -- generator namespace --
         src/generator/dice.h src/generator/dice.cpp

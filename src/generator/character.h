@@ -3,7 +3,9 @@
 
 #include "attributes.h"
 #include "dices.h"
-
+#include "edgesandhindrances.h"
+#include "overview.h"
+#include "rolldices.h"
 
 /*!
  * \brief Character data
@@ -15,12 +17,16 @@ class Character
 private:
     Attributes attributes;
     Dices dices;
+    EdgesAndHindrances edgesAndHindrances;
+    Overview overview;
 
 public:
     Character();
 
     Attributes getAttributes() const{return this->attributes;}
     Dices getDices() const{return this->dices;}
+
+    void rollDices();
 
 };
 

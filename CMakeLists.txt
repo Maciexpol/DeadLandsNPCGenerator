@@ -13,6 +13,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+# -- Added by myself --
+find_package(Qt6 REQUIRED COMPONENTS Xml)
 
 set(PROJECT_SOURCES
         # -- frontend section --
@@ -21,6 +23,10 @@ set(PROJECT_SOURCES
         mainwindow.h
         mainwindow.ui
         resources.qrc
+
+        # -- helper classes --
+        src/serializable.h src/serializable.cpp
+        src/lsaver.h src/lsaver.cpp
 
         # -- edgesandhindrances class --
         src/generator/edgesandhindrances.h src/generator/edgesandhindrances.cpp
@@ -75,6 +81,8 @@ else()
 endif()
 
 target_link_libraries(npc-generator PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+# -- Added by myself --
+target_link_libraries(npc-generator PRIVATE Qt6::Xml)
 
 set_target_properties(npc-generator PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com

@@ -1,0 +1,19 @@
+{
+	"BUILD_DIR" : "D:/Projects/npc-generator/build/npc-generator_autogen",
+	"CMAKE_BINARY_DIR" : "D:/Projects/npc-generator/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "D:/Projects/npc-generator/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "D:/Projects/npc-generator",
+	"CMAKE_SOURCE_DIR" : "D:/Projects/npc-generator",
+	"INCLUDE_DIR" : "D:/Projects/npc-generator/build/npc-generator_autogen/include",
+	"INPUTS" : [],
+	"LOCK_FILE" : "D:/Projects/npc-generator/build/CMakeFiles/npc-generator_autogen.dir/AutoRcc_resources_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "resources" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_resources.cpp",
+	"RCC_EXECUTABLE" : "E:/Qt/6.2.4/mingw_64/./bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "D:/Projects/npc-generator/build/CMakeFiles/npc-generator_autogen.dir/AutoRcc_resources_EWIEGA46WW_Used.txt",
+	"SOURCE" : "D:/Projects/npc-generator/resources.qrc",
+	"VERBOSITY" : 0
+}

@@ -5,7 +5,11 @@
 #include <QDate>
 
 #include "../serializable.h"
+#include "../generator/character.h"
 
+/*!
+ * \brief
+ */
 class Session : Serializable
 {
 private:
@@ -13,10 +17,11 @@ private:
     QString description;
     QDate creationDate;
     qint16 npcCount;
+    QVector<Character> characters;
 
 public:
     Session();
-    Session(const QString name, const QString description, const QDate date, const qint16 npcCount);
+    Session(const QString &name, const QString &description, const QDate &date, const qint16 &npcCount);
 
     QString getName() const{return this->name;};
     QString getDescription() const{return this->description;};
@@ -24,7 +29,7 @@ public:
     qint16 getNpcCount() const{return this->npcCount;};
 
     QDomElement XmlSerialize(QDomDocument &doc) const override;
-    void XmlDeserialize(const QDomElement element) const override;
+    void XmlDeserialize(const QDomElement &element) override;
 };
 
 #endif // SESSION_H

@@ -1,0 +1,5 @@
+"E:\JetBrains\CLion 2021.3.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=E:/JetBrains/CLion 2021.3.2/bin/ninja/win/ninja.exe" -G Ninja D:\Projects\npc-generator
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: D:/Projects/npc-generator/build

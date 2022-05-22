@@ -2,18 +2,24 @@
 
 SessionManager::SessionManager() : _isActive(false)
 {
-
+    this->placeholderSession = Session("-",
+                                       "Open or create a new session...",
+                                       QDate::currentDate(),
+                                       69);
+    activeSession = placeholderSession;
+    updateSessionInfo(activeSession);
 }
 
 void SessionManager::setActiveSession(const Session &session){
     this->activeSession = session;
     this->_isActive = true;
+    emit updateSessionInfo(getActiveSession());
 }
 
 void SessionManager::saveCurrentSession(){
     // Break if there is no active session
     if(!_isActive) return;
-    LSaver::save(activeSession);
+    MemIO::save(activeSession);
 }
 
 void SessionManager::createNewSession(){
@@ -36,5 +42,18 @@ void SessionManager::createNewSession(){
 
     Session newSession = Session(name, description, QDate::currentDate(), 0);
     this->setActiveSession(newSession);
-    emit updateSessionInfo(this->activeSession);
+}
+
+void SessionManager::closeCurrentSession() {
+    this->saveCurrentSession();
+    activeSession = placeholderSession;
+    _isActive = false;
+    updateSessionInfo(activeSession);
+}
+
+void SessionManager::openNewSession() {
+    this->saveCurrentSession();
+    Session newSession = Session();
+    if(MemIO::load(newSession))
+        setActiveSession(newSession);
 }

@@ -1,0 +1,5 @@
+D:/Projects/npc-generator/build/CMakeFiles/npc-generator.dir
+D:/Projects/npc-generator/build/CMakeFiles/edit_cache.dir
+D:/Projects/npc-generator/build/CMakeFiles/rebuild_cache.dir
+D:/Projects/npc-generator/build/CMakeFiles/npc-generator_autogen_timestamp_deps.dir
+D:/Projects/npc-generator/build/CMakeFiles/npc-generator_autogen.dir

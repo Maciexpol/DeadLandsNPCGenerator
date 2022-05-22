@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QProgressDialog>
 #include <QInputDialog>
-#include "../lsaver.h"
+#include "../memio.h"
 #include "session.h"
 
 /*!
@@ -17,6 +17,7 @@ class SessionManager : public QObject
 private:
     bool _isActive;
     Session activeSession;
+    Session placeholderSession;
 
     void setActiveSession(const Session &session);
 
@@ -28,10 +29,10 @@ public:
 
 public slots:
     void createNewSession();
-    //void openNewSession();
+    void openNewSession();
     //void deleteCurrentSession();
     void saveCurrentSession();
-    //void closeCurrentSession();
+    void closeCurrentSession();
 
 signals:
     void updateSessionInfo(Session session);

@@ -27,9 +27,19 @@ private slots:
 
     void on_actionSessionSave_triggered();
 
+    void on_sessionClose_clicked();
+
+    void on_actionSessionClose_triggered();
+
+    void on_actionSessionOpen_triggered();
+
+    void on_sessionOpen_clicked();
+
 signals:
     void createNewSession();
     void saveCurrentSession();
+    void closeCurrentSession();
+    void openNewSession();
 
 private:
     Ui::MainWindow *ui;

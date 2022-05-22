@@ -1,11 +1,6 @@
 #include "session.h"
-
-Session::Session()
-{
-
-}
-
-Session::Session(const QString name, const QString description, const QDate date, const qint16 npcCount){
+Session::Session() = default;
+Session::Session(const QString &name, const QString &description, const QDate &date, const qint16 &npcCount){
     this->name = name;
     this->description = description;
     this->creationDate = date;
@@ -13,22 +8,28 @@ Session::Session(const QString name, const QString description, const QDate date
 }
 
 QDomElement Session::XmlSerialize(QDomDocument &doc) const{
+    // Create session element and add basic attributes
     QDomElement element = doc.createElement("session");
-    QDomElement name = doc.createElement("name");
-    QDomElement description = doc.createElement("description");
-    QDomElement date = doc.createElement("creationDate");
-    QDomElement npcCount = doc.createElement("npcCount");
-    name.appendChild(doc.createTextNode(this->name));
-    description.appendChild(doc.createTextNode(this->description));
-    date.appendChild(doc.createTextNode(this->getCreationDate().toString()));
-    npcCount.appendChild(doc.createTextNode(QString::number(this->npcCount)));
-    element.appendChild(name);
-    element.appendChild(description);
-    element.appendChild(date);
-    element.appendChild(npcCount);
+    element.setAttribute("name", this->name);
+    element.setAttribute("description", this->description);
+    element.setAttribute("creationDate", this->creationDate.toString());
+    element.setAttribute("npcCount", this->npcCount);
+
+    // Serialize all characters in this session
+    QDomElement npcs = doc.createElement("npcs");
+    for(auto &npc : this->characters){
+        QDomElement character = npc.XmlSerialize(doc);
+        npcs.appendChild(character);
+    }
+
+    // Add serialized character
+    element.appendChild(npcs);
     return element;
 }
 
-void Session::XmlDeserialize(const QDomElement) const{
-
+void Session::XmlDeserialize(const QDomElement &element){
+    this->name = element.attribute("name", "-");
+    this->description = element.attribute("description", "-");
+    this->creationDate = QDate::fromString(element.attribute("creationDate", ""));
+    this->npcCount = static_cast<qint16>(element.attribute("npcCount", "0").toInt());
 }

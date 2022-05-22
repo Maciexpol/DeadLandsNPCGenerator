@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     //Create folder structure
-    LSaver::createFolderStructure();
+    MemIO::createFolderStructure();
 
     //Connection between SessionManager and MainWindow to handle updating UI
     QObject::connect(&sessionManager, &SessionManager::updateSessionInfo, this, &MainWindow::updateSessionInfo);
@@ -20,6 +20,14 @@ MainWindow::MainWindow(QWidget *parent)
     //Connection between SessionManager and MainWindow to handle saving sessions
     QObject::connect(this, &MainWindow::saveCurrentSession, &sessionManager, &SessionManager::saveCurrentSession);
 
+    //Connection between SessionManager and MainWindow to handle closing sessions
+    QObject::connect(this, &MainWindow::closeCurrentSession, &sessionManager, &SessionManager::closeCurrentSession);
+
+    //Connection between SessionManager and MainWindow to handle opening sessions
+    QObject::connect(this, &MainWindow::openNewSession, &sessionManager, &SessionManager::openNewSession);
+
+    // For now, invoke closeCurrentSession in orded to show placeholder session.
+    emit closeCurrentSession();
 }
 
 MainWindow::~MainWindow()
@@ -51,5 +59,29 @@ void MainWindow::on_sessionSave_clicked()
 void MainWindow::on_actionSessionSave_triggered()
 {
     emit saveCurrentSession();
+}
+
+
+void MainWindow::on_sessionClose_clicked()
+{
+    emit closeCurrentSession();
+}
+
+
+void MainWindow::on_actionSessionClose_triggered()
+{
+    emit closeCurrentSession();
+}
+
+
+void MainWindow::on_actionSessionOpen_triggered()
+{
+    emit openNewSession();
+}
+
+
+void MainWindow::on_sessionOpen_clicked()
+{
+    emit openNewSession();
 }
 

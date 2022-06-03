@@ -1,17 +1,45 @@
 \hypertarget{dice_8h_source}{}\doxysection{dice.\+h}
-\label{dice_8h_source}\index{src/generator/dice.h@{src/generator/dice.h}}
+\label{dice_8h_source}\index{D:/Projects/npc-\/generator/src/generator/dice.h@{D:/Projects/npc-\/generator/src/generator/dice.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DICE\_H}}
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#define DICE\_H}}
-\DoxyCodeLine{3 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}card.h"{}}}
 \DoxyCodeLine{4 }
-\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_dice}{Dice}}}
-\DoxyCodeLine{6 \{}
-\DoxyCodeLine{7 \textcolor{keyword}{public}:}
-\DoxyCodeLine{8     \mbox{\hyperlink{class_dice}{Dice}}();}
-\DoxyCodeLine{9 \};}
-\DoxyCodeLine{10 }
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// DICE\_H}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <QString>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_dice}{Dice}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \textcolor{keyword}{private}:}
+\DoxyCodeLine{10     qint16 number;}
+\DoxyCodeLine{11     qint16 dice;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     qint16 getNumber()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} this-\/>number;\}}
+\DoxyCodeLine{16     qint16 getDice()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} this-\/>dice;\}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \mbox{\hyperlink{class_dice}{Dice}}();}
+\DoxyCodeLine{19     \textcolor{comment}{// TODO:}}
+\DoxyCodeLine{20     \textcolor{comment}{//  Create creator from card}}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_dice}{Dice}}(\mbox{\hyperlink{class_card}{Card}} card);}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keywordtype}{bool} operator == (\mbox{\hyperlink{class_dice}{Dice}} a)}
+\DoxyCodeLine{24         \{\textcolor{keywordflow}{return} number == a.getNumber() and dice == a.getDice();\}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{bool} operator < (\mbox{\hyperlink{class_dice}{Dice}} a)}
+\DoxyCodeLine{27         \{\textcolor{keywordflow}{return} number < a.getNumber() and dice <= a.getDice();\}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordtype}{bool} operator > (\mbox{\hyperlink{class_dice}{Dice}} a)}
+\DoxyCodeLine{30         \{\textcolor{keywordflow}{return} number > a.getNumber() and dice >= a.getDice();\}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{bool} operator <= (\mbox{\hyperlink{class_dice}{Dice}} a)}
+\DoxyCodeLine{33         \{\textcolor{keywordflow}{return} number <= a.getNumber() and dice <= a.getDice();\}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{bool} operator >= (\mbox{\hyperlink{class_dice}{Dice}} a)}
+\DoxyCodeLine{36         \{\textcolor{keywordflow}{return} number >= a.getNumber() and dice >= a.getDice();\}}
+\DoxyCodeLine{37 \};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// DICE\_H}}
 
 \end{DoxyCode}

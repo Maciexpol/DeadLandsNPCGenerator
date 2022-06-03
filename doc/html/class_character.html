@@ -74,25 +74,114 @@ $(function() {
  <a href="class_character.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="character_8h_source.html">character.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Character:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_character.png" usemap="#Character_map" alt=""/>
+  <map id="Character_map" name="Character_map">
+<area href="class_serializable.html" title="Abstract class to help serialize application objects." alt="Serializable" shape="rect" coords="0,0,78,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a63fea07075c2233533958c00a76df2a7"><td class="memItemLeft" align="right" valign="top"><a id="a63fea07075c2233533958c00a76df2a7" name="a63fea07075c2233533958c00a76df2a7"></a>
 <a class="el" href="class_attributes.html">Attributes</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getAttributes</b> () const</td></tr>
 <tr class="separator:a63fea07075c2233533958c00a76df2a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d096bdeeb5887d8e2a3ad1f1b7301a1"><td class="memItemLeft" align="right" valign="top"><a id="a2d096bdeeb5887d8e2a3ad1f1b7301a1" name="a2d096bdeeb5887d8e2a3ad1f1b7301a1"></a>
-<a class="el" href="class_hydrants.html">Hydrants</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getHydrants</b> () const</td></tr>
-<tr class="separator:a2d096bdeeb5887d8e2a3ad1f1b7301a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84ace86d28756bceaac70b23c210afe2"><td class="memItemLeft" align="right" valign="top"><a id="a84ace86d28756bceaac70b23c210afe2" name="a84ace86d28756bceaac70b23c210afe2"></a>
 <a class="el" href="class_dices.html">Dices</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getDices</b> () const</td></tr>
 <tr class="separator:a84ace86d28756bceaac70b23c210afe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51c50beb560d2091c0ca856645ca2217"><td class="memItemLeft" align="right" valign="top">QDomElement&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character.html#a51c50beb560d2091c0ca856645ca2217">XmlSerialize</a> (QDomDocument &amp;doc) const override</td></tr>
+<tr class="memdesc:a51c50beb560d2091c0ca856645ca2217"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize element into QDomElement.  <a href="class_character.html#a51c50beb560d2091c0ca856645ca2217">More...</a><br /></td></tr>
+<tr class="separator:a51c50beb560d2091c0ca856645ca2217"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af79596bfbfae838daa452ecb6b473bef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character.html#af79596bfbfae838daa452ecb6b473bef">XmlDeserialize</a> (const QDomElement &amp;element) override</td></tr>
+<tr class="memdesc:af79596bfbfae838daa452ecb6b473bef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserialize QDomElement into object.  <a href="class_character.html#af79596bfbfae838daa452ecb6b473bef">More...</a><br /></td></tr>
+<tr class="separator:af79596bfbfae838daa452ecb6b473bef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c2ffd7af669cf9583be805dba3b23ba"><td class="memItemLeft" align="right" valign="top"><a id="a8c2ffd7af669cf9583be805dba3b23ba" name="a8c2ffd7af669cf9583be805dba3b23ba"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>rollDices</b> ()</td></tr>
+<tr class="separator:a8c2ffd7af669cf9583be805dba3b23ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p ><a class="el" href="class_character.html" title="Character data.">Character</a> data. </p>
 <p >Holds character data and manages its' generation. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/generator/<a class="el" href="character_8h_source.html">character.h</a></li>
-<li>src/generator/character.cpp</li>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="af79596bfbfae838daa452ecb6b473bef" name="af79596bfbfae838daa452ecb6b473bef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af79596bfbfae838daa452ecb6b473bef">&#9670;&nbsp;</a></span>XmlDeserialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Character::XmlDeserialize </td>
+          <td>(</td>
+          <td class="paramtype">const QDomElement &amp;&#160;</td>
+          <td class="paramname"><em>element</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deserialize QDomElement into object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">element</td><td>- QDomElement of an object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_serializable.html#aaeb0f13d70bd4df5efb936015cf2e37d">Serializable</a>.</p>
+
+</div>
+</div>
+<a id="a51c50beb560d2091c0ca856645ca2217" name="a51c50beb560d2091c0ca856645ca2217"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51c50beb560d2091c0ca856645ca2217">&#9670;&nbsp;</a></span>XmlSerialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QDomElement Character::XmlSerialize </td>
+          <td>(</td>
+          <td class="paramtype">QDomDocument &amp;&#160;</td>
+          <td class="paramname"><em>doc</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serialize element into QDomElement. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">doc</td><td>- any QDomDocument object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>QDomElement - serialized object stored in one single element </dd></dl>
+
+<p>Implements <a class="el" href="class_serializable.html#a1730784a4cf9809cdd6f29d116d391c2">Serializable</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>D:/Projects/npc-generator/src/generator/<a class="el" href="character_8h_source.html">character.h</a></li>
+<li>D:/Projects/npc-generator/src/generator/character.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

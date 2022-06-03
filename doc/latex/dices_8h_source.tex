@@ -1,17 +1,27 @@
 \hypertarget{dices_8h_source}{}\doxysection{dices.\+h}
-\label{dices_8h_source}\index{src/generator/dices.h@{src/generator/dices.h}}
+\label{dices_8h_source}\index{D:/Projects/npc-\/generator/src/generator/dices.h@{D:/Projects/npc-\/generator/src/generator/dices.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DICES\_H}}
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#define DICES\_H}}
 \DoxyCodeLine{3 }
-\DoxyCodeLine{4 }
-\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_dices}{Dices}}}
-\DoxyCodeLine{6 \{}
-\DoxyCodeLine{7 \textcolor{keyword}{public}:}
-\DoxyCodeLine{8     \mbox{\hyperlink{class_dices}{Dices}}();}
-\DoxyCodeLine{9 \};}
-\DoxyCodeLine{10 }
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// DICES\_H}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <QVector>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}rolldices.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_dices}{Dices}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \textcolor{keyword}{private}:}
+\DoxyCodeLine{10     QVector<Dice> dices;}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \textcolor{keywordtype}{void} sortDices();}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{public}:}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_dices}{Dices}}();}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keywordtype}{void} rollDices();}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// DICES\_H}}
 
 \end{DoxyCode}

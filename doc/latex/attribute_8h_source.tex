@@ -1,26 +1,42 @@
 \hypertarget{attribute_8h_source}{}\doxysection{attribute.\+h}
-\label{attribute_8h_source}\index{src/generator/attribute.h@{src/generator/attribute.h}}
+\label{attribute_8h_source}\index{D:/Projects/npc-\/generator/src/generator/attribute.h@{D:/Projects/npc-\/generator/src/generator/attribute.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef ATTRIBUTE\_H}}
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#define ATTRIBUTE\_H}}
 \DoxyCodeLine{3 }
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}dice.h"{}}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}ability.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}abilities.h"{}}}
 \DoxyCodeLine{6 }
-\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_attribute}{Attribute}}}
-\DoxyCodeLine{11 \{}
-\DoxyCodeLine{12 \textcolor{keyword}{private}:}
-\DoxyCodeLine{13     \mbox{\hyperlink{class_dice}{Dice}} dice;}
-\DoxyCodeLine{14     \mbox{\hyperlink{class_ability}{Ability}} ability;}
-\DoxyCodeLine{15 }
-\DoxyCodeLine{16 \textcolor{keyword}{public}:}
-\DoxyCodeLine{17     \mbox{\hyperlink{class_attribute}{Attribute}}();}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{19     \mbox{\hyperlink{class_dice}{Dice}} getDice()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} this-\/>dice;\}}
-\DoxyCodeLine{20     \mbox{\hyperlink{class_ability}{Ability}} getAbility()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} this-\/>ability;\}}
-\DoxyCodeLine{21 \};}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ATTRIBUTE\_H}}
+\DoxyCodeLine{7 \textcolor{keyword}{enum} ATTRIBUTES \{}
+\DoxyCodeLine{8     cognition = 0,}
+\DoxyCodeLine{9     knowledge,}
+\DoxyCodeLine{10     smarts,}
+\DoxyCodeLine{11     deftness,}
+\DoxyCodeLine{12     nimbleness,}
+\DoxyCodeLine{13     mien,}
+\DoxyCodeLine{14     spirit,}
+\DoxyCodeLine{15     strength,}
+\DoxyCodeLine{16     vigor,}
+\DoxyCodeLine{17     quickness}
+\DoxyCodeLine{18 \};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{class_attribute}{Attribute}}}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25 \textcolor{keyword}{private}:}
+\DoxyCodeLine{26     ATTRIBUTES name;}
+\DoxyCodeLine{27     \mbox{\hyperlink{class_dice}{Dice}} dice;}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_abilities}{Abilities}} abilities;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{public}:}
+\DoxyCodeLine{31     \mbox{\hyperlink{class_attribute}{Attribute}}(ATTRIBUTES inputName, \mbox{\hyperlink{class_dice}{Dice}} inputDice, \mbox{\hyperlink{class_abilities}{Abilities}} inputAbilities);}
+\DoxyCodeLine{32     \mbox{\hyperlink{class_attribute}{Attribute}}(ATTRIBUTES inputName, \mbox{\hyperlink{class_abilities}{Abilities}} inputAbilities);}
+\DoxyCodeLine{33     \mbox{\hyperlink{class_attribute}{Attribute}}(ATTRIBUTES inputName);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \mbox{\hyperlink{class_dice}{Dice}} getDice()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} this-\/>dice;\}}
+\DoxyCodeLine{36     \mbox{\hyperlink{class_abilities}{Abilities}} getAbilities()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} this-\/>abilities;\}}
+\DoxyCodeLine{37 \};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ATTRIBUTE\_H}}
 
 \end{DoxyCode}

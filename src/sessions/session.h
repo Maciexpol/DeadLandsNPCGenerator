@@ -4,15 +4,19 @@
 #include <QString>
 #include <QDate>
 
-#include "../serializable.h"
+#include "/src/serializable.h"
 #include "../generator/character.h"
 
 /*!
- * \brief
+ * \brief Sessions group and manage generated characters
+ *
+ * Sessions are an easy way to manage characters. They provide tools to store, add
+ * and delete all of the generated NPCs.
  */
 class Session : Serializable
 {
 private:
+    // Remember to serialize newly added objects in XmlSerialize
     QString name;
     QString description;
     QDate creationDate;
@@ -27,9 +31,11 @@ public:
     QString getDescription() const{return this->description;};
     QDate getCreationDate() const{return this->creationDate;};
     qint16 getNpcCount() const{return this->npcCount;};
+    QVector<Character> getCharacters() const{return this->characters;};
 
     QDomElement XmlSerialize(QDomDocument &doc) const override;
     void XmlDeserialize(const QDomElement &element) override;
+    bool XmlValidate() const override;
 };
 
 #endif // SESSION_H

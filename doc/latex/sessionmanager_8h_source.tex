@@ -1,17 +1,45 @@
 \hypertarget{sessionmanager_8h_source}{}\doxysection{sessionmanager.\+h}
-\label{sessionmanager_8h_source}\index{src/sessions/sessionmanager.h@{src/sessions/sessionmanager.h}}
+\label{sessionmanager_8h_source}\index{D:/Projects/npc-\/generator/src/sessions/sessionmanager.h@{D:/Projects/npc-\/generator/src/sessions/sessionmanager.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef SESSIONMANAGER\_H}}
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#define SESSIONMANAGER\_H}}
 \DoxyCodeLine{3 }
-\DoxyCodeLine{4 }
-\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_session_manager}{SessionManager}}}
-\DoxyCodeLine{6 \{}
-\DoxyCodeLine{7 \textcolor{keyword}{public}:}
-\DoxyCodeLine{8     \mbox{\hyperlink{class_session_manager}{SessionManager}}();}
-\DoxyCodeLine{9 \};}
-\DoxyCodeLine{10 }
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// SESSIONMANAGER\_H}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <QObject>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <QProgressDialog>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <QInputDialog>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}../memio.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}session.h"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_session_manager}{SessionManager}} : \textcolor{keyword}{public} QObject}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15     Q\_OBJECT}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{private}:}
+\DoxyCodeLine{18     \textcolor{keywordtype}{bool} \_isActive;}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_session}{Session}} activeSession;}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_session}{Session}} placeholderSession;}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} setActiveSession(\textcolor{keyword}{const} \mbox{\hyperlink{class_session}{Session}} \&session);}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{public}:}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_session_manager}{SessionManager}}();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{bool} isActive()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} this-\/>\_isActive;\};}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_session}{Session}} getActiveSession()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} this-\/>activeSession;\};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{public} slots:}
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} createNewSession();}
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} openNewSession();}
+\DoxyCodeLine{33     \textcolor{comment}{//void deleteCurrentSession();}}
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} saveCurrentSession();}
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} closeCurrentSession();}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 signals:}
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} updateSessionInfo(\mbox{\hyperlink{class_session}{Session}} session);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// SESSIONMANAGER\_H}}
 
 \end{DoxyCode}

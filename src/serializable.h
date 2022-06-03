@@ -22,6 +22,11 @@ public:
      * \param element - QDomElement of an object
      */
     virtual void XmlDeserialize(const QDomElement &element) = 0;
+
+    /*!
+     * \brief Check whether object values meet criteria to be serialized
+     */
+     virtual bool XmlValidate() const {return true;};
 };
 
 #endif // SERIALIZABLE_H

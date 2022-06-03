@@ -3,6 +3,7 @@
 
 #include "dice.h"
 #include "abilities.h"
+#include "/src/serializable.h"
 
 enum ATTRIBUTES {
     cognition = 0,
@@ -20,7 +21,7 @@ enum ATTRIBUTES {
 /*!
  * \brief Represents one attribute of NPC character
  */
-class Attribute
+class Attribute : Serializable
 {
 private:
     ATTRIBUTES name;
@@ -34,6 +35,9 @@ public:
 
     Dice getDice() const{return this->dice;}
     Abilities getAbilities() const{return this->abilities;}
+
+    QDomElement XmlSerialize(QDomDocument &doc) const override;
+    void XmlDeserialize(const QDomElement &element) override;
 };
 
 #endif // ATTRIBUTE_H

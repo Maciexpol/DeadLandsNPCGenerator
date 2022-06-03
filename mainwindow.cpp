@@ -35,7 +35,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::updateSessionInfo(Session session){
+void MainWindow::updateSessionInfo(const Session& session){
     this->ui->sessionName->setText(session.getName());
     this->ui->sessionDescription->setText(session.getDescription());
 }

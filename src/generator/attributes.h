@@ -3,10 +3,12 @@
 
 #include <QVector>
 #include "attribute.h"
+#include "/src/serializable.h"
 
-class Attributes
+class Attributes : Serializable
 {
 private:
+    // Remember to serialize newly added objects in XmlSerialize
     QVector<Attribute> attributes;
 public:
     Attributes();
@@ -15,6 +17,9 @@ public:
 
     //! Calculates combined points from all attributes
     qint16 calculatePoints();
+
+    QDomElement XmlSerialize(QDomDocument &doc) const override;
+    void XmlDeserialize(const QDomElement &element) override;
 };
 
 #endif // ATTRIBUTES_H

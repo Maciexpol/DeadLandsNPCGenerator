@@ -1,31 +1,38 @@
 \hypertarget{character_8h_source}{}\doxysection{character.\+h}
-\label{character_8h_source}\index{src/generator/character.h@{src/generator/character.h}}
+\label{character_8h_source}\index{D:/Projects/npc-\/generator/src/generator/character.h@{D:/Projects/npc-\/generator/src/generator/character.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef CHARACTER\_H}}
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#define CHARACTER\_H}}
 \DoxyCodeLine{3 }
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}attributes.h"{}}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}dices.h"{}}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}hydrants.h"{}}}
-\DoxyCodeLine{7 }
-\DoxyCodeLine{8 }
-\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{class_character}{Character}}}
-\DoxyCodeLine{15 \{}
-\DoxyCodeLine{16 \textcolor{keyword}{private}:}
-\DoxyCodeLine{17     \mbox{\hyperlink{class_attributes}{Attributes}} attributes;}
-\DoxyCodeLine{18     \mbox{\hyperlink{class_dices}{Dices}} dices;}
-\DoxyCodeLine{19     \mbox{\hyperlink{class_hydrants}{Hydrants}} hydrants;}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21 \textcolor{keyword}{public}:}
-\DoxyCodeLine{22     \mbox{\hyperlink{class_character}{Character}}();}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}../serializable.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}attributes.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}dices.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}edgesandhindrances.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}overview.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}rolldices.h"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_character}{Character}} : \mbox{\hyperlink{class_serializable}{Serializable}}}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18 \textcolor{keyword}{private}:}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_attributes}{Attributes}} attributes;}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_dices}{Dices}} dices;}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_edges_and_hindrances}{EdgesAndHindrances}} edgesAndHindrances;}
+\DoxyCodeLine{22     \mbox{\hyperlink{class_overview}{Overview}} overview;}
 \DoxyCodeLine{23 }
-\DoxyCodeLine{24     \mbox{\hyperlink{class_attributes}{Attributes}} getAttributes()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} this-\/>attributes;\}}
-\DoxyCodeLine{25     \mbox{\hyperlink{class_hydrants}{Hydrants}} getHydrants()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} this-\/>hydrants;\}}
-\DoxyCodeLine{26     \mbox{\hyperlink{class_dices}{Dices}} getDices()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} this-\/>dices;\}}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{28 \};}
+\DoxyCodeLine{24 \textcolor{keyword}{public}:}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_character}{Character}}();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \mbox{\hyperlink{class_attributes}{Attributes}} getAttributes()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} this-\/>attributes;\}}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_dices}{Dices}} getDices()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} this-\/>dices;\}}
 \DoxyCodeLine{29 }
-\DoxyCodeLine{30 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// CHARACTER\_H}}
+\DoxyCodeLine{30     QDomElement \mbox{\hyperlink{class_character_a51c50beb560d2091c0ca856645ca2217}{XmlSerialize}}(QDomDocument \&doc) \textcolor{keyword}{const override};}
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_character_af79596bfbfae838daa452ecb6b473bef}{XmlDeserialize}}(\textcolor{keyword}{const} QDomElement \&element) \textcolor{keyword}{override};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} rollDices();}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// CHARACTER\_H}}
 
 \end{DoxyCode}

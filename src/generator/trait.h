@@ -2,8 +2,9 @@
 #define TRAIT_H
 
 #include <QString>
+#include "/src/serializable.h"
 
-class Trait
+class Trait : Serializable
 {
 private:
     qint16 points{};
@@ -22,6 +23,8 @@ public:
     QString getDescription() const
         {return description;}
 
+    QDomElement XmlSerialize(QDomDocument &doc) const override;
+    void XmlDeserialize(const QDomElement &element) override;
 };
 
 #endif // TRAIT_H

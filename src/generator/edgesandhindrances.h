@@ -3,8 +3,9 @@
 
 #include <QVector>
 #include "trait.h"
+#include "/src/serializable.h"
 
-class EdgesAndHindrances
+class EdgesAndHindrances : Serializable
 {
 private:
     QVector<Trait> Edges{};
@@ -29,6 +30,8 @@ public:
     void clearHindrances()
         {Hindrances.clear();}
 
+    QDomElement XmlSerialize(QDomDocument &doc) const override;
+    void XmlDeserialize(const QDomElement &element) override;
 };
 
 #endif // EDGESANDHINDRANCES_H

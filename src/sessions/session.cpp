@@ -18,11 +18,10 @@ QDomElement Session::XmlSerialize(QDomDocument &doc) const{
     // Serialize all characters in this session
     QDomElement npcs = doc.createElement("npcs");
     for(auto &npc : this->characters){
-        QDomElement character = npc.XmlSerialize(doc);
-        npcs.appendChild(character);
+        npcs.appendChild(npc.XmlSerialize(doc));
     }
 
-    // Add serialized character
+    // Add serialized characters
     element.appendChild(npcs);
     return element;
 }
@@ -32,4 +31,11 @@ void Session::XmlDeserialize(const QDomElement &element){
     this->description = element.attribute("description", "-");
     this->creationDate = QDate::fromString(element.attribute("creationDate", ""));
     this->npcCount = static_cast<qint16>(element.attribute("npcCount", "0").toInt());
+
+    //TODO: Add deserialization of characters
+}
+
+bool Session::XmlValidate() const {
+    if(this->name.isEmpty()) return false;
+    return true;
 }

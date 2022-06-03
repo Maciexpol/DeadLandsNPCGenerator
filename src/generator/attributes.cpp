@@ -8,7 +8,23 @@ Attributes::Attributes(const qint16 & characterLvlPoints, const Dices & dices){
     rollAttributesLvlPoints(characterLvlPoints);
 }
 
-void rollAttributesLvlPoints(const qint16 & characterLvlPoints){
+void Attributes::clearAttributesLvlPoints(){
+    for(auto & at : attributes){
+        at.setAbilitiesLvlSum(0);
+    }
+}
+
+void Attributes::rollAttributesLvlPoints(const qint16 & characterLvlPoints){
+    // random generator init
+    auto rng = std::default_random_engine {};
+    // function returns random indexes of abilities
+    std::uniform_int_distribution<qint16> num(0, attributes.length());
+
+    // randomly increasing abillities lvl by one
+    for(qint16 i = 0; i < characterLvlPoints; i++){
+        qint16 index = num(rng);
+        attributes[index].increaseAbilitiesLvlSum();
+    }
 
 }
 

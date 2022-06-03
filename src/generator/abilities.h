@@ -69,6 +69,8 @@ public:
      */
     void setAbilities(const QVector<QString> & names);
 
+    void clearAbilitiesLvlPoints();
+
     /*!
      * \brief getAbilityLevel
      * \param name

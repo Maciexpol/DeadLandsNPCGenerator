@@ -90,7 +90,7 @@ public:
      *
      * Needed for parrent's rolling function
      */
-    void addAbilitiesLvlSum() {abilitiesLvlSum++;};
+    void increaseAbilitiesLvlSum() {abilitiesLvlSum++;};
 
     /*!
      * \brief getName

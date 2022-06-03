@@ -2,6 +2,7 @@
 #define ATTRIBUTES_H
 
 #include <QVector>
+#include <random>
 #include "dices.h"
 #include "attribute.h"
 #include "src/serializable.h"
@@ -23,6 +24,8 @@ public:
      * \param points
      */
     void rollAttributesLvlPoints(const qint16 & characterLvlPoints);
+
+    void clearAttributesLvlPoints();
 
     QDomElement XmlSerialize(QDomDocument &doc) const override;
     void XmlDeserialize(const QDomElement &element) override;

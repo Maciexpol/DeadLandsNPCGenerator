@@ -9,22 +9,22 @@
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}attribute.h"{}}}
 \DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}src/serializable.h"{}}}
 \DoxyCodeLine{7 }
-\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_attributes}{Attributes}} : \mbox{\hyperlink{class_serializable}{Serializable}}}
-\DoxyCodeLine{9 \{}
-\DoxyCodeLine{10 \textcolor{keyword}{private}:}
-\DoxyCodeLine{11     \textcolor{comment}{// Remember to serialize newly added objects in XmlSerialize}}
-\DoxyCodeLine{12     QVector<Attribute> attributes;}
-\DoxyCodeLine{13 \textcolor{keyword}{public}:}
-\DoxyCodeLine{14     \mbox{\hyperlink{class_attributes}{Attributes}}();}
-\DoxyCodeLine{15 }
-\DoxyCodeLine{16     QVector<Attribute> getAttributes()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} this-\/>attributes;\}}
-\DoxyCodeLine{17 }
-\DoxyCodeLine{19     qint16 \mbox{\hyperlink{class_attributes_a77df21184156340251715e9d0ba6ea5f}{calculatePoints}}();}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21     QDomElement \mbox{\hyperlink{class_attributes_afb1ea49b99ebba73837641e16c0cea3e}{XmlSerialize}}(QDomDocument \&doc) \textcolor{keyword}{const override};}
-\DoxyCodeLine{22     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_attributes_a4c602c761b86cb73cab447837331cef3}{XmlDeserialize}}(\textcolor{keyword}{const} QDomElement \&element) \textcolor{keyword}{override};}
-\DoxyCodeLine{23 \};}
-\DoxyCodeLine{24 }
-\DoxyCodeLine{25 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ATTRIBUTES\_H}}
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_attributes}{Attributes}} : \mbox{\hyperlink{class_serializable}{Serializable}}}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14 \textcolor{keyword}{private}:}
+\DoxyCodeLine{15     \textcolor{comment}{// Remember to serialize newly added objects in XmlSerialize}}
+\DoxyCodeLine{16     QVector<Attribute> attributes;}
+\DoxyCodeLine{17 \textcolor{keyword}{public}:}
+\DoxyCodeLine{18     \mbox{\hyperlink{class_attributes}{Attributes}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     QVector<Attribute> getAttributes()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} this-\/>attributes;\}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     qint16 calculatePoints();}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     QDomElement \mbox{\hyperlink{class_attributes_afb1ea49b99ebba73837641e16c0cea3e}{XmlSerialize}}(QDomDocument \&doc) \textcolor{keyword}{const override};}
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_attributes_a4c602c761b86cb73cab447837331cef3}{XmlDeserialize}}(\textcolor{keyword}{const} QDomElement \&element) \textcolor{keyword}{override};}
+\DoxyCodeLine{26 \};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ATTRIBUTES\_H}}
 
 \end{DoxyCode}

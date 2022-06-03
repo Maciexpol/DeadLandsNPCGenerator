@@ -1,3 +1,6 @@
 <RCC>
     <qresource prefix="/icons"/>
+    <qresource prefix="/files">
+        <file>resources/attributes.xml</file>
+    </qresource>
 </RCC>

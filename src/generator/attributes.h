@@ -15,7 +15,7 @@ private:
     // Remember to serialize newly added objects in XmlSerialize
     QVector<Attribute> attributes;
 public:
-    Attributes();
+    Attributes() = default;
 
     QVector<Attribute> getAttributes() const{return this->attributes;}
 

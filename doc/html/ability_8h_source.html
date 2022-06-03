@@ -73,15 +73,39 @@ $(function() {
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef ABILITY_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define ABILITY_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="class_ability.html">    5</a></span><span class="keyword">class </span><a class="code hl_class" href="class_ability.html">Ability</a></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <a class="code hl_class" href="class_ability.html">Ability</a>();</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>};</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#endif </span><span class="comment">// ABILITY_H</span></div>
-<div class="ttc" id="aclass_ability_html"><div class="ttname"><a href="class_ability.html">Ability</a></div><div class="ttdef"><b>Definition:</b> ability.h:6</div></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;QString&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_ability.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="class_ability.html">Ability</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    QString name;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">// normally lvl would be added after the definition</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    qint16 lvl;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="class_ability.html#a1e03282d1a96232143322ef89fcbb314">   24</a></span>    <a class="code hl_function" href="class_ability.html#a1e03282d1a96232143322ef89fcbb314">Ability</a>() : name(<span class="stringliteral">&quot;&quot;</span>), lvl(0){};</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_ability.html#a1efcb81a5ccf14f00cc43649bf9fe231">   32</a></span>    <a class="code hl_function" href="class_ability.html#a1efcb81a5ccf14f00cc43649bf9fe231">Ability</a>(<span class="keyword">const</span> QString &amp; newName, <span class="keyword">const</span> qint16 &amp; newLvl) : name(newName), lvl(newLvl){};</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_ability.html#ad1ddba94bbd6b865406fd9c0e9187db0">   40</a></span>    <a class="code hl_function" href="class_ability.html#ad1ddba94bbd6b865406fd9c0e9187db0">Ability</a>(<span class="keyword">const</span> QString &amp; newName) : name(newName), lvl(0){};</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="class_ability.html#aa0aa7489c15608c2769e8ba494b84339">   46</a></span>    QString <a class="code hl_function" href="class_ability.html#aa0aa7489c15608c2769e8ba494b84339">getName</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> name;};</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="class_ability.html#a041eb9c23a5b0787cb2eae0872013dd6">   51</a></span>    qint16 <a class="code hl_function" href="class_ability.html#a041eb9c23a5b0787cb2eae0872013dd6">getLvl</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> lvl;};</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_ability.html#a761334e6bc49a36b2a62f481a0de55f2">   57</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_ability.html#a761334e6bc49a36b2a62f481a0de55f2">setLvl</a>(<span class="keyword">const</span> qint16 &amp; newLvl) {lvl = newLvl;};</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="class_ability.html#a200a317933a001060e46d4a2b76ef5ac">   62</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_ability.html#a200a317933a001060e46d4a2b76ef5ac">setName</a>(<span class="keyword">const</span> QString &amp; newName) {name = newName;};</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="class_ability.html#ae9782b5f339d0b8ffe91bd1fbc9e2ebb">   71</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_ability.html#ae9782b5f339d0b8ffe91bd1fbc9e2ebb">addLvlPoint</a>() {lvl++;};</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>};</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">#endif </span><span class="comment">// ABILITY_H</span></div>
+<div class="ttc" id="aclass_ability_html"><div class="ttname"><a href="class_ability.html">Ability</a></div><div class="ttdoc">The Ability class.</div><div class="ttdef"><b>Definition:</b> ability.h:13</div></div>
+<div class="ttc" id="aclass_ability_html_a041eb9c23a5b0787cb2eae0872013dd6"><div class="ttname"><a href="class_ability.html#a041eb9c23a5b0787cb2eae0872013dd6">Ability::getLvl</a></div><div class="ttdeci">qint16 getLvl() const</div><div class="ttdoc">getLvl</div><div class="ttdef"><b>Definition:</b> ability.h:51</div></div>
+<div class="ttc" id="aclass_ability_html_a1e03282d1a96232143322ef89fcbb314"><div class="ttname"><a href="class_ability.html#a1e03282d1a96232143322ef89fcbb314">Ability::Ability</a></div><div class="ttdeci">Ability()</div><div class="ttdoc">Ability.</div><div class="ttdef"><b>Definition:</b> ability.h:24</div></div>
+<div class="ttc" id="aclass_ability_html_a1efcb81a5ccf14f00cc43649bf9fe231"><div class="ttname"><a href="class_ability.html#a1efcb81a5ccf14f00cc43649bf9fe231">Ability::Ability</a></div><div class="ttdeci">Ability(const QString &amp;newName, const qint16 &amp;newLvl)</div><div class="ttdoc">Ability.</div><div class="ttdef"><b>Definition:</b> ability.h:32</div></div>
+<div class="ttc" id="aclass_ability_html_a200a317933a001060e46d4a2b76ef5ac"><div class="ttname"><a href="class_ability.html#a200a317933a001060e46d4a2b76ef5ac">Ability::setName</a></div><div class="ttdeci">void setName(const QString &amp;newName)</div><div class="ttdoc">setName</div><div class="ttdef"><b>Definition:</b> ability.h:62</div></div>
+<div class="ttc" id="aclass_ability_html_a761334e6bc49a36b2a62f481a0de55f2"><div class="ttname"><a href="class_ability.html#a761334e6bc49a36b2a62f481a0de55f2">Ability::setLvl</a></div><div class="ttdeci">void setLvl(const qint16 &amp;newLvl)</div><div class="ttdoc">setLvl</div><div class="ttdef"><b>Definition:</b> ability.h:57</div></div>
+<div class="ttc" id="aclass_ability_html_aa0aa7489c15608c2769e8ba494b84339"><div class="ttname"><a href="class_ability.html#aa0aa7489c15608c2769e8ba494b84339">Ability::getName</a></div><div class="ttdeci">QString getName() const</div><div class="ttdoc">getName</div><div class="ttdef"><b>Definition:</b> ability.h:46</div></div>
+<div class="ttc" id="aclass_ability_html_ad1ddba94bbd6b865406fd9c0e9187db0"><div class="ttname"><a href="class_ability.html#ad1ddba94bbd6b865406fd9c0e9187db0">Ability::Ability</a></div><div class="ttdeci">Ability(const QString &amp;newName)</div><div class="ttdoc">Ability.</div><div class="ttdef"><b>Definition:</b> ability.h:40</div></div>
+<div class="ttc" id="aclass_ability_html_ae9782b5f339d0b8ffe91bd1fbc9e2ebb"><div class="ttname"><a href="class_ability.html#ae9782b5f339d0b8ffe91bd1fbc9e2ebb">Ability::addLvlPoint</a></div><div class="ttdeci">void addLvlPoint()</div><div class="ttdoc">addLvlPoint</div><div class="ttdef"><b>Definition:</b> ability.h:71</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

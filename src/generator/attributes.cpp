@@ -1,10 +1,15 @@
 #include "attributes.h"
 
-Attributes::Attributes()
-{
+Attributes::Attributes(const qint16 & characterLvlPoints, const Dices & dices){
+    QVector<QVector<QString>> abilities = loadAbilities();
     for(qint16 i = 0; i < 10; i++){
-        attributes.push_back(Attribute(ATTRIBUTES(i)));
+        attributes.push_back(Attribute(ATTRIBUTES(i), abilities[i], dices.getDice(i)));
     }
+    rollAttributesLvlPoints(characterLvlPoints);
+}
+
+void rollAttributesLvlPoints(const qint16 & characterLvlPoints){
+
 }
 
 QDomElement Attributes::XmlSerialize(QDomDocument &doc) const {

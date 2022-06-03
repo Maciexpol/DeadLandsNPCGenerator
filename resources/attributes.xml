@@ -1,0 +1,66 @@
+<!DOCTYPE MyDocument>
+<attributes>
+    <attribute name="cognition">
+        <ability name="Artillery"/>
+        <ability name="Arts"/>
+        <ability name="Scrutinize"/>
+        <ability name="Search"/>
+        <ability name="Trackin'"/>
+    </attribute>
+    <attribute name="knowledge">
+        <ability name="Academia"/>
+        <ability name="Area Knowledge"/>
+        <ability name="Demolition"/>
+        <ability name="Disguise"/>
+        <ability name="Language"/>
+        <ability name="Mad Science"/>
+        <ability name="Medicine"/>
+        <ability name="Professional"/>
+        <ability name="Science"/>
+        <ability name="Trade"/>
+    </attribute>
+    <attribute name="smarts">
+        <ability name="Bluff"/>
+        <ability name="Gamblin'"/>
+        <ability name="Ridicule"/>
+        <ability name="Scroungin'"/>
+        <ability name="Streetwise"/>
+        <ability name="Survival"/>
+        <ability name="Tinkerin'"/>
+    </attribute>
+    <attribute name="deftness">
+        <ability name="Bow"/>
+        <ability name="Filchin'"/>
+        <ability name="Lockpickin'"/>
+        <ability name="Shootin'"/>
+    </attribute>
+    <attribute name="nimbleness">
+        <ability name="Climbin'"/>
+        <ability name="Dodge"/>
+        <ability name="Drivin'"/>
+        <ability name="Fightin'"/>
+        <ability name="Horse Ridin'"/>
+        <ability name="Sneak"/>
+        <ability name="Swimmin'"/>
+        <ability name="Teamster"/>
+    </attribute>
+    <attribute name="mien">
+        <ability name="Animal Wranglin'"/>
+        <ability name="Leadership"/>
+        <ability name="Overawe"/>
+        <ability name="Performin'"/>
+        <ability name="Persuasion"/>
+        <ability name="Tale Tellin'"/>
+    </attribute>
+    <attribute name="spirit">
+        <ability name="Faith"/>
+        <ability name="Guts"/>
+    </attribute>
+    <attribute name="strength">
+    </attribute>
+    <attribute name="vigor">
+    </attribute>
+    <attribute name="quickness">
+        <ability name="Quick Draw"/>
+    </attribute>
+</attributes>

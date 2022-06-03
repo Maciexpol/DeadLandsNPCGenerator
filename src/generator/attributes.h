@@ -3,7 +3,7 @@
 
 #include <QVector>
 #include "attribute.h"
-#include "/src/serializable.h"
+#include "src/serializable.h"
 
 class Attributes : Serializable
 {

@@ -3,7 +3,7 @@
 
 #include "dice.h"
 #include "abilities.h"
-#include "/src/serializable.h"
+#include "src/serializable.h"
 
 enum ATTRIBUTES {
     cognition = 0,

@@ -4,7 +4,7 @@
 #include <QString>
 #include <QDate>
 
-#include "/src/serializable.h"
+#include "src/serializable.h"
 #include "../generator/character.h"
 
 /*!

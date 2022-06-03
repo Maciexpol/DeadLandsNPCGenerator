@@ -1,7 +1,7 @@
 #ifndef DICE_H
 #define DICE_H
 #include "card.h"
-#include "/src/serializable.h"
+#include "src/serializable.h"
 
 #include <QString>
 
@@ -16,7 +16,7 @@ public:
     qint16 getNumber() const{return this->number;}
     qint16 getDice() const{return this->dice;}
 
-    Dice();
+    Dice(){};
     // TODO:
     //  Create creator from card
     Dice(Card card);

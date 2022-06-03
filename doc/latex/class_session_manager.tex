@@ -1,5 +1,14 @@
 \hypertarget{class_session_manager}{}\doxysection{Session\+Manager Class Reference}
 \label{class_session_manager}\index{SessionManager@{SessionManager}}
+
+
+Core of the session system. Manages sessions.  
+
+
+
+
+{\ttfamily \#include $<$sessionmanager.\+h$>$}
+
 Inheritance diagram for Session\+Manager\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -37,6 +46,11 @@ bool {\bfseries is\+Active} () const
 \mbox{\hyperlink{class_session}{Session}} {\bfseries get\+Active\+Session} () const
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Core of the session system. Manages sessions. 
+
+\mbox{\hyperlink{class_session_manager}{Session\+Manager}} enables session creation, deletion, closing, opening and saving. It is also responsible for updating \mbox{\hyperlink{class_main_window}{Main\+Window}} with session information. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

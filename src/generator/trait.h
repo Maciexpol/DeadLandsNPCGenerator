@@ -2,7 +2,7 @@
 #define TRAIT_H
 
 #include <QString>
-#include "/src/serializable.h"
+#include "src/serializable.h"
 
 class Trait : Serializable
 {

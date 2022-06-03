@@ -2,7 +2,7 @@
 #define OVERVIEW_H
 
 #include <QString>
-#include "/src/serializable.h"
+#include "src/serializable.h"
 
 /*!
  * \brief General information about NPC

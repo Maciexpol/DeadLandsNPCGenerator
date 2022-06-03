@@ -69,6 +69,15 @@ $(function() {
   <div class="headertitle"><div class="title">Dice Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+<div class="dynheader">
+Inheritance diagram for Dice:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_dice.png" usemap="#Dice_map" alt=""/>
+  <map id="Dice_map" name="Dice_map">
+<area href="class_serializable.html" title="Abstract class to help serialize objects into Xml format." alt="Serializable" shape="rect" coords="0,0,78,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -96,7 +105,107 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;=</b> (<a
 <tr class="memitem:a511d1da1b21e23397852b27594be734b"><td class="memItemLeft" align="right" valign="top"><a id="a511d1da1b21e23397852b27594be734b" name="a511d1da1b21e23397852b27594be734b"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;=</b> (<a class="el" href="class_dice.html">Dice</a> a)</td></tr>
 <tr class="separator:a511d1da1b21e23397852b27594be734b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31b384456319240e8e1cc28efe17c13a"><td class="memItemLeft" align="right" valign="top">QDomElement&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dice.html#a31b384456319240e8e1cc28efe17c13a">XmlSerialize</a> (QDomDocument &amp;doc) const override</td></tr>
+<tr class="memdesc:a31b384456319240e8e1cc28efe17c13a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements process of objects serialization.  <a href="class_dice.html#a31b384456319240e8e1cc28efe17c13a">More...</a><br /></td></tr>
+<tr class="separator:a31b384456319240e8e1cc28efe17c13a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34c897f60a49b592a6e76698d34c0af3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dice.html#a34c897f60a49b592a6e76698d34c0af3">XmlDeserialize</a> (const QDomElement &amp;element) override</td></tr>
+<tr class="memdesc:a34c897f60a49b592a6e76698d34c0af3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements process of objects deserialization.  <a href="class_dice.html#a34c897f60a49b592a6e76698d34c0af3">More...</a><br /></td></tr>
+<tr class="separator:a34c897f60a49b592a6e76698d34c0af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a34c897f60a49b592a6e76698d34c0af3" name="a34c897f60a49b592a6e76698d34c0af3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34c897f60a49b592a6e76698d34c0af3">&#9670;&nbsp;</a></span>XmlDeserialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dice::XmlDeserialize </td>
+          <td>(</td>
+          <td class="paramtype">const QDomElement &amp;&#160;</td>
+          <td class="paramname"><em>element</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements process of objects deserialization. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">element</td><td>Object containing information to deserialize</td></tr>
+  </table>
+  </dd>
+</dl>
+<h4><a class="anchor" id="example"></a>
+Example serialization:</h4>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="class_session.html#a5fb6c2471a208e07c076f86d175e906d">Session::XmlDeserialize</a>(<span class="keyword">const</span> QDomElement &amp;element){</div>
+<div class="line">    this-&gt;name = element.attribute(<span class="stringliteral">&quot;name&quot;</span>, <span class="stringliteral">&quot;-&quot;</span>);</div>
+<div class="line">    this-&gt;description = element.attribute(<span class="stringliteral">&quot;description&quot;</span>, <span class="stringliteral">&quot;-&quot;</span>);</div>
+<div class="line">    this-&gt;creationDate = QDate::fromString(element.attribute(<span class="stringliteral">&quot;creationDate&quot;</span>, <span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line">    this-&gt;npcCount = <span class="keyword">static_cast&lt;</span>qint16<span class="keyword">&gt;</span>(element.attribute(<span class="stringliteral">&quot;npcCount&quot;</span>, <span class="stringliteral">&quot;0&quot;</span>).toInt());</div>
+<div class="line">}</div>
+<div class="ttc" id="aclass_session_html_a5fb6c2471a208e07c076f86d175e906d"><div class="ttname"><a href="class_session.html#a5fb6c2471a208e07c076f86d175e906d">Session::XmlDeserialize</a></div><div class="ttdeci">void XmlDeserialize(const QDomElement &amp;element) override</div><div class="ttdoc">Implements process of objects deserialization.</div><div class="ttdef"><b>Definition:</b> session.cpp:29</div></div>
+</div><!-- fragment --> 
+<p>Implements <a class="el" href="class_serializable.html#aaeb0f13d70bd4df5efb936015cf2e37d">Serializable</a>.</p>
+
+</div>
+</div>
+<a id="a31b384456319240e8e1cc28efe17c13a" name="a31b384456319240e8e1cc28efe17c13a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31b384456319240e8e1cc28efe17c13a">&#9670;&nbsp;</a></span>XmlSerialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QDomElement Dice::XmlSerialize </td>
+          <td>(</td>
+          <td class="paramtype">QDomDocument &amp;&#160;</td>
+          <td class="paramname"><em>doc</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements process of objects serialization. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">doc</td><td>Usually provided by parent object in the process of cascading serialization.</td></tr>
+  </table>
+  </dd>
+</dl>
+<h4><a class="anchor" id="example"></a>
+Example serialization:</h4>
+<div class="fragment"><div class="line">QDomElement <a class="code hl_function" href="class_attribute.html#ad977c5a0fea57498ec7d5cc1822461ea">Attribute::XmlSerialize</a>(QDomDocument &amp;doc)<span class="keyword"> const </span>{</div>
+<div class="line">    QDomElement element = doc.createElement(<span class="stringliteral">&quot;attribute&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    element.setAttribute(<span class="stringliteral">&quot;name&quot;</span>, this-&gt;name);</div>
+<div class="line">    element.appendChild(dice.XmlSerialize(doc));</div>
+<div class="line">    element.appendChild(abilities.XmlSerialize(doc));</div>
+<div class="line">    <span class="keywordflow">return</span> element;</div>
+<div class="line">}</div>
+<div class="ttc" id="aclass_attribute_html_ad977c5a0fea57498ec7d5cc1822461ea"><div class="ttname"><a href="class_attribute.html#ad977c5a0fea57498ec7d5cc1822461ea">Attribute::XmlSerialize</a></div><div class="ttdeci">QDomElement XmlSerialize(QDomDocument &amp;doc) const override</div><div class="ttdoc">Implements process of objects serialization.</div><div class="ttdef"><b>Definition:</b> attribute.cpp:18</div></div>
+</div><!-- fragment --><dl class="section return"><dt>Returns</dt><dd>Serialized object </dd></dl>
+
+<p>Implements <a class="el" href="class_serializable.html#a1730784a4cf9809cdd6f29d116d391c2">Serializable</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>D:/Projects/npc-generator/src/generator/<a class="el" href="dice_8h_source.html">dice.h</a></li>
 <li>D:/Projects/npc-generator/src/generator/dice.cpp</li>

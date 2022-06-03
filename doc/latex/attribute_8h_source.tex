@@ -7,36 +7,40 @@
 \DoxyCodeLine{3 }
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}dice.h"{}}}
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}abilities.h"{}}}
-\DoxyCodeLine{6 }
-\DoxyCodeLine{7 \textcolor{keyword}{enum} ATTRIBUTES \{}
-\DoxyCodeLine{8     cognition = 0,}
-\DoxyCodeLine{9     knowledge,}
-\DoxyCodeLine{10     smarts,}
-\DoxyCodeLine{11     deftness,}
-\DoxyCodeLine{12     nimbleness,}
-\DoxyCodeLine{13     mien,}
-\DoxyCodeLine{14     spirit,}
-\DoxyCodeLine{15     strength,}
-\DoxyCodeLine{16     vigor,}
-\DoxyCodeLine{17     quickness}
-\DoxyCodeLine{18 \};}
-\DoxyCodeLine{19 }
-\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{class_attribute}{Attribute}}}
-\DoxyCodeLine{24 \{}
-\DoxyCodeLine{25 \textcolor{keyword}{private}:}
-\DoxyCodeLine{26     ATTRIBUTES name;}
-\DoxyCodeLine{27     \mbox{\hyperlink{class_dice}{Dice}} dice;}
-\DoxyCodeLine{28     \mbox{\hyperlink{class_abilities}{Abilities}} abilities;}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{30 \textcolor{keyword}{public}:}
-\DoxyCodeLine{31     \mbox{\hyperlink{class_attribute}{Attribute}}(ATTRIBUTES inputName, \mbox{\hyperlink{class_dice}{Dice}} inputDice, \mbox{\hyperlink{class_abilities}{Abilities}} inputAbilities);}
-\DoxyCodeLine{32     \mbox{\hyperlink{class_attribute}{Attribute}}(ATTRIBUTES inputName, \mbox{\hyperlink{class_abilities}{Abilities}} inputAbilities);}
-\DoxyCodeLine{33     \mbox{\hyperlink{class_attribute}{Attribute}}(ATTRIBUTES inputName);}
-\DoxyCodeLine{34 }
-\DoxyCodeLine{35     \mbox{\hyperlink{class_dice}{Dice}} getDice()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} this-\/>dice;\}}
-\DoxyCodeLine{36     \mbox{\hyperlink{class_abilities}{Abilities}} getAbilities()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} this-\/>abilities;\}}
-\DoxyCodeLine{37 \};}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}src/serializable.h"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{enum} ATTRIBUTES \{}
+\DoxyCodeLine{9     cognition = 0,}
+\DoxyCodeLine{10     knowledge,}
+\DoxyCodeLine{11     smarts,}
+\DoxyCodeLine{12     deftness,}
+\DoxyCodeLine{13     nimbleness,}
+\DoxyCodeLine{14     mien,}
+\DoxyCodeLine{15     spirit,}
+\DoxyCodeLine{16     strength,}
+\DoxyCodeLine{17     vigor,}
+\DoxyCodeLine{18     quickness}
+\DoxyCodeLine{19 \};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{24 \textcolor{keyword}{class }\mbox{\hyperlink{class_attribute}{Attribute}} : \mbox{\hyperlink{class_serializable}{Serializable}}}
+\DoxyCodeLine{25 \{}
+\DoxyCodeLine{26 \textcolor{keyword}{private}:}
+\DoxyCodeLine{27     ATTRIBUTES name;}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_dice}{Dice}} dice;}
+\DoxyCodeLine{29     \mbox{\hyperlink{class_abilities}{Abilities}} abilities;}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{public}:}
+\DoxyCodeLine{32     \mbox{\hyperlink{class_attribute}{Attribute}}(ATTRIBUTES inputName, \mbox{\hyperlink{class_dice}{Dice}} inputDice, \mbox{\hyperlink{class_abilities}{Abilities}} inputAbilities);}
+\DoxyCodeLine{33     \mbox{\hyperlink{class_attribute}{Attribute}}(ATTRIBUTES inputName, \mbox{\hyperlink{class_abilities}{Abilities}} inputAbilities);}
+\DoxyCodeLine{34     \mbox{\hyperlink{class_attribute}{Attribute}}(ATTRIBUTES inputName);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \mbox{\hyperlink{class_dice}{Dice}} getDice()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} this-\/>dice;\}}
+\DoxyCodeLine{37     \mbox{\hyperlink{class_abilities}{Abilities}} getAbilities()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} this-\/>abilities;\}}
 \DoxyCodeLine{38 }
-\DoxyCodeLine{39 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ATTRIBUTE\_H}}
+\DoxyCodeLine{39     QDomElement \mbox{\hyperlink{class_attribute_ad977c5a0fea57498ec7d5cc1822461ea}{XmlSerialize}}(QDomDocument \&doc) \textcolor{keyword}{const override};}
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_attribute_af0cba1e77ffab56c163b8933bb4cb110}{XmlDeserialize}}(\textcolor{keyword}{const} QDomElement \&element) \textcolor{keyword}{override};}
+\DoxyCodeLine{41 \};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ATTRIBUTE\_H}}
 
 \end{DoxyCode}

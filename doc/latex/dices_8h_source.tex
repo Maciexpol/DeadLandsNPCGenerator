@@ -7,21 +7,25 @@
 \DoxyCodeLine{3 }
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include <QVector>}}
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}rolldices.h"{}}}
-\DoxyCodeLine{6 }
-\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_dices}{Dices}}}
-\DoxyCodeLine{8 \{}
-\DoxyCodeLine{9 \textcolor{keyword}{private}:}
-\DoxyCodeLine{10     QVector<Dice> dices;}
-\DoxyCodeLine{11 }
-\DoxyCodeLine{12     \textcolor{keywordtype}{void} sortDices();}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14 \textcolor{keyword}{public}:}
-\DoxyCodeLine{15     \mbox{\hyperlink{class_dices}{Dices}}();}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17     \textcolor{keywordtype}{void} rollDices();}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{19 \};}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// DICES\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}src/serializable.h"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_dices}{Dices}} : \mbox{\hyperlink{class_serializable}{Serializable}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10 \textcolor{keyword}{private}:}
+\DoxyCodeLine{11     QVector<Dice> dices;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13     \textcolor{keywordtype}{void} sortDices();}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_dices}{Dices}}();}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} rollDices();}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     QDomElement \mbox{\hyperlink{class_dices_aeff9d7fa9438dda196dd4899a45e4c62}{XmlSerialize}}(QDomDocument \&doc) \textcolor{keyword}{const override};}
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_dices_a5cf11dcf6fc3a99b3e35c531183cf800}{XmlDeserialize}}(\textcolor{keyword}{const} QDomElement \&element) \textcolor{keyword}{override};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// DICES\_H}}
 
 \end{DoxyCode}

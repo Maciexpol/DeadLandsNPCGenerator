@@ -11,7 +11,7 @@ void Dices::rollDices(){
 }
 
 void Dices::sortDices() {
-    RollDices::Private::sortCards(dices);
+   // RollDices::Private::sortCards(dices);
 }
 
 QDomElement Dices::XmlSerialize(QDomDocument &doc) const {

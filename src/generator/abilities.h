@@ -1,7 +1,7 @@
 #ifndef ABILITIES_H
 #define ABILITIES_H
 
-#include "/src/serializable.h"
+#include "src/serializable.h"
 
 class Abilities : Serializable
 {

@@ -1,7 +1,7 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
-#include "/src/serializable.h"
+#include "src/serializable.h"
 #include "attributes.h"
 #include "dices.h"
 #include "edgesandhindrances.h"

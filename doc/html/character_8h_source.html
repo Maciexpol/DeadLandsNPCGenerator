@@ -73,7 +73,7 @@ $(function() {
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef CHARACTER_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define CHARACTER_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../serializable.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;src/serializable.h&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;attributes.h&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;dices.h&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;edgesandhindrances.h&quot;</span></div>
@@ -83,33 +83,34 @@ $(function() {
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_character.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="class_character.html">Character</a> : <a class="code hl_class" href="class_serializable.html">Serializable</a></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_class" href="class_attributes.html">Attributes</a> attributes;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_class" href="class_dices.html">Dices</a> dices;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_class" href="class_edges_and_hindrances.html">EdgesAndHindrances</a> edgesAndHindrances;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_class" href="class_overview.html">Overview</a> overview;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_class" href="class_character.html">Character</a>();</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_class" href="class_attributes.html">Attributes</a> getAttributes()<span class="keyword"> const</span>{<span class="keywordflow">return</span> this-&gt;attributes;}</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_class" href="class_dices.html">Dices</a> getDices()<span class="keyword"> const</span>{<span class="keywordflow">return</span> this-&gt;dices;}</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    QDomElement <a class="code hl_function" href="class_character.html#a51c50beb560d2091c0ca856645ca2217">XmlSerialize</a>(QDomDocument &amp;doc) <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_character.html#af79596bfbfae838daa452ecb6b473bef">XmlDeserialize</a>(<span class="keyword">const</span> QDomElement &amp;element) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">void</span> rollDices();</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>};</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#endif </span><span class="comment">// CHARACTER_H</span></div>
-<div class="ttc" id="aclass_attributes_html"><div class="ttname"><a href="class_attributes.html">Attributes</a></div><div class="ttdef"><b>Definition:</b> attributes.h:8</div></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="comment">// Remember to serialize newly added objects in XmlSerialize</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_class" href="class_attributes.html">Attributes</a> attributes;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_class" href="class_dices.html">Dices</a> dices;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_class" href="class_edges_and_hindrances.html">EdgesAndHindrances</a> edgesAndHindrances;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_class" href="class_overview.html">Overview</a> overview;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_class" href="class_character.html">Character</a>();</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_class" href="class_attributes.html">Attributes</a> getAttributes()<span class="keyword"> const</span>{<span class="keywordflow">return</span> this-&gt;attributes;}</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_class" href="class_dices.html">Dices</a> getDices()<span class="keyword"> const</span>{<span class="keywordflow">return</span> this-&gt;dices;}</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    QDomElement <a class="code hl_function" href="class_character.html#a51c50beb560d2091c0ca856645ca2217">XmlSerialize</a>(QDomDocument &amp;doc) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_character.html#af79596bfbfae838daa452ecb6b473bef">XmlDeserialize</a>(<span class="keyword">const</span> QDomElement &amp;element) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> rollDices();</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>};</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#endif </span><span class="comment">// CHARACTER_H</span></div>
+<div class="ttc" id="aclass_attributes_html"><div class="ttname"><a href="class_attributes.html">Attributes</a></div><div class="ttdef"><b>Definition:</b> attributes.h:9</div></div>
 <div class="ttc" id="aclass_character_html"><div class="ttname"><a href="class_character.html">Character</a></div><div class="ttdoc">Character data.</div><div class="ttdef"><b>Definition:</b> character.h:17</div></div>
-<div class="ttc" id="aclass_character_html_a51c50beb560d2091c0ca856645ca2217"><div class="ttname"><a href="class_character.html#a51c50beb560d2091c0ca856645ca2217">Character::XmlSerialize</a></div><div class="ttdeci">QDomElement XmlSerialize(QDomDocument &amp;doc) const override</div><div class="ttdoc">Serialize element into QDomElement.</div><div class="ttdef"><b>Definition:</b> character.cpp:12</div></div>
-<div class="ttc" id="aclass_character_html_af79596bfbfae838daa452ecb6b473bef"><div class="ttname"><a href="class_character.html#af79596bfbfae838daa452ecb6b473bef">Character::XmlDeserialize</a></div><div class="ttdeci">void XmlDeserialize(const QDomElement &amp;element) override</div><div class="ttdoc">Deserialize QDomElement into object.</div><div class="ttdef"><b>Definition:</b> character.cpp:16</div></div>
-<div class="ttc" id="aclass_dices_html"><div class="ttname"><a href="class_dices.html">Dices</a></div><div class="ttdef"><b>Definition:</b> dices.h:8</div></div>
-<div class="ttc" id="aclass_edges_and_hindrances_html"><div class="ttname"><a href="class_edges_and_hindrances.html">EdgesAndHindrances</a></div><div class="ttdef"><b>Definition:</b> edgesandhindrances.h:8</div></div>
-<div class="ttc" id="aclass_overview_html"><div class="ttname"><a href="class_overview.html">Overview</a></div><div class="ttdoc">General information about NPC.</div><div class="ttdef"><b>Definition:</b> overview.h:12</div></div>
-<div class="ttc" id="aclass_serializable_html"><div class="ttname"><a href="class_serializable.html">Serializable</a></div><div class="ttdoc">Abstract class to help serialize application objects.</div><div class="ttdef"><b>Definition:</b> serializable.h:11</div></div>
+<div class="ttc" id="aclass_character_html_a51c50beb560d2091c0ca856645ca2217"><div class="ttname"><a href="class_character.html#a51c50beb560d2091c0ca856645ca2217">Character::XmlSerialize</a></div><div class="ttdeci">QDomElement XmlSerialize(QDomDocument &amp;doc) const override</div><div class="ttdoc">Implements process of objects serialization.</div><div class="ttdef"><b>Definition:</b> character.cpp:12</div></div>
+<div class="ttc" id="aclass_character_html_af79596bfbfae838daa452ecb6b473bef"><div class="ttname"><a href="class_character.html#af79596bfbfae838daa452ecb6b473bef">Character::XmlDeserialize</a></div><div class="ttdeci">void XmlDeserialize(const QDomElement &amp;element) override</div><div class="ttdoc">Implements process of objects deserialization.</div><div class="ttdef"><b>Definition:</b> character.cpp:25</div></div>
+<div class="ttc" id="aclass_dices_html"><div class="ttname"><a href="class_dices.html">Dices</a></div><div class="ttdef"><b>Definition:</b> dices.h:9</div></div>
+<div class="ttc" id="aclass_edges_and_hindrances_html"><div class="ttname"><a href="class_edges_and_hindrances.html">EdgesAndHindrances</a></div><div class="ttdef"><b>Definition:</b> edgesandhindrances.h:9</div></div>
+<div class="ttc" id="aclass_overview_html"><div class="ttname"><a href="class_overview.html">Overview</a></div><div class="ttdoc">General information about NPC.</div><div class="ttdef"><b>Definition:</b> overview.h:13</div></div>
+<div class="ttc" id="aclass_serializable_html"><div class="ttname"><a href="class_serializable.html">Serializable</a></div><div class="ttdoc">Abstract class to help serialize objects into Xml format.</div><div class="ttdef"><b>Definition:</b> serializable.h:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

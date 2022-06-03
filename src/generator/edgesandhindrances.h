@@ -3,7 +3,7 @@
 
 #include <QVector>
 #include "trait.h"
-#include "/src/serializable.h"
+#include "src/serializable.h"
 
 class EdgesAndHindrances : Serializable
 {

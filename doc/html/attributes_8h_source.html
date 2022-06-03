@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Deadlands NPC Generator: src/generator/attributes.h Source File</title>
+<title>Deadlands NPC Generator: D:/Projects/npc-generator/src/generator/attributes.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -75,22 +75,30 @@ $(function() {
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;QVector&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;attribute.h&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="class_attributes.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="class_attributes.html">Attributes</a></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    QVector&lt;Attribute&gt; attributes;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_class" href="class_attributes.html">Attributes</a>();</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    QVector&lt;Attribute&gt; getAttributes()<span class="keyword"> const</span>{<span class="keywordflow">return</span> this-&gt;attributes;}</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;src/serializable.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_attributes.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="class_attributes.html">Attributes</a> : <a class="code hl_class" href="class_serializable.html">Serializable</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="comment">// Remember to serialize newly added objects in XmlSerialize</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    QVector&lt;Attribute&gt; attributes;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_class" href="class_attributes.html">Attributes</a>();</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_attributes.html#a65df419930d69fffcf23d560b3788705">   17</a></span>    qint16 <a class="code hl_function" href="class_attributes.html#a65df419930d69fffcf23d560b3788705">calculate_points</a>();</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>};</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#endif </span><span class="comment">// ATTRIBUTES_H</span></div>
-<div class="ttc" id="aclass_attributes_html"><div class="ttname"><a href="class_attributes.html">Attributes</a></div><div class="ttdef"><b>Definition:</b> attributes.h:8</div></div>
-<div class="ttc" id="aclass_attributes_html_a65df419930d69fffcf23d560b3788705"><div class="ttname"><a href="class_attributes.html#a65df419930d69fffcf23d560b3788705">Attributes::calculate_points</a></div><div class="ttdeci">qint16 calculate_points()</div><div class="ttdoc">Calculates combined points from all attributes.</div></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    QVector&lt;Attribute&gt; getAttributes()<span class="keyword"> const</span>{<span class="keywordflow">return</span> this-&gt;attributes;}</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_attributes.html#a77df21184156340251715e9d0ba6ea5f">   19</a></span>    qint16 <a class="code hl_function" href="class_attributes.html#a77df21184156340251715e9d0ba6ea5f">calculatePoints</a>();</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    QDomElement <a class="code hl_function" href="class_attributes.html#afb1ea49b99ebba73837641e16c0cea3e">XmlSerialize</a>(QDomDocument &amp;doc) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_attributes.html#a4c602c761b86cb73cab447837331cef3">XmlDeserialize</a>(<span class="keyword">const</span> QDomElement &amp;element) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>};</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#endif </span><span class="comment">// ATTRIBUTES_H</span></div>
+<div class="ttc" id="aclass_attributes_html"><div class="ttname"><a href="class_attributes.html">Attributes</a></div><div class="ttdef"><b>Definition:</b> attributes.h:9</div></div>
+<div class="ttc" id="aclass_attributes_html_a4c602c761b86cb73cab447837331cef3"><div class="ttname"><a href="class_attributes.html#a4c602c761b86cb73cab447837331cef3">Attributes::XmlDeserialize</a></div><div class="ttdeci">void XmlDeserialize(const QDomElement &amp;element) override</div><div class="ttdoc">Implements process of objects deserialization.</div><div class="ttdef"><b>Definition:</b> attributes.cpp:19</div></div>
+<div class="ttc" id="aclass_attributes_html_a77df21184156340251715e9d0ba6ea5f"><div class="ttname"><a href="class_attributes.html#a77df21184156340251715e9d0ba6ea5f">Attributes::calculatePoints</a></div><div class="ttdeci">qint16 calculatePoints()</div><div class="ttdoc">Calculates combined points from all attributes.</div></div>
+<div class="ttc" id="aclass_attributes_html_afb1ea49b99ebba73837641e16c0cea3e"><div class="ttname"><a href="class_attributes.html#afb1ea49b99ebba73837641e16c0cea3e">Attributes::XmlSerialize</a></div><div class="ttdeci">QDomElement XmlSerialize(QDomDocument &amp;doc) const override</div><div class="ttdoc">Implements process of objects serialization.</div><div class="ttdef"><b>Definition:</b> attributes.cpp:10</div></div>
+<div class="ttc" id="aclass_serializable_html"><div class="ttname"><a href="class_serializable.html">Serializable</a></div><div class="ttdoc">Abstract class to help serialize objects into Xml format.</div><div class="ttdef"><b>Definition:</b> serializable.h:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

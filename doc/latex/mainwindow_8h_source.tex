@@ -1,26 +1,53 @@
-\hypertarget{mainwindow_8h_source}{}\doxysection{mainwindow.\+h}
+\hypertarget{mainwindow_8h_source}{}\doxysection{D\+:/\+Projects/npc-\/generator/mainwindow.h}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef MAINWINDOW\_H}}
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#define MAINWINDOW\_H}}
 \DoxyCodeLine{3 }
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include <QMainWindow>}}
-\DoxyCodeLine{5 }
-\DoxyCodeLine{6 QT\_BEGIN\_NAMESPACE}
-\DoxyCodeLine{7 \textcolor{keyword}{namespace }Ui \{ \textcolor{keyword}{class }\mbox{\hyperlink{class_main_window}{MainWindow}}; \}}
-\DoxyCodeLine{8 QT\_END\_NAMESPACE}
-\DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_main_window}{MainWindow}} : \textcolor{keyword}{public} QMainWindow}
-\DoxyCodeLine{11 \{}
-\DoxyCodeLine{12     Q\_OBJECT}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14 \textcolor{keyword}{public}:}
-\DoxyCodeLine{15     \mbox{\hyperlink{class_main_window}{MainWindow}}(QWidget *parent = \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{16     \mbox{\hyperlink{class_main_window}{\string~MainWindow}}();}
-\DoxyCodeLine{17 }
-\DoxyCodeLine{18 \textcolor{keyword}{private}:}
-\DoxyCodeLine{19     Ui::MainWindow *ui;}
-\DoxyCodeLine{20 \};}
-\DoxyCodeLine{21 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// MAINWINDOW\_H}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}./src/sessions/sessionmanager.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 QT\_BEGIN\_NAMESPACE}
+\DoxyCodeLine{8 \textcolor{keyword}{namespace }Ui \{ \textcolor{keyword}{class }\mbox{\hyperlink{class_main_window}{MainWindow}}; \}}
+\DoxyCodeLine{9 QT\_END\_NAMESPACE}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_main_window}{MainWindow}} : \textcolor{keyword}{public} QMainWindow}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     Q\_OBJECT}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_main_window}{MainWindow}}(QWidget *parent = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{17     \mbox{\hyperlink{class_main_window}{\string~MainWindow}}();}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{20     \textcolor{keywordtype}{void} on\_actionSessionNew\_triggered();}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} updateSessionInfo(\textcolor{keyword}{const} \mbox{\hyperlink{class_session}{Session}}\& session);}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} on\_sessionNew\_clicked();}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} on\_sessionSave\_clicked();}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} on\_actionSessionSave\_triggered();}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} on\_sessionClose\_clicked();}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} on\_actionSessionClose\_triggered();}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} on\_actionSessionOpen\_triggered();}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} on\_sessionOpen\_clicked();}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 signals:}
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} createNewSession();}
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} saveCurrentSession();}
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} closeCurrentSession();}
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} openNewSession();}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{keyword}{private}:}
+\DoxyCodeLine{45     \mbox{\hyperlink{class_ui_1_1_main_window}{Ui::MainWindow}} *ui;}
+\DoxyCodeLine{46     \mbox{\hyperlink{class_session_manager}{SessionManager}} sessionManager;}
+\DoxyCodeLine{47 \};}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// MAINWINDOW\_H}}
 
 \end{DoxyCode}

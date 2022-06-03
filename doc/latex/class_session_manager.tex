@@ -2,7 +2,59 @@
 \label{class_session_manager}\index{SessionManager@{SessionManager}}
 
 
+Core of the session system. Manages sessions.  
+
+
+
+
+{\ttfamily \#include $<$sessionmanager.\+h$>$}
+
+Inheritance diagram for Session\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_session_manager}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_session_manager_a41202a2304b1590c8094d2f37dd7f579}\label{class_session_manager_a41202a2304b1590c8094d2f37dd7f579}} 
+void {\bfseries create\+New\+Session} ()
+\item 
+\mbox{\Hypertarget{class_session_manager_af8ed92f415975b4e54768cb3db82f38f}\label{class_session_manager_af8ed92f415975b4e54768cb3db82f38f}} 
+void {\bfseries open\+New\+Session} ()
+\item 
+\mbox{\Hypertarget{class_session_manager_a7ae002f783d1dd3ad99ca057782fa4aa}\label{class_session_manager_a7ae002f783d1dd3ad99ca057782fa4aa}} 
+void {\bfseries save\+Current\+Session} ()
+\item 
+\mbox{\Hypertarget{class_session_manager_a6cc643f9d61beb1a7f2275c3265ae979}\label{class_session_manager_a6cc643f9d61beb1a7f2275c3265ae979}} 
+void {\bfseries close\+Current\+Session} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_session_manager_a0cc0cf7594dfb6933b63777c9a94b3e0}\label{class_session_manager_a0cc0cf7594dfb6933b63777c9a94b3e0}} 
+void {\bfseries update\+Session\+Info} (\mbox{\hyperlink{class_session}{Session}} session)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_session_manager_aedb195d79eaa7ed6d4ff6c00430e5cea}\label{class_session_manager_aedb195d79eaa7ed6d4ff6c00430e5cea}} 
+bool {\bfseries is\+Active} () const
+\item 
+\mbox{\Hypertarget{class_session_manager_a8311b3bf243a8d033a3726708ba0ecbb}\label{class_session_manager_a8311b3bf243a8d033a3726708ba0ecbb}} 
+\mbox{\hyperlink{class_session}{Session}} {\bfseries get\+Active\+Session} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Core of the session system. Manages sessions. 
+
+\mbox{\hyperlink{class_session_manager}{Session\+Manager}} enables session creation, deletion, closing, opening and saving. It is also responsible for updating \mbox{\hyperlink{class_main_window}{Main\+Window}} with session information. 
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/sessions/sessionmanager.\+h\item 
-src/sessions/sessionmanager.\+cpp\end{DoxyCompactItemize}
+D\+:/\+Projects/npc-\/generator/src/sessions/sessionmanager.\+h\item 
+D\+:/\+Projects/npc-\/generator/build/npc-\/generator\+\_\+autogen/67\+JWLLWV35/moc\+\_\+sessionmanager.\+cpp\item 
+D\+:/\+Projects/npc-\/generator/cmake-\/build-\/debug/npc-\/generator\+\_\+autogen/67\+JWLLWV35/moc\+\_\+sessionmanager.\+cpp\item 
+D\+:/\+Projects/npc-\/generator/src/sessions/sessionmanager.\+cpp\end{DoxyCompactItemize}

@@ -3,6 +3,7 @@
 
 #include "dice.h"
 #include "abilities.h"
+#include "src/serializable.h"
 
 enum ATTRIBUTES {
     cognition = 0,
@@ -25,7 +26,7 @@ enum ATTRIBUTES {
  * Uses attributes enum with names to store it's name
  * Uses Dice class to store dice type
  */
-class Attribute
+class Attribute : Serializable
 {
 private:
     ATTRIBUTES name;
@@ -124,6 +125,9 @@ public:
      * Does the same as basic fucntion call and setAbilitiesLvlSum at once
      */
     void rollAbilitiesLvl(qint16 newAbilitiesLvlSum);
+
+    QDomElement XmlSerialize(QDomDocument &doc) const override;
+    void XmlDeserialize(const QDomElement &element) override;
 };
 
 #endif // ATTRIBUTE_H

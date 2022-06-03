@@ -19,7 +19,7 @@ public:
 private slots:
     void on_actionSessionNew_triggered();
 
-    void updateSessionInfo(Session session);
+    void updateSessionInfo(const Session& session);
 
     void on_sessionNew_clicked();
 

@@ -8,7 +8,11 @@
 #include "session.h"
 
 /*!
- * \brief
+ * \brief Core of the session system. Manages sessions.
+ *
+ * SessionManager enables session creation, deletion, closing, opening and saving.
+ * It is also responsible for updating MainWindow with session information.
+ *
  */
 class SessionManager : public QObject
 {

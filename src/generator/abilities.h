@@ -1,19 +1,19 @@
 #ifndef ABILITIES_H
 #define ABILITIES_H
 
+
 #include <random>
 #include "ability.h"
 #include "QVector"
 #include "QString"
-
+#include "src/serializable.h"
 /*!
  * \brief The Abilities class
  * \brief Contains QVector of abilities, can roll stats lvl
  *
  * Rolling function gets number of points which needs to be randomly distributed between abilities lvl
  */
-
-class Abilities
+class Abilities : Serializable
 {
 private:
     QVector<Ability> abilities;
@@ -93,6 +93,9 @@ public:
      * Rolls *points* times which ability needs to gain one more lvl point
      */
     void rollAbilitesLvl(const qint16 & points);
+
+    QDomElement XmlSerialize(QDomDocument &doc) const override;
+    void XmlDeserialize(const QDomElement &element) override;
 };
 
 #endif // ABILITIES_H

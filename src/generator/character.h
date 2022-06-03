@@ -1,7 +1,7 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
-#include "../serializable.h"
+#include "src/serializable.h"
 #include "attributes.h"
 #include "dices.h"
 #include "edgesandhindrances.h"
@@ -16,6 +16,7 @@
 class Character : Serializable
 {
 private:
+    // Remember to serialize newly added objects in XmlSerialize
     Attributes attributes;
     Dices dices;
     EdgesAndHindrances edgesAndHindrances;

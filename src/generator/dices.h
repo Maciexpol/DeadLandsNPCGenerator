@@ -3,8 +3,9 @@
 
 #include <QVector>
 #include "rolldices.h"
+#include "src/serializable.h"
 
-class Dices
+class Dices : Serializable
 {
 private:
     QVector<Dice> dices;
@@ -15,6 +16,9 @@ public:
     Dices();
 
     void rollDices();
+
+    QDomElement XmlSerialize(QDomDocument &doc) const override;
+    void XmlDeserialize(const QDomElement &element) override;
 
 };
 

@@ -1,5 +1,6 @@
 #include "memio.h"
 #include <QDir>
+#include <QMessageBox>
 
 namespace MemIO{
     QString mainSaveFolder = "./saves";
@@ -15,26 +16,33 @@ void createFolderStructure(){
         QDir().mkdir(sessionsSavingFolder);
 }
 
-void saveOnDisk(const QDomElement &root, const QString &path){
+bool saveToFile(const QDomElement &root, const QString &path){
     QDomDocument document("MyDocument");
     document.appendChild(root);
 
     QFile file(path + '/' + root.nodeValue() + ".xml");
     if(!file.open(QIODevice::WriteOnly | QIODevice::Text)){
         qDebug("Failed to open device for writing");
-        return;
+        return false;
     }
     QTextStream stream(&file);
     stream << document.toString();
     file.close();
-    qDebug("Saved session on disk");
+    qDebug("Saved on disk");
+    return true;
 }
 
 void save(const Session &session){
+    if(!session.XmlValidate()){
+        QMessageBox message;
+        message.setText("Cannot save session, check if name is present.");
+        message.exec();
+        return;
+    }
     QDomDocument doc("MyDocument");
     QDomElement root = session.XmlSerialize(doc);
     root.setNodeValue(session.getName());
-    saveOnDisk(root, sessionsSavingFolder);
+    saveToFile(root, sessionsSavingFolder);
 }
 
 bool load(Session &session){

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Deadlands NPC Generator: src/generator/overview.h Source File</title>
+<title>Deadlands NPC Generator: D:/Projects/npc-generator/src/generator/overview.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -74,29 +74,37 @@ $(function() {
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define OVERVIEW_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;QString&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="class_overview.html">   11</a></span><span class="keyword">class </span><a class="code hl_class" href="class_overview.html">Overview</a></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    QString first_name;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    QString last_name;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    QString occupation;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    QString origin;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    qint16 age;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_class" href="class_overview.html">Overview</a>();</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    QString getFirstName()<span class="keyword"> const</span>{<span class="keywordflow">return</span> this-&gt;first_name;}</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    QString getLastName()<span class="keyword"> const</span>{<span class="keywordflow">return</span> this-&gt;last_name;}</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    QString getOccupation()<span class="keyword"> const</span>{<span class="keywordflow">return</span> this-&gt;occupation;}</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    QString getOrigin()<span class="keyword"> const</span>{<span class="keywordflow">return</span> this-&gt;origin;}</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    qint16 getAge()<span class="keyword"> const</span>{<span class="keywordflow">return</span> this-&gt;age;}</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>};</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#endif </span><span class="comment">// OVERVIEW_H</span></div>
-<div class="ttc" id="aclass_overview_html"><div class="ttname"><a href="class_overview.html">Overview</a></div><div class="ttdoc">General information about NPC.</div><div class="ttdef"><b>Definition:</b> overview.h:12</div></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;src/serializable.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_overview.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="class_overview.html">Overview</a> : <a class="code hl_class" href="class_serializable.html">Serializable</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="comment">// Remember to serialize newly added objects in XmlSerialize</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    QString first_name;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    QString last_name;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    QString occupation;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    QString origin;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    qint16 age;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_class" href="class_overview.html">Overview</a>();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    QString getFirstName()<span class="keyword"> const</span>{<span class="keywordflow">return</span> this-&gt;first_name;}</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    QString getLastName()<span class="keyword"> const</span>{<span class="keywordflow">return</span> this-&gt;last_name;}</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    QString getOccupation()<span class="keyword"> const</span>{<span class="keywordflow">return</span> this-&gt;occupation;}</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    QString getOrigin()<span class="keyword"> const</span>{<span class="keywordflow">return</span> this-&gt;origin;}</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    qint16 getAge()<span class="keyword"> const</span>{<span class="keywordflow">return</span> this-&gt;age;}</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    QDomElement <a class="code hl_function" href="class_overview.html#ae93c59fdcfe7f7b7c35a6940ad980710">XmlSerialize</a>(QDomDocument &amp;doc) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_overview.html#a17f8b26e8eeb466b6ec07cc6b2bc694f">XmlDeserialize</a>(<span class="keyword">const</span> QDomElement &amp;element) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>};</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#endif </span><span class="comment">// OVERVIEW_H</span></div>
+<div class="ttc" id="aclass_overview_html"><div class="ttname"><a href="class_overview.html">Overview</a></div><div class="ttdoc">General information about NPC.</div><div class="ttdef"><b>Definition:</b> overview.h:13</div></div>
+<div class="ttc" id="aclass_overview_html_a17f8b26e8eeb466b6ec07cc6b2bc694f"><div class="ttname"><a href="class_overview.html#a17f8b26e8eeb466b6ec07cc6b2bc694f">Overview::XmlDeserialize</a></div><div class="ttdeci">void XmlDeserialize(const QDomElement &amp;element) override</div><div class="ttdoc">Implements process of objects deserialization.</div><div class="ttdef"><b>Definition:</b> overview.cpp:19</div></div>
+<div class="ttc" id="aclass_overview_html_ae93c59fdcfe7f7b7c35a6940ad980710"><div class="ttname"><a href="class_overview.html#ae93c59fdcfe7f7b7c35a6940ad980710">Overview::XmlSerialize</a></div><div class="ttdeci">QDomElement XmlSerialize(QDomDocument &amp;doc) const override</div><div class="ttdoc">Implements process of objects serialization.</div><div class="ttdef"><b>Definition:</b> overview.cpp:8</div></div>
+<div class="ttc" id="aclass_serializable_html"><div class="ttname"><a href="class_serializable.html">Serializable</a></div><div class="ttdoc">Abstract class to help serialize objects into Xml format.</div><div class="ttdef"><b>Definition:</b> serializable.h:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

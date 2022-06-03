@@ -20,7 +20,7 @@ namespace MemIO{
     extern QString sessionsSavingFolder;
 
     /*!
-     * \brief Creates folder structure for entire programm
+     * \brief Creates folder structure for entire program
      */
     void createFolderStructure();
 
@@ -30,7 +30,7 @@ namespace MemIO{
      * \param path Path to where object should be saved. Usage of MemIO variables is
      * recommended.
      */
-    void saveOnDisk(const QDomElement &root, const QString &path);
+    bool saveToFile(const QDomElement &root, const QString &path);
 
     /*!
      * \brief Saves session to file
@@ -39,7 +39,7 @@ namespace MemIO{
     void save(const Session &session);
 
     /*!
-     * @brief Deserializes xml file into object.
+     * @brief Loads session from file.
      * @param session object on which deserialization will be performed.
      * @return Whether operation was successful or not.
      */

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hydrants_0',['Hydrants',['../class_hydrants.html',1,'']]]
+  ['edgesandhindrances_0',['EdgesAndHindrances',['../class_edges_and_hindrances.html',1,'']]]
 ];

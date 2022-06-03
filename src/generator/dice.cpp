@@ -25,3 +25,14 @@ Dice::Dice(Card card)
 
     number = suit + 1;
 }
+
+QDomElement Dice::XmlSerialize(QDomDocument &doc) const {
+    QDomElement element = doc.createElement("dice");
+    element.setAttribute("number", this->number);
+    element.setAttribute("dice", this->dice);
+    return element;
+}
+
+void Dice::XmlDeserialize(const QDomElement &element) {
+
+}

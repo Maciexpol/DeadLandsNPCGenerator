@@ -9,17 +9,27 @@
 
 {\ttfamily \#include $<$character.\+h$>$}
 
+Inheritance diagram for Character\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_character}
+\end{center}
+\end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_character_a63fea07075c2233533958c00a76df2a7}\label{class_character_a63fea07075c2233533958c00a76df2a7}} 
 \mbox{\hyperlink{class_attributes}{Attributes}} {\bfseries get\+Attributes} () const
 \item 
-\mbox{\Hypertarget{class_character_a2d096bdeeb5887d8e2a3ad1f1b7301a1}\label{class_character_a2d096bdeeb5887d8e2a3ad1f1b7301a1}} 
-\mbox{\hyperlink{class_hydrants}{Hydrants}} {\bfseries get\+Hydrants} () const
-\item 
 \mbox{\Hypertarget{class_character_a84ace86d28756bceaac70b23c210afe2}\label{class_character_a84ace86d28756bceaac70b23c210afe2}} 
 \mbox{\hyperlink{class_dices}{Dices}} {\bfseries get\+Dices} () const
+\item 
+QDom\+Element \mbox{\hyperlink{class_character_a51c50beb560d2091c0ca856645ca2217}{Xml\+Serialize}} (QDom\+Document \&doc) const override
+\begin{DoxyCompactList}\small\item\em Implements process of objects serialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_character_af79596bfbfae838daa452ecb6b473bef}{Xml\+Deserialize}} (const QDom\+Element \&element) override
+\begin{DoxyCompactList}\small\item\em Implements process of objects deserialization. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_character_a8c2ffd7af669cf9583be805dba3b23ba}\label{class_character_a8c2ffd7af669cf9583be805dba3b23ba}} 
+void {\bfseries roll\+Dices} ()
 \end{DoxyCompactItemize}
 
 
@@ -28,7 +38,77 @@
 
 Holds character data and manages its\textquotesingle{} generation. 
 
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_character_af79596bfbfae838daa452ecb6b473bef}\label{class_character_af79596bfbfae838daa452ecb6b473bef}} 
+\index{Character@{Character}!XmlDeserialize@{XmlDeserialize}}
+\index{XmlDeserialize@{XmlDeserialize}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{XmlDeserialize()}{XmlDeserialize()}}
+{\footnotesize\ttfamily void Character\+::\+Xml\+Deserialize (\begin{DoxyParamCaption}\item[{const QDom\+Element \&}]{element }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements process of objects deserialization. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em element} & Object containing information to deserialize\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_trait_example}{}\doxysubparagraph{Example serialization\+:}\label{class_trait_example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{class_session_a5fb6c2471a208e07c076f86d175e906d}{Session::XmlDeserialize}}(\textcolor{keyword}{const} QDomElement \&element)\{}
+\DoxyCodeLine{    this-\/>name = element.attribute(\textcolor{stringliteral}{"{}name"{}}, \textcolor{stringliteral}{"{}-\/"{}});}
+\DoxyCodeLine{    this-\/>description = element.attribute(\textcolor{stringliteral}{"{}description"{}}, \textcolor{stringliteral}{"{}-\/"{}});}
+\DoxyCodeLine{    this-\/>creationDate = QDate::fromString(element.attribute(\textcolor{stringliteral}{"{}creationDate"{}}, \textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{    this-\/>npcCount = \textcolor{keyword}{static\_cast<}qint16\textcolor{keyword}{>}(element.attribute(\textcolor{stringliteral}{"{}npcCount"{}}, \textcolor{stringliteral}{"{}0"{}}).toInt());}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+Implements \mbox{\hyperlink{class_serializable_aaeb0f13d70bd4df5efb936015cf2e37d}{Serializable}}.
+
+\mbox{\Hypertarget{class_character_a51c50beb560d2091c0ca856645ca2217}\label{class_character_a51c50beb560d2091c0ca856645ca2217}} 
+\index{Character@{Character}!XmlSerialize@{XmlSerialize}}
+\index{XmlSerialize@{XmlSerialize}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{XmlSerialize()}{XmlSerialize()}}
+{\footnotesize\ttfamily QDom\+Element Character\+::\+Xml\+Serialize (\begin{DoxyParamCaption}\item[{QDom\+Document \&}]{doc }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements process of objects serialization. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em doc} & Usually provided by parent object in the process of cascading serialization.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_trait_example}{}\doxysubparagraph{Example serialization\+:}\label{class_trait_example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{QDomElement \mbox{\hyperlink{class_attribute_ad977c5a0fea57498ec7d5cc1822461ea}{Attribute::XmlSerialize}}(QDomDocument \&doc)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{    QDomElement element = doc.createElement(\textcolor{stringliteral}{"{}attribute"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    element.setAttribute(\textcolor{stringliteral}{"{}name"{}}, this-\/>name);}
+\DoxyCodeLine{    element.appendChild(dice.XmlSerialize(doc));}
+\DoxyCodeLine{    element.appendChild(abilities.XmlSerialize(doc));}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} element;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyReturn}{Returns}
+Serialized object 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_serializable_a1730784a4cf9809cdd6f29d116d391c2}{Serializable}}.
+
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/generator/character.\+h\item 
-src/generator/character.\+cpp\end{DoxyCompactItemize}
+D\+:/\+Projects/npc-\/generator/src/generator/character.\+h\item 
+D\+:/\+Projects/npc-\/generator/src/generator/character.\+cpp\end{DoxyCompactItemize}

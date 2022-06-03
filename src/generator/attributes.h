@@ -4,6 +4,10 @@
 #include <QVector>
 #include "attribute.h"
 
+/*!
+ * \brief The Attributes class
+ * \brief Contains all attributes, rolls distribution of ability lvl points between attributes
+ */
 class Attributes
 {
 private:
@@ -13,7 +17,6 @@ public:
 
     QVector<Attribute> getAttributes() const{return this->attributes;}
 
-    //! Calculates combined points from all attributes
     qint16 calculatePoints();
 };
 

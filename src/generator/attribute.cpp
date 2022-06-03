@@ -1,17 +1,11 @@
 #include "attribute.h"
 
-Attribute::Attribute(ATTRIBUTES inputName){
-    name = inputName;
+void Attribute::rollAbilitiesLvl(){
+    abilities.rollAbilitesLvl(abilitiesLvlSum);
 }
 
-Attribute::Attribute(ATTRIBUTES inputName, Abilities inputAbilities){
-    name = inputName;
-    abilities = inputAbilities;
-}
-
-Attribute::Attribute(ATTRIBUTES inputName, Dice inputDice, Abilities inputAbilities){
-    name = inputName;
-    dice = inputDice;
-    abilities = inputAbilities;
+void Attribute::rollAbilitiesLvl(qint16 newAbilitiesLvlSum){
+    setAbilitiesLvlSum(newAbilitiesLvlSum);
+    rollAbilitiesLvl();
 }
 

@@ -6,6 +6,7 @@
 
 #include "src/serializable.h"
 #include "../generator/character.h"
+#include "sessioncharacter.h"
 
 /*!
  * \brief Sessions group and manage generated characters
@@ -21,7 +22,7 @@ private:
     QString description;
     QDate creationDate;
     qint16 npcCount;
-    QVector<Character> characters;
+    QVector<SessionCharacter> characters;
 
 public:
     Session();
@@ -31,7 +32,10 @@ public:
     QString getDescription() const{return this->description;};
     QDate getCreationDate() const{return this->creationDate;};
     qint16 getNpcCount() const{return this->npcCount;};
-    QVector<Character> getCharacters() const{return this->characters;};
+    QVector<SessionCharacter> getCharacters() const{return this->characters;};
+
+    void addCharacter(const qint32 &id, const QString &name);
+    void removeCharacter(const qint32 &id);
 
     QDomElement XmlSerialize(QDomDocument &doc) const override;
     void XmlDeserialize(const QDomElement &element) override;

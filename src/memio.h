@@ -18,6 +18,7 @@ namespace MemIO{
 
     extern QString mainSaveFolder;
     extern QString sessionsSavingFolder;
+    extern QString charactersSavingFolder;
 
     /*!
      * \brief Creates folder structure for entire program
@@ -45,7 +46,16 @@ namespace MemIO{
      */
     bool load(Session &session);
 
+    /*!
+     * @brief Loads character from file.
+     * @param character object on which deserialization will be performed.
+     * @param characterUniqueID unique ID of wanted character
+     * @return Whether operation was successful or not.
+     */
+    bool load(Character &character, const QString &characterUniqueID);
+
     QVector<QVector<QString>> loadAbilities();
+
 }
 
 #endif // MEMIO_H

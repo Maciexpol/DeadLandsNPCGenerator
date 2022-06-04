@@ -57,10 +57,10 @@ set(PROJECT_SOURCES
         # -- sessions system
         src/sessions/session.h src/sessions/session.cpp
         src/sessions/sessionmanager.h src/sessions/sessionmanager.cpp
+        src/sessions/sessioncharacter.cpp src/sessions/sessioncharacter.h)
 
         # -- tests --
         # tests/rolldicestest.h tests/rolldicestest.cpp
-)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(npc-generator

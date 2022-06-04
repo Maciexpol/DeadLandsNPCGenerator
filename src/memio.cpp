@@ -62,4 +62,32 @@ bool load(Session &session){
     session.XmlDeserialize(node);
     return true;
 }
+
+QVector<QVector<QString>> loadAbilities(){
+    QDomDocument readerDoc;
+    QFile file(":/files/attributes.xml");
+    if(!file.open(QIODevice::ReadOnly)){
+        qDebug("Error loading file!");
+        return {};
+    }
+    readerDoc.setContent(&file);
+    file.close();
+
+    QDomElement attributes = readerDoc.documentElement();
+    QVector<QVector<QString>> attributesVector;
+
+    // For each attribute
+    QDomElement attribute = attributes.firstChildElement();
+    while(!attribute.isNull()){
+        QVector<QString> abilities;
+        QDomElement ability = attribute.firstChildElement();
+        while(!ability.isNull()){
+            abilities.append(ability.attribute("name", ""));
+            ability = ability.nextSiblingElement();
+        }
+        attributesVector.append(abilities);
+        attribute = attribute.nextSiblingElement();
+    }
+    return attributesVector;
+}
 }

@@ -6,11 +6,10 @@ Session::Session(const QString &name, const QString &description, const QDate &d
     this->description = description;
     this->creationDate = date;
     this->npcCount = npcCount;
+}
 
-    this->characters.append(SessionCharacter(1,"Jebać PIS"));
-    this->characters.append(SessionCharacter(2, "Siemaaa"));
-    this->characters.append(SessionCharacter(3,"Patryk Lesiak"));
-    this->characters.append(SessionCharacter(4, "Maciej Pieniążek"));
+void Session::addCharacter(const qint32 &id, const QString &name) {
+    this->characters.append(SessionCharacter(id, name));
 }
 
 QDomElement Session::XmlSerialize(QDomDocument &doc) const{

@@ -34,6 +34,9 @@ public:
     qint16 getNpcCount() const{return this->npcCount;};
     QVector<SessionCharacter> getCharacters() const{return this->characters;};
 
+    void addCharacter(const qint32 &id, const QString &name);
+    void removeCharacter(const qint32 &id);
+
     QDomElement XmlSerialize(QDomDocument &doc) const override;
     void XmlDeserialize(const QDomElement &element) override;
     bool XmlValidate() const override;

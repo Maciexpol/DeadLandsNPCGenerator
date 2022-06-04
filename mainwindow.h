@@ -16,7 +16,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void createConnections(const SessionManager &sessionManager) const;
+
 private slots:
+
     void on_actionSessionNew_triggered();
 
     void updateSessionInfo(const Session& session);
@@ -34,15 +37,14 @@ private slots:
     void on_actionSessionOpen_triggered();
 
     void on_sessionOpen_clicked();
-
 signals:
     void createNewSession();
     void saveCurrentSession();
     void closeCurrentSession();
-    void openNewSession();
 
+    void openNewSession();
 private:
     Ui::MainWindow *ui;
-    SessionManager sessionManager;
+
 };
 #endif // MAINWINDOW_H

@@ -11,17 +11,17 @@ private:
     QVector<Trait> Edges{};
     QVector<Trait> Hindrances{};
 
-    qint16 countPoints() const;
+    qint16 countPoints(const QVector<Trait> & traits) const;
 
 public:
     EdgesAndHindrances();
 
     qint16 countBalance() const;
 
-    void addEdge(Trait a)
+    void addEdge(const Trait & a)
         {Edges.push_back(a);}
 
-    void addHindrance(Trait a)
+    void addHindrance(const Trait & a)
         {Hindrances.push_back(a);}
 
     void clearEdges()

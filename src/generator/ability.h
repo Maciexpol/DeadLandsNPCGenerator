@@ -17,25 +17,18 @@ private:
     qint16 lvl;
 public:
     /*!
-     * \brief Ability
-     *
-     * Creates empty ability
+     * \brief Creates empty ability
      */
     Ability() : name(""), lvl(0){};
     /*!
-     * \brief Ability
+     * \brief Creates ability with specific name and lvl
      * \param newName
      * \param newLvl
-     *
-     * Creates ability with specific name and lvl
      */
     Ability(const QString & newName, const qint16 & newLvl) : name(newName), lvl(newLvl){};
     /*!
-     * \brief Ability
+     * \brief Creates ability with specific name and lvl 0
      * \param newName
-     *
-     * Creates ability with specific name and lvl 0
-     * Most common and recommended
      */
     Ability(const QString & newName) : name(newName), lvl(0){};
 

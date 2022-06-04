@@ -5,17 +5,21 @@ EdgesAndHindrances::EdgesAndHindrances()
 
 }
 
-qint16 EdgesAndHindrances::countBalance() const {
-    qint16 edgesPoints{0};
-    qint16 hindrancesPoints{0};
+qint16 EdgesAndHindrances::countPoints(const QVector<Trait> & traits) const{
+    if(traits.length() == 0)
+        return 0;
+
+    qint16 points = 0;
 
     for(auto trait : Edges){
-        edgesPoints += trait.getPoints();
+        points += trait.getPoints();
     }
+    return points;
+}
 
-    for(auto trait : Hindrances){
-        hindrancesPoints+= trait.getPoints();
-    }
+qint16 EdgesAndHindrances::countBalance() const {
+    qint16 edgesPoints = countPoints(Edges);
+    qint16 hindrancesPoints = countPoints(Hindrances);
 
     return hindrancesPoints - edgesPoints;
 

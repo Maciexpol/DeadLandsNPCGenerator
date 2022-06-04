@@ -69,9 +69,9 @@ public:
      */
     void increaseAbilitiesLvlSum() {abilitiesLvlSum++;};
     /*!
-     * \brief Zeros all abilities lvl
+     * \brief Zeros all abilities lvl and abilitiesLvlSum
      */
-    void clearAbilitiesLvl() {abilities.clearLvl();};
+    void clearAbilitiesLvl() {abilities.clearLvl(); abilitiesLvlSum = 0;};
 
 
     ATTRIBUTES getName() const {return name;};

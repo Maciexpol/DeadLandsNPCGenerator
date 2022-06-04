@@ -39,36 +39,23 @@ public:
      */
     Ability(const QString & newName) : name(newName), lvl(0){};
 
-    /*!
-     * \brief getName
-     * \return abilitie's name
-     */
     QString getName() const {return name;};
-    /*!
-     * \brief getLvl
-     * \return abilitie's lvl
-     */
     qint16 getLvl() const {return lvl;};
 
-    /*!
-     * \brief setLvl
-     * \param new lvl
-     */
     void setLvl(const qint16 & newLvl) {lvl = newLvl;};
-    /*!
-     * \brief setName
-     * \param new name
-     */
     void setName(const QString & newName) {name = newName;};
 
     /*!
-     * \brief addLvlPoint
-     *
-     * Adds one more point to level of attribute
+     * \brief Adds one more point to level of attribute
      *
      * Needed to parrent's rolling function
      */
     void addLvlPoint() {lvl++;};
+
+    /*!
+     * \brief Zeros lvl
+     */
+    void clearLvl() {lvl = 0;};
 };
 
 #endif // ABILITY_H

@@ -5,6 +5,8 @@
 #include <QString>
 #include <QFile>
 #include <QFileDialog>
+#include <QDir>
+#include <QMessageBox>
 
 #include "./sessions/session.h"
 

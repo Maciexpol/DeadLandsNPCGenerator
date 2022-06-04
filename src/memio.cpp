@@ -1,6 +1,4 @@
 #include "memio.h"
-#include <QDir>
-#include <QMessageBox>
 
 namespace MemIO{
     QString mainSaveFolder = "./saves";

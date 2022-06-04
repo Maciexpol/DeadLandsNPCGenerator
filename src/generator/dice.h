@@ -9,12 +9,12 @@ class Dice : Serializable
 {
 private:
     qint16 number;
-    qint16 dice;
+    qint16 sides;
 
 public:
 
     qint16 getNumber() const{return this->number;}
-    qint16 getDice() const{return this->dice;}
+    qint16 getSides() const{return this->sides;}
 
     Dice(){};
     // TODO:
@@ -22,19 +22,19 @@ public:
     Dice(Card card);
 
     bool operator == (Dice a)
-        {return number == a.getNumber() and dice == a.getDice();}
+        {return number == a.getNumber() and sides == a.getSides();}
 
     bool operator < (Dice a)
-        {return number < a.getNumber() and dice <= a.getDice();}
+        {return number < a.getNumber() and sides <= a.getSides();}
 
     bool operator > (Dice a)
-        {return number > a.getNumber() and dice >= a.getDice();}
+        {return number > a.getNumber() and sides >= a.getSides();}
 
     bool operator <= (Dice a)
-        {return number <= a.getNumber() and dice <= a.getDice();}
+        {return number <= a.getNumber() and sides <= a.getSides();}
 
     bool operator >= (Dice a)
-        {return number >= a.getNumber() and dice >= a.getDice();}
+        {return number >= a.getNumber() and sides >= a.getSides();}
 
     QDomElement XmlSerialize(QDomDocument &doc) const override;
     void XmlDeserialize(const QDomElement &element) override;

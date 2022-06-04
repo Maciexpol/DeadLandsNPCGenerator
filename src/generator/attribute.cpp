@@ -1,6 +1,7 @@
 #include "attribute.h"
 
 void Attribute::rollAbilitiesLvl(){
+    clearAbilitiesLvl();
     abilities.rollAbilitesLvl(abilitiesLvlSum);
 }
 

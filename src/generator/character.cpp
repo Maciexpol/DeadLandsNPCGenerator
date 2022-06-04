@@ -2,7 +2,31 @@
 
 Character::Character()
 {
-    Character::rollDices();
+    rollDices();
+
+    attributes = Attributes(dices);
+
+    edgesAndHindrances = EdgesAndHindrances(); //TODO:
+
+    qint16 lvlPoints = attributes.generateLvlPoints();
+    lvlPoints -= edgesAndHindrances.countBalance();
+    attributes.rollAttributesLvlPoints(lvlPoints);
+
+    overview = Overview();
+}
+
+void Character::rollCharacter(){
+    rollDices();
+
+    attributes = Attributes(dices);
+
+    edgesAndHindrances = EdgesAndHindrances(); //TODO:
+
+    qint16 lvlPoints = attributes.generateLvlPoints();
+    lvlPoints -= edgesAndHindrances.countBalance();
+    attributes.rollAttributesLvlPoints(lvlPoints);
+
+    overview = Overview();
 }
 
 void Character::rollDices(){

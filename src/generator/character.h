@@ -25,17 +25,17 @@ private:
 
 public:
     Character();
-
+    
     qint32 getUniqueID() const {return this->uniqueID;};
     Attributes getAttributes() const{return this->attributes;}
-    Dices getDices() const{return this->dices;}
+    Dices getDices() const{return this->dices;
 
     QDomElement XmlSerialize(QDomDocument &doc) const override;
     void XmlDeserialize(const QDomElement &element) override;
     bool XmlValidate() const override;
 
+    void rollCharacter();
     void rollDices();
-
 };
 
 #endif // CHARACTER_H

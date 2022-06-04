@@ -53,6 +53,9 @@ namespace MemIO{
      * @return Whether operation was successful or not.
      */
     bool load(Character &character, const QString &characterUniqueID);
+
+    QVector<QVector<QString>> loadAbilities();
+
 }
 
 #endif // MEMIO_H

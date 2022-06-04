@@ -27,7 +27,15 @@ qint16 Abilities::getAbilityLevel(const QString & name) const{
     return 0;
 }
 
+void Abilities::clearLvl(){
+    for(auto & ab : abilities){
+        ab.clearLvl();
+    }
+}
+
 void Abilities::rollAbilitesLvl(const qint16 & points){
+    // cleaning abilities
+    clearLvl();
     // random generator init
     auto rng = std::default_random_engine {};
     // function returns random indexes of abilities

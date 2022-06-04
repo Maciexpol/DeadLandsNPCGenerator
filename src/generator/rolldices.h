@@ -18,8 +18,17 @@ namespace RollDices {
     }
 
     QVector<qint16> generateBasicDeck();
+    /*!
+     * \brief translateCards
+     * \param deck
+     * \return
+     */
     QVector<Dice> translateCards(QVector<Card> deck);
 
+    /*!
+     * \brief Rolling Dices using cards
+     * \return Vector of 10 rolled Dices
+     */
     QVector<Dice> generateDices();
 
 }

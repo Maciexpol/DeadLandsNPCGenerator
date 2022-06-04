@@ -1,10 +1,16 @@
 #include "session.h"
+#include "sessioncharacter.h"
 Session::Session() = default;
 Session::Session(const QString &name, const QString &description, const QDate &date, const qint16 &npcCount){
     this->name = name;
     this->description = description;
     this->creationDate = date;
     this->npcCount = npcCount;
+
+    this->characters.append(SessionCharacter(1,"Jebać PIS"));
+    this->characters.append(SessionCharacter(2, "Siemaaa"));
+    this->characters.append(SessionCharacter(3,"Patryk Lesiak"));
+    this->characters.append(SessionCharacter(4, "Maciej Pieniążek"));
 }
 
 QDomElement Session::XmlSerialize(QDomDocument &doc) const{
@@ -16,7 +22,7 @@ QDomElement Session::XmlSerialize(QDomDocument &doc) const{
     element.setAttribute("npcCount", this->npcCount);
 
     // Serialize all characters in this session
-    QDomElement npcs = doc.createElement("npcs");
+    QDomElement npcs = doc.createElement("characters");
     for(auto &npc : this->characters){
         npcs.appendChild(npc.XmlSerialize(doc));
     }

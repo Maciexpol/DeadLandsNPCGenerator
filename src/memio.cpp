@@ -5,6 +5,7 @@
 namespace MemIO{
     QString mainSaveFolder = "./saves";
     QString sessionsSavingFolder = "./saves/sessions";
+    QString charactersSavingFolder = "./saves/characters";
 
 void createFolderStructure(){
     // Check if main saving folder exists
@@ -45,6 +46,20 @@ void save(const Session &session){
     saveToFile(root, sessionsSavingFolder);
 }
 
+void save(const Character &character){
+    if(!character.XmlValidate()){
+        //TODO: IDK if I have to check this tbh, better leave it here for now
+        QMessageBox message;
+        message.setText("Cannot save character.");
+        message.exec();
+        return;
+    }
+    QDomDocument doc("MyDocument");
+    QDomElement root = character.XmlSerialize(doc);
+    root.setNodeValue(QString::number(character.getUniqueID()));
+    saveToFile(root, charactersSavingFolder);
+}
+
 bool load(Session &session){
     QString filename = QFileDialog::getOpenFileName(nullptr,
                                                     "Choose session.",
@@ -62,4 +77,46 @@ bool load(Session &session){
     session.XmlDeserialize(node);
     return true;
 }
+
+bool load(Character &character, const QString &characterUniqueID){
+    QFile file(charactersSavingFolder + "/" + characterUniqueID);
+    if(!file.open(QIODevice::ReadOnly)){
+        qDebug("Error opening character file.");
+        return false;
+    }
+    QDomDocument doc;
+    doc.setContent(&file);
+    file.close();
+    QDomElement node= doc.firstChildElement();
+    character.XmlDeserialize(node);
+    return true;
+}
+
+    QVector<QVector<QString>> loadAbilities(){
+        QDomDocument readerDoc;
+        QFile file(":/files/attributes.xml");
+        if(!file.open(QIODevice::ReadOnly)){
+            qDebug("Error loading file!");
+            return {};
+        }
+        readerDoc.setContent(&file);
+        file.close();
+
+        QDomElement attributes = readerDoc.documentElement();
+        QVector<QVector<QString>> attributesVector;
+
+        // For each attribute
+        QDomElement attribute = attributes.firstChildElement();
+        while(!attribute.isNull()){
+            QVector<QString> abilities;
+            QDomElement ability = attribute.firstChildElement();
+            while(!ability.isNull()){
+                abilities.append(ability.attribute("name", ""));
+                ability = ability.nextSiblingElement();
+            }
+            attributesVector.append(abilities);
+            attribute = attribute.nextSiblingElement();
+        }
+        return attributesVector;
+    }
 }

@@ -22,25 +22,38 @@
 \DoxyCodeLine{18     quickness}
 \DoxyCodeLine{19 \};}
 \DoxyCodeLine{20 }
-\DoxyCodeLine{24 \textcolor{keyword}{class }\mbox{\hyperlink{class_attribute}{Attribute}} : \mbox{\hyperlink{class_serializable}{Serializable}}}
-\DoxyCodeLine{25 \{}
-\DoxyCodeLine{26 \textcolor{keyword}{private}:}
-\DoxyCodeLine{27     ATTRIBUTES name;}
-\DoxyCodeLine{28     \mbox{\hyperlink{class_dice}{Dice}} dice;}
-\DoxyCodeLine{29     \mbox{\hyperlink{class_abilities}{Abilities}} abilities;}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{31 \textcolor{keyword}{public}:}
-\DoxyCodeLine{32     \mbox{\hyperlink{class_attribute}{Attribute}}(ATTRIBUTES inputName, \mbox{\hyperlink{class_dice}{Dice}} inputDice, \mbox{\hyperlink{class_abilities}{Abilities}} inputAbilities);}
-\DoxyCodeLine{33     \mbox{\hyperlink{class_attribute}{Attribute}}(ATTRIBUTES inputName, \mbox{\hyperlink{class_abilities}{Abilities}} inputAbilities);}
-\DoxyCodeLine{34     \mbox{\hyperlink{class_attribute}{Attribute}}(ATTRIBUTES inputName);}
-\DoxyCodeLine{35 }
-\DoxyCodeLine{36     \mbox{\hyperlink{class_dice}{Dice}} getDice()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} this-\/>dice;\}}
-\DoxyCodeLine{37     \mbox{\hyperlink{class_abilities}{Abilities}} getAbilities()\textcolor{keyword}{ const}\{\textcolor{keywordflow}{return} this-\/>abilities;\}}
-\DoxyCodeLine{38 }
-\DoxyCodeLine{39     QDomElement \mbox{\hyperlink{class_attribute_ad977c5a0fea57498ec7d5cc1822461ea}{XmlSerialize}}(QDomDocument \&doc) \textcolor{keyword}{const override};}
-\DoxyCodeLine{40     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_attribute_af0cba1e77ffab56c163b8933bb4cb110}{XmlDeserialize}}(\textcolor{keyword}{const} QDomElement \&element) \textcolor{keyword}{override};}
-\DoxyCodeLine{41 \};}
-\DoxyCodeLine{42 }
-\DoxyCodeLine{43 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ATTRIBUTE\_H}}
+\DoxyCodeLine{29 \textcolor{keyword}{class }\mbox{\hyperlink{class_attribute}{Attribute}} : \mbox{\hyperlink{class_serializable}{Serializable}}}
+\DoxyCodeLine{30 \{}
+\DoxyCodeLine{31 \textcolor{keyword}{private}:}
+\DoxyCodeLine{32     ATTRIBUTES name;}
+\DoxyCodeLine{33     \mbox{\hyperlink{class_dice}{Dice}} dice;}
+\DoxyCodeLine{34     \mbox{\hyperlink{class_abilities}{Abilities}} abilities;}
+\DoxyCodeLine{35     qint16 abilitiesLvlSum;}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{keyword}{public}:}
+\DoxyCodeLine{43     \mbox{\hyperlink{class_attribute_a8ba4e5a507aef352563e1e56f1930e66}{Attribute}}()}
+\DoxyCodeLine{44         \{name = ATTRIBUTES(0); dice = \mbox{\hyperlink{class_dice}{Dice}}(0); abilities = \mbox{\hyperlink{class_abilities}{Abilities}}(); abilitiesLvlSum = 0;\};}
+\DoxyCodeLine{53     \mbox{\hyperlink{class_attribute_ada5599f73612aec39215106862ab3272}{Attribute}}(\textcolor{keyword}{const} ATTRIBUTES \& inputName, \textcolor{keyword}{const} QVector<QString> \& abilitiesNames, \textcolor{keyword}{const} \mbox{\hyperlink{class_dice}{Dice}} \& inputDice)}
+\DoxyCodeLine{54         \{name = inputName; dice = inputDice; abilities = \mbox{\hyperlink{class_abilities}{Abilities}}(abilitiesNames); abilitiesLvlSum = 0;\};}
+\DoxyCodeLine{64     \mbox{\hyperlink{class_attribute_a436298f738c846234e81bc83a522b887}{Attribute}}(\textcolor{keyword}{const} ATTRIBUTES \& inputName, \textcolor{keyword}{const} QVector<QString> \& abilitiesNames, \textcolor{keyword}{const} \mbox{\hyperlink{class_dice}{Dice}} \& inputDice, \textcolor{keyword}{const} qint16 \& newAbilitiesLvlSum)}
+\DoxyCodeLine{65         \{name = inputName; dice = inputDice; abilities = \mbox{\hyperlink{class_abilities}{Abilities}}(abilitiesNames); abilitiesLvlSum = newAbilitiesLvlSum;\};}
+\DoxyCodeLine{70     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_attribute_a4b861f047cc7122875921d782a17ba73}{setName}}(\textcolor{keyword}{const} ATTRIBUTES \& newName) \{name = newName;\};}
+\DoxyCodeLine{75     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_attribute_a64219d7e0b87c3134c6c32da8e88274d}{setDice}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_dice}{Dice}} \& newDice) \{dice = newDice;\};}
+\DoxyCodeLine{80     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_attribute_a47f16349e07df3993d43b8863027933c}{setAbilities}}(\textcolor{keyword}{const} QVector<QString> \& abilitiesNames)\{abilities.\mbox{\hyperlink{class_abilities_acc35a01c04b2a5987fc2f6823af5be03}{setAbilities}}(abilitiesNames);\};}
+\DoxyCodeLine{85     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_attribute_a74c703117b5808f4879ba20634e6f681}{setAbilitiesLvlSum}}(\textcolor{keyword}{const} qint16 \& newSum) \{abilitiesLvlSum = newSum;\};}
+\DoxyCodeLine{93     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_attribute_a1eb654a352299b49be2b41ad29308b43}{addAbilitiesLvlSum}}() \{abilitiesLvlSum++;\};}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{99     ATTRIBUTES \mbox{\hyperlink{class_attribute_adb35e1178053f193a5d3bf24216dca25}{getName}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} name;\};}
+\DoxyCodeLine{104     \mbox{\hyperlink{class_dice}{Dice}} \mbox{\hyperlink{class_attribute_a624c7d141bb9195b1733246310c9ae67}{getDice}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} dice;\};}
+\DoxyCodeLine{109     \mbox{\hyperlink{class_abilities}{Abilities}} \mbox{\hyperlink{class_attribute_af0a840f6dc53b006b25e4ab4a0c29956}{getAbilities}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} abilities;\};}
+\DoxyCodeLine{114     qint16 \mbox{\hyperlink{class_attribute_a2b16766c09b34c07e7f7bdf2e65f3cdb}{getabilitiesLvlSum}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} abilitiesLvlSum;\};}
+\DoxyCodeLine{120     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_attribute_a98dbea4fb4c17c8e6dd966fccc639cb4}{rollAbilitiesLvl}}();}
+\DoxyCodeLine{127     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_attribute_a98dbea4fb4c17c8e6dd966fccc639cb4}{rollAbilitiesLvl}}(qint16 newAbilitiesLvlSum);}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129     QDomElement \mbox{\hyperlink{class_attribute_ad977c5a0fea57498ec7d5cc1822461ea}{XmlSerialize}}(QDomDocument \&doc) \textcolor{keyword}{const override};}
+\DoxyCodeLine{130     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_attribute_af0cba1e77ffab56c163b8933bb4cb110}{XmlDeserialize}}(\textcolor{keyword}{const} QDomElement \&element) \textcolor{keyword}{override};}
+\DoxyCodeLine{131 \};}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ATTRIBUTE\_H}}
 
 \end{DoxyCode}

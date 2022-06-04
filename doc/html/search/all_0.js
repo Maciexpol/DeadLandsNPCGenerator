@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['abilities_0',['Abilities',['../class_abilities.html',1,'']]],
-  ['ability_1',['Ability',['../class_ability.html',1,'']]],
-  ['attribute_2',['Attribute',['../class_attribute.html',1,'']]],
-  ['attributes_3',['Attributes',['../class_attributes.html',1,'']]]
+  ['abilities_0',['Abilities',['../class_abilities.html',1,'Abilities'],['../class_abilities.html#a3cd99e54e313772836bcc8f7369e2fff',1,'Abilities::Abilities()'],['../class_abilities.html#aa557393b213583ee41e6502aa3c0f1f1',1,'Abilities::Abilities(const QVector&lt; QString &gt; &amp;names)']]],
+  ['ability_1',['Ability',['../class_ability.html',1,'Ability'],['../class_ability.html#a1e03282d1a96232143322ef89fcbb314',1,'Ability::Ability()'],['../class_ability.html#a1efcb81a5ccf14f00cc43649bf9fe231',1,'Ability::Ability(const QString &amp;newName, const qint16 &amp;newLvl)'],['../class_ability.html#ad1ddba94bbd6b865406fd9c0e9187db0',1,'Ability::Ability(const QString &amp;newName)']]],
+  ['addabilitieslvlsum_2',['addAbilitiesLvlSum',['../class_attribute.html#a1eb654a352299b49be2b41ad29308b43',1,'Attribute']]],
+  ['addability_3',['addAbility',['../class_abilities.html#a54f1c09e5d467cd55665cf269e83f7a1',1,'Abilities::addAbility(const Ability &amp;newAbility)'],['../class_abilities.html#a3e5eef37a43ed8f4411b5ad1dd1b5fb0',1,'Abilities::addAbility(const QString &amp;newAbilityName)'],['../class_abilities.html#ad03a033da64eb75f23c75bfdc93c7bea',1,'Abilities::addAbility(const QString &amp;newAbilityName, const qint16 &amp;newAbilityLvl)']]],
+  ['addlvlpoint_4',['addLvlPoint',['../class_ability.html#ae9782b5f339d0b8ffe91bd1fbc9e2ebb',1,'Ability']]],
+  ['attribute_5',['Attribute',['../class_attribute.html',1,'Attribute'],['../class_attribute.html#a8ba4e5a507aef352563e1e56f1930e66',1,'Attribute::Attribute()'],['../class_attribute.html#ada5599f73612aec39215106862ab3272',1,'Attribute::Attribute(const ATTRIBUTES &amp;inputName, const QVector&lt; QString &gt; &amp;abilitiesNames, const Dice &amp;inputDice)'],['../class_attribute.html#a436298f738c846234e81bc83a522b887',1,'Attribute::Attribute(const ATTRIBUTES &amp;inputName, const QVector&lt; QString &gt; &amp;abilitiesNames, const Dice &amp;inputDice, const qint16 &amp;newAbilitiesLvlSum)']]],
+  ['attributes_6',['Attributes',['../class_attributes.html',1,'']]]
 ];

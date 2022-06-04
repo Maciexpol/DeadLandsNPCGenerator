@@ -16,7 +16,11 @@ private:
     // Remember to serialize newly added objects in XmlSerialize
     QVector<Attribute> attributes;
 public:
+<<<<<<< HEAD
     Attributes(const qint16 & characterLvlPoints, const Dices & dices);
+=======
+    Attributes() = default;
+>>>>>>> 6a45487ee355600950698515099784cd9bcad0a0
 
     Attribute getAttribute(ATTRIBUTES sName) const;
     /*!

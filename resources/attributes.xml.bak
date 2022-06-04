@@ -1,0 +1,50 @@
+<!DOCTYPE MyDocument>
+<attributes>
+    <attribute name="cognition">
+        <ability name="Artillery"/>
+        <ability name="Arts"/>
+        <ability name="Scrutinize"/>
+        <ability name="Search"/>
+        <ability name="Trackin'"/>
+    </attribute>
+    <attribute name="knowledge">
+    
+    </attribute>
+    <attribute name="smarts">
+    </attribute>
+    <attribute name="deftness">
+        <ability name="Bow"/>
+        <ability name="Filchin'"/>
+        <ability name="Lockpickin'"/>
+        <ability name="Shootin'"/>
+    </attribute>
+    <attribute name="nimbleness">
+        <ability name="Climbin'"/>
+        <ability name="Dodge"/>
+        <ability name="Drivin'"/>
+        <ability name="Fightin'"/>
+        <ability name="Horse Ridin'"/>
+        <ability name="Sneak"/>
+        <ability name="Swimmin'"/>
+        <ability name="Teamster"/>
+    </attribute>
+    <attribute name="mien">
+        <ability name="Animal Wranglin'"/>
+        <ability name="Leadership"/>
+        <ability name="Overawe"/>
+        <ability name="Performin'"/>
+        <ability name="Persuasion"/>
+        <ability name="Tale Tellin'"/>
+    </attribute>
+    <attribute name="spirit">
+        <ability name="Faith"/>
+        <ability name="Guts"/>
+    </attribute>
+    <attribute name="strength">
+    </attribute>
+    <attribute name="vigor">
+    </attribute>
+    <attribute name="quickness">
+        <ability name="Quick Draw"/>
+    </attribute>
+</attributes>

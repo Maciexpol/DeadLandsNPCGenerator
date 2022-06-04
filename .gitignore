@@ -10,8 +10,6 @@
 *.dll
 *.dylib
 
-/doc/
-
 # Qt-es
 object_script.*.Release
 object_script.*.Debug
@@ -54,3 +52,5 @@ compile_commands.json
 *creator.user*
 
 .idea*
+
+doc/

@@ -5,13 +5,29 @@
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef ABILITY\_H}}
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#define ABILITY\_H}}
 \DoxyCodeLine{3 }
-\DoxyCodeLine{4 }
-\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_ability}{Ability}}}
-\DoxyCodeLine{6 \{}
-\DoxyCodeLine{7 \textcolor{keyword}{public}:}
-\DoxyCodeLine{8     \mbox{\hyperlink{class_ability}{Ability}}();}
-\DoxyCodeLine{9 \};}
-\DoxyCodeLine{10 }
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ABILITY\_H}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}QString"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 }
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_ability}{Ability}}}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14 \textcolor{keyword}{private}:}
+\DoxyCodeLine{15     QString name;}
+\DoxyCodeLine{16     \textcolor{comment}{// normally lvl would be added after the definition}}
+\DoxyCodeLine{17     qint16 lvl;}
+\DoxyCodeLine{18 \textcolor{keyword}{public}:}
+\DoxyCodeLine{24     \mbox{\hyperlink{class_ability_a1e03282d1a96232143322ef89fcbb314}{Ability}}() : name(\textcolor{stringliteral}{"{}"{}}), lvl(0)\{\};}
+\DoxyCodeLine{32     \mbox{\hyperlink{class_ability_a1efcb81a5ccf14f00cc43649bf9fe231}{Ability}}(\textcolor{keyword}{const} QString \& newName, \textcolor{keyword}{const} qint16 \& newLvl) : name(newName), lvl(newLvl)\{\};}
+\DoxyCodeLine{40     \mbox{\hyperlink{class_ability_ad1ddba94bbd6b865406fd9c0e9187db0}{Ability}}(\textcolor{keyword}{const} QString \& newName) : name(newName), lvl(0)\{\};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{46     QString \mbox{\hyperlink{class_ability_aa0aa7489c15608c2769e8ba494b84339}{getName}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} name;\};}
+\DoxyCodeLine{51     qint16 \mbox{\hyperlink{class_ability_a041eb9c23a5b0787cb2eae0872013dd6}{getLvl}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} lvl;\};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{57     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_ability_a761334e6bc49a36b2a62f481a0de55f2}{setLvl}}(\textcolor{keyword}{const} qint16 \& newLvl) \{lvl = newLvl;\};}
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_ability_a200a317933a001060e46d4a2b76ef5ac}{setName}}(\textcolor{keyword}{const} QString \& newName) \{name = newName;\};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{71     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_ability_ae9782b5f339d0b8ffe91bd1fbc9e2ebb}{addLvlPoint}}() \{lvl++;\};}
+\DoxyCodeLine{72 \};}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ABILITY\_H}}
 
 \end{DoxyCode}

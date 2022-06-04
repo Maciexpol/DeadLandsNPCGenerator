@@ -2,7 +2,7 @@
 \label{class_attribute}\index{Attribute@{Attribute}}
 
 
-Represents one attribute of NPC character.  
+The \mbox{\hyperlink{class_attribute}{Attribute}} class.  
 
 
 
@@ -18,21 +18,34 @@ Inheritance diagram for Attribute\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_attribute_a993548d36a304fbd9c9df6641009e77a}\label{class_attribute_a993548d36a304fbd9c9df6641009e77a}} 
-{\bfseries Attribute} (ATTRIBUTES input\+Name, \mbox{\hyperlink{class_dice}{Dice}} input\+Dice, \mbox{\hyperlink{class_abilities}{Abilities}} input\+Abilities)
-\item 
-\mbox{\Hypertarget{class_attribute_a53b31305e96da12de688dd767e62b441}\label{class_attribute_a53b31305e96da12de688dd767e62b441}} 
-{\bfseries Attribute} (ATTRIBUTES input\+Name, \mbox{\hyperlink{class_abilities}{Abilities}} input\+Abilities)
-\item 
-\mbox{\Hypertarget{class_attribute_a5e2f54b0da2ee48dfb5200704e4e6913}\label{class_attribute_a5e2f54b0da2ee48dfb5200704e4e6913}} 
-{\bfseries Attribute} (ATTRIBUTES input\+Name)
-\item 
-\mbox{\Hypertarget{class_attribute_a624c7d141bb9195b1733246310c9ae67}\label{class_attribute_a624c7d141bb9195b1733246310c9ae67}} 
-\mbox{\hyperlink{class_dice}{Dice}} {\bfseries get\+Dice} () const
-\item 
-\mbox{\Hypertarget{class_attribute_af0a840f6dc53b006b25e4ab4a0c29956}\label{class_attribute_af0a840f6dc53b006b25e4ab4a0c29956}} 
-\mbox{\hyperlink{class_abilities}{Abilities}} {\bfseries get\+Abilities} () const
-\item 
+\mbox{\hyperlink{class_attribute_a8ba4e5a507aef352563e1e56f1930e66}{Attribute}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_attribute}{Attribute}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_attribute_ada5599f73612aec39215106862ab3272}{Attribute}} (const ATTRIBUTES \&input\+Name, const QVector$<$ QString $>$ \&abilities\+Names, const \mbox{\hyperlink{class_dice}{Dice}} \&input\+Dice)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_attribute}{Attribute}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_attribute_a436298f738c846234e81bc83a522b887}{Attribute}} (const ATTRIBUTES \&input\+Name, const QVector$<$ QString $>$ \&abilities\+Names, const \mbox{\hyperlink{class_dice}{Dice}} \&input\+Dice, const qint16 \&new\+Abilities\+Lvl\+Sum)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_attribute}{Attribute}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_attribute_a4b861f047cc7122875921d782a17ba73}{set\+Name}} (const ATTRIBUTES \&new\+Name)
+\begin{DoxyCompactList}\small\item\em set\+Name \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_attribute_a64219d7e0b87c3134c6c32da8e88274d}{set\+Dice}} (const \mbox{\hyperlink{class_dice}{Dice}} \&new\+Dice)
+\begin{DoxyCompactList}\small\item\em set\+Dice \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_attribute_a47f16349e07df3993d43b8863027933c}{set\+Abilities}} (const QVector$<$ QString $>$ \&abilities\+Names)
+\begin{DoxyCompactList}\small\item\em set\+Abilities \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_attribute_a74c703117b5808f4879ba20634e6f681}{set\+Abilities\+Lvl\+Sum}} (const qint16 \&new\+Sum)
+\begin{DoxyCompactList}\small\item\em set\+Abilities\+Lvl\+Sum \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_attribute_a1eb654a352299b49be2b41ad29308b43}{add\+Abilities\+Lvl\+Sum}} ()
+\begin{DoxyCompactList}\small\item\em add\+Abilities\+Lvl\+Sum \end{DoxyCompactList}\item 
+ATTRIBUTES \mbox{\hyperlink{class_attribute_adb35e1178053f193a5d3bf24216dca25}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em get\+Name \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_dice}{Dice}} \mbox{\hyperlink{class_attribute_a624c7d141bb9195b1733246310c9ae67}{get\+Dice}} () const
+\begin{DoxyCompactList}\small\item\em get\+Dice \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_abilities}{Abilities}} \mbox{\hyperlink{class_attribute_af0a840f6dc53b006b25e4ab4a0c29956}{get\+Abilities}} () const
+\begin{DoxyCompactList}\small\item\em get\+Abilities \end{DoxyCompactList}\item 
+qint16 \mbox{\hyperlink{class_attribute_a2b16766c09b34c07e7f7bdf2e65f3cdb}{getabilities\+Lvl\+Sum}} () const
+\begin{DoxyCompactList}\small\item\em getabilities\+Lvl\+Sum \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_attribute_a98dbea4fb4c17c8e6dd966fccc639cb4}{roll\+Abilities\+Lvl}} ()
+\begin{DoxyCompactList}\small\item\em roll\+Abilities\+Lvl \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_attribute_a7ec195f1e934726fae8930e8fb437070}{roll\+Abilities\+Lvl}} (qint16 new\+Abilities\+Lvl\+Sum)
+\begin{DoxyCompactList}\small\item\em roll\+Abilities\+Lvl \end{DoxyCompactList}\item 
 QDom\+Element \mbox{\hyperlink{class_attribute_ad977c5a0fea57498ec7d5cc1822461ea}{Xml\+Serialize}} (QDom\+Document \&doc) const override
 \begin{DoxyCompactList}\small\item\em Implements process of objects serialization. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_attribute_af0cba1e77ffab56c163b8933bb4cb110}{Xml\+Deserialize}} (const QDom\+Element \&element) override
@@ -40,9 +53,215 @@ void \mbox{\hyperlink{class_attribute_af0cba1e77ffab56c163b8933bb4cb110}{Xml\+De
 
 
 \doxysubsection{Detailed Description}
-Represents one attribute of NPC character. 
+The \mbox{\hyperlink{class_attribute}{Attribute}} class. 
+
+Represents one attribute of NPC character, stores abilities of this attribute, can reroll abilities lvl
+
+Uses \mbox{\hyperlink{class_abilities}{Abilities}} class to contain abilities, also uses it to roll abilities lvl points Uses attributes enum with names to store it\textquotesingle{}s name Uses \mbox{\hyperlink{class_dice}{Dice}} class to store dice type 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_attribute_a8ba4e5a507aef352563e1e56f1930e66}\label{class_attribute_a8ba4e5a507aef352563e1e56f1930e66}} 
+\index{Attribute@{Attribute}!Attribute@{Attribute}}
+\index{Attribute@{Attribute}!Attribute@{Attribute}}
+\doxysubsubsection{\texorpdfstring{Attribute()}{Attribute()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Attribute\+::\+Attribute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\mbox{\hyperlink{class_attribute}{Attribute}}. 
+
+Creates empty attribute \mbox{\Hypertarget{class_attribute_ada5599f73612aec39215106862ab3272}\label{class_attribute_ada5599f73612aec39215106862ab3272}} 
+\index{Attribute@{Attribute}!Attribute@{Attribute}}
+\index{Attribute@{Attribute}!Attribute@{Attribute}}
+\doxysubsubsection{\texorpdfstring{Attribute()}{Attribute()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Attribute\+::\+Attribute (\begin{DoxyParamCaption}\item[{const ATTRIBUTES \&}]{input\+Name,  }\item[{const QVector$<$ QString $>$ \&}]{abilities\+Names,  }\item[{const \mbox{\hyperlink{class_dice}{Dice}} \&}]{input\+Dice }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\mbox{\hyperlink{class_attribute}{Attribute}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+Name} & \\
+\hline
+{\em abilities\+Names} & \\
+\hline
+{\em input\+Dice} & \\
+\hline
+\end{DoxyParams}
+Creates attribute with name, abilities, dice, but without abilities lvl points \mbox{\Hypertarget{class_attribute_a436298f738c846234e81bc83a522b887}\label{class_attribute_a436298f738c846234e81bc83a522b887}} 
+\index{Attribute@{Attribute}!Attribute@{Attribute}}
+\index{Attribute@{Attribute}!Attribute@{Attribute}}
+\doxysubsubsection{\texorpdfstring{Attribute()}{Attribute()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Attribute\+::\+Attribute (\begin{DoxyParamCaption}\item[{const ATTRIBUTES \&}]{input\+Name,  }\item[{const QVector$<$ QString $>$ \&}]{abilities\+Names,  }\item[{const \mbox{\hyperlink{class_dice}{Dice}} \&}]{input\+Dice,  }\item[{const qint16 \&}]{new\+Abilities\+Lvl\+Sum }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\mbox{\hyperlink{class_attribute}{Attribute}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+Name} & \\
+\hline
+{\em abilities\+Names} & \\
+\hline
+{\em input\+Dice} & \\
+\hline
+{\em new\+Abilities\+Lvl\+Sum} & \\
+\hline
+\end{DoxyParams}
+Creates attribute with name, abilities, dice, abilities lvl points 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_attribute_a1eb654a352299b49be2b41ad29308b43}\label{class_attribute_a1eb654a352299b49be2b41ad29308b43}} 
+\index{Attribute@{Attribute}!addAbilitiesLvlSum@{addAbilitiesLvlSum}}
+\index{addAbilitiesLvlSum@{addAbilitiesLvlSum}!Attribute@{Attribute}}
+\doxysubsubsection{\texorpdfstring{addAbilitiesLvlSum()}{addAbilitiesLvlSum()}}
+{\footnotesize\ttfamily void Attribute\+::add\+Abilities\+Lvl\+Sum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+add\+Abilities\+Lvl\+Sum 
+
+Increases abilities\+Lvl\+Sum by one
+
+Needed for parrent\textquotesingle{}s rolling function \mbox{\Hypertarget{class_attribute_af0a840f6dc53b006b25e4ab4a0c29956}\label{class_attribute_af0a840f6dc53b006b25e4ab4a0c29956}} 
+\index{Attribute@{Attribute}!getAbilities@{getAbilities}}
+\index{getAbilities@{getAbilities}!Attribute@{Attribute}}
+\doxysubsubsection{\texorpdfstring{getAbilities()}{getAbilities()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_abilities}{Abilities}} Attribute\+::get\+Abilities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get\+Abilities 
+
+\begin{DoxyReturn}{Returns}
+class which contains all attribute\textquotesingle{}s abilities 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_attribute_a2b16766c09b34c07e7f7bdf2e65f3cdb}\label{class_attribute_a2b16766c09b34c07e7f7bdf2e65f3cdb}} 
+\index{Attribute@{Attribute}!getabilitiesLvlSum@{getabilitiesLvlSum}}
+\index{getabilitiesLvlSum@{getabilitiesLvlSum}!Attribute@{Attribute}}
+\doxysubsubsection{\texorpdfstring{getabilitiesLvlSum()}{getabilitiesLvlSum()}}
+{\footnotesize\ttfamily qint16 Attribute\+::getabilities\+Lvl\+Sum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+getabilities\+Lvl\+Sum 
+
+\begin{DoxyReturn}{Returns}
+sum of lvl points from all attribute\textquotesingle{}s abilities 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_attribute_a624c7d141bb9195b1733246310c9ae67}\label{class_attribute_a624c7d141bb9195b1733246310c9ae67}} 
+\index{Attribute@{Attribute}!getDice@{getDice}}
+\index{getDice@{getDice}!Attribute@{Attribute}}
+\doxysubsubsection{\texorpdfstring{getDice()}{getDice()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_dice}{Dice}} Attribute\+::get\+Dice (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get\+Dice 
+
+\begin{DoxyReturn}{Returns}
+attribute\textquotesingle{}s dice 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_attribute_adb35e1178053f193a5d3bf24216dca25}\label{class_attribute_adb35e1178053f193a5d3bf24216dca25}} 
+\index{Attribute@{Attribute}!getName@{getName}}
+\index{getName@{getName}!Attribute@{Attribute}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily ATTRIBUTES Attribute\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get\+Name 
+
+\begin{DoxyReturn}{Returns}
+attribute\textquotesingle{}s name 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_attribute_a98dbea4fb4c17c8e6dd966fccc639cb4}\label{class_attribute_a98dbea4fb4c17c8e6dd966fccc639cb4}} 
+\index{Attribute@{Attribute}!rollAbilitiesLvl@{rollAbilitiesLvl}}
+\index{rollAbilitiesLvl@{rollAbilitiesLvl}!Attribute@{Attribute}}
+\doxysubsubsection{\texorpdfstring{rollAbilitiesLvl()}{rollAbilitiesLvl()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Attribute\+::roll\+Abilities\+Lvl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+roll\+Abilities\+Lvl 
+
+Takes param abilities\+Lvl\+Sum and calls abilities roll\+Abilites\+Lvl function \mbox{\Hypertarget{class_attribute_a7ec195f1e934726fae8930e8fb437070}\label{class_attribute_a7ec195f1e934726fae8930e8fb437070}} 
+\index{Attribute@{Attribute}!rollAbilitiesLvl@{rollAbilitiesLvl}}
+\index{rollAbilitiesLvl@{rollAbilitiesLvl}!Attribute@{Attribute}}
+\doxysubsubsection{\texorpdfstring{rollAbilitiesLvl()}{rollAbilitiesLvl()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Attribute\+::roll\+Abilities\+Lvl (\begin{DoxyParamCaption}\item[{qint16}]{new\+Abilities\+Lvl\+Sum }\end{DoxyParamCaption})}
+
+
+
+roll\+Abilities\+Lvl 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Abilities\+Lvl\+Sum} & \\
+\hline
+\end{DoxyParams}
+Does the same as basic fucntion call and set\+Abilities\+Lvl\+Sum at once \mbox{\Hypertarget{class_attribute_a47f16349e07df3993d43b8863027933c}\label{class_attribute_a47f16349e07df3993d43b8863027933c}} 
+\index{Attribute@{Attribute}!setAbilities@{setAbilities}}
+\index{setAbilities@{setAbilities}!Attribute@{Attribute}}
+\doxysubsubsection{\texorpdfstring{setAbilities()}{setAbilities()}}
+{\footnotesize\ttfamily void Attribute\+::set\+Abilities (\begin{DoxyParamCaption}\item[{const QVector$<$ QString $>$ \&}]{abilities\+Names }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set\+Abilities 
+
+
+\begin{DoxyParams}{Parameters}
+{\em all} & abilities names \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_attribute_a74c703117b5808f4879ba20634e6f681}\label{class_attribute_a74c703117b5808f4879ba20634e6f681}} 
+\index{Attribute@{Attribute}!setAbilitiesLvlSum@{setAbilitiesLvlSum}}
+\index{setAbilitiesLvlSum@{setAbilitiesLvlSum}!Attribute@{Attribute}}
+\doxysubsubsection{\texorpdfstring{setAbilitiesLvlSum()}{setAbilitiesLvlSum()}}
+{\footnotesize\ttfamily void Attribute\+::set\+Abilities\+Lvl\+Sum (\begin{DoxyParamCaption}\item[{const qint16 \&}]{new\+Sum }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set\+Abilities\+Lvl\+Sum 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new} & lvl points to distribute between abilities \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_attribute_a64219d7e0b87c3134c6c32da8e88274d}\label{class_attribute_a64219d7e0b87c3134c6c32da8e88274d}} 
+\index{Attribute@{Attribute}!setDice@{setDice}}
+\index{setDice@{setDice}!Attribute@{Attribute}}
+\doxysubsubsection{\texorpdfstring{setDice()}{setDice()}}
+{\footnotesize\ttfamily void Attribute\+::set\+Dice (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_dice}{Dice}} \&}]{new\+Dice }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set\+Dice 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new} & \mbox{\hyperlink{class_dice}{Dice}} type \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_attribute_a4b861f047cc7122875921d782a17ba73}\label{class_attribute_a4b861f047cc7122875921d782a17ba73}} 
+\index{Attribute@{Attribute}!setName@{setName}}
+\index{setName@{setName}!Attribute@{Attribute}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily void Attribute\+::set\+Name (\begin{DoxyParamCaption}\item[{const ATTRIBUTES \&}]{new\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set\+Name 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new} & attribute name \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_attribute_af0cba1e77ffab56c163b8933bb4cb110}\label{class_attribute_af0cba1e77ffab56c163b8933bb4cb110}} 
 \index{Attribute@{Attribute}!XmlDeserialize@{XmlDeserialize}}
 \index{XmlDeserialize@{XmlDeserialize}!Attribute@{Attribute}}
@@ -85,7 +304,7 @@ Implements process of objects serialization.
 
 
 \begin{DoxyParams}{Parameters}
-{\em doc} & Usually provided by parent object in the process of cascading serialization.\\
+{\em doc} & Usually provided by parent object in the process of cascade serialization.\\
 \hline
 \end{DoxyParams}
 \hypertarget{class_trait_example}{}\doxysubparagraph{Example serialization\+:}\label{class_trait_example}

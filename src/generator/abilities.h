@@ -19,80 +19,51 @@ private:
     QVector<Ability> abilities;
 public:
     /*!
-     * \brief Abilities
-     *
-     * Creates empty abilities element
+     * \brief Creates empty abilities element
      */
     Abilities(){};
     /*!
-     * \brief Abilities
+     * \brief Creates abilities with given names and 0 lvl
      * \param names
-     *
-     * Creates abilities with given names and 0 lvl
      */
     Abilities(const QVector<QString> & names);
 
     /*!
-     * \brief addAbility
+     * \brief Adds ability to abilities vector
      * \param newAbility
-     *
-     * Adds ability to abilities vector
      */
     void addAbility(const Ability & newAbility) {abilities.push_back(newAbility);};
     /*!
-     * \brief addAbility
+     * \brief Creates new ability with specific name and 0 lvl
      * \param newAbilityName
-     *
-     * Creates new ability with specific name and 0 lvl
      */
     void addAbility(const QString & newAbilityName) {abilities.push_back(Ability(newAbilityName));};
     /*!
-     * \brief addAbility
+     * \brief Creates new ability with specific name and lvl
      * \param newAbilityName
      * \param newAbilityLvl
-     *
-     * Creates new ability with specific name and lvl
      */
     void addAbility(const QString & newAbilityName, const qint16 & newAbilityLvl) {abilities.push_back(Ability(newAbilityName, newAbilityLvl));};
     /*!
-     * \brief removeAbility
+     * \brief Removes ability with specific name
      * \param name
-     *
-     * Removes ability with specific name
      */
     void removeAbility(const QString & name);
-    /*!
-     * \brief setAbilities
-     * \param vector with names of abilities
-     *
-     * Creates abilities
-     */
     void setAbilities(const QVector<QString> & names);
 
-    void clearAbilitiesLvlPoints();
+    /*!
+     * \brief Zeros lvl of all abilities
+     */
+    void clearLvl();
+
+
+    qint16 getAbilityLevel(const QString & name) const;
+    qint16 getAbilityLevel(const qint16 & index) const {return abilities[index].getLvl();};
+    QVector<Ability> getAbilites() const {return abilities;};
 
     /*!
-     * \brief getAbilityLevel
-     * \param name
-     * \return level of ability with specific name
-     */
-    qint16 getAbilityLevel(const QString & name) const;
-    /*!
-     * \brief getAbilityLevel
-     * \param index
-     * \return level of ability at sepcific index
-     */
-    qint16 getAbilityLevel(const qint16 & index) const {return abilities[index].getLvl();};
-    /*!
-     * \brief getAbilites
-     * \return vector with abilities
-     */
-    QVector<Ability> getAbilites() const {return abilities;};
-    /*!
-     * \brief rollAbilitesLvl
+     * \brief Rolls *points* times which ability needs to gain one more lvl point
      * \param points
-     *
-     * Rolls *points* times which ability needs to gain one more lvl point
      */
     void rollAbilitesLvl(const qint16 & points);
 

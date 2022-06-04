@@ -1,5 +1,14 @@
 \hypertarget{class_attributes}{}\doxysection{Attributes Class Reference}
 \label{class_attributes}\index{Attributes@{Attributes}}
+
+
+The \mbox{\hyperlink{class_attributes}{Attributes}} class.  
+
+
+
+
+{\ttfamily \#include $<$attributes.\+h$>$}
+
 Inheritance diagram for Attributes\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -14,12 +23,17 @@ QVector$<$ \mbox{\hyperlink{class_attribute}{Attribute}} $>$ {\bfseries get\+Att
 \item 
 \mbox{\Hypertarget{class_attributes_a77df21184156340251715e9d0ba6ea5f}\label{class_attributes_a77df21184156340251715e9d0ba6ea5f}} 
 qint16 {\bfseries calculate\+Points} ()
-\begin{DoxyCompactList}\small\item\em Calculates combined points from all attributes. \end{DoxyCompactList}\item 
+\item 
 QDom\+Element \mbox{\hyperlink{class_attributes_afb1ea49b99ebba73837641e16c0cea3e}{Xml\+Serialize}} (QDom\+Document \&doc) const override
 \begin{DoxyCompactList}\small\item\em Implements process of objects serialization. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_attributes_a4c602c761b86cb73cab447837331cef3}{Xml\+Deserialize}} (const QDom\+Element \&element) override
 \begin{DoxyCompactList}\small\item\em Implements process of objects deserialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_attributes}{Attributes}} class. 
+
+Contains all attributes, rolls distribution of ability lvl points between attributes 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_attributes_a4c602c761b86cb73cab447837331cef3}\label{class_attributes_a4c602c761b86cb73cab447837331cef3}} 
@@ -64,7 +78,7 @@ Implements process of objects serialization.
 
 
 \begin{DoxyParams}{Parameters}
-{\em doc} & Usually provided by parent object in the process of cascading serialization.\\
+{\em doc} & Usually provided by parent object in the process of cascade serialization.\\
 \hline
 \end{DoxyParams}
 \hypertarget{class_trait_example}{}\doxysubparagraph{Example serialization\+:}\label{class_trait_example}

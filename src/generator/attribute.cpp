@@ -10,12 +10,13 @@ void Attribute::rollAbilitiesLvl(qint16 newAbilitiesLvlSum){
     rollAbilitiesLvl();
 }
 
-QDomElement Attribute::XmlSerialize(QDomDocument &doc) const {
-    QDomElement element = doc.createElement("attribute");
+QDomElement Attribute::XmlSerialize() const {
+    QDomElement element;
+    element.setTagName("attribute");
 
     element.setAttribute("name", this->name);
-    element.appendChild(dice.XmlSerialize(doc));
-    element.appendChild(abilities.XmlSerialize(doc));
+    element.appendChild(dice.XmlSerialize());
+    element.appendChild(abilities.XmlSerialize());
     return element;
 }
 

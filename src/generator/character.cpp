@@ -33,17 +33,23 @@ void Character::rollDices(){
     dices.rollDices();
 }
 
-QDomElement Character::XmlSerialize(QDomDocument &doc) const{
+QDomElement Character::XmlSerialize() const{
     // Create character element
-    QDomElement element = doc.createElement("npc");
+    QDomElement element;
+    element.setTagName("character");
+
     // Serialize Overview
-    element.appendChild(this->overview.XmlSerialize(doc));
+    element.appendChild(this->overview.XmlSerialize());
     // Serialize Attributes
-    element.appendChild(this->attributes.XmlSerialize(doc));
+    element.appendChild(this->attributes.XmlSerialize());
     // Serialize Dices
-    element.appendChild(this->dices.XmlSerialize(doc));
+    element.appendChild(this->dices.XmlSerialize());
     // Serialize EdgesAndHindrances
-    element.appendChild(this->edgesAndHindrances.XmlSerialize(doc));
+    element.appendChild(this->edgesAndHindrances.XmlSerialize());
+
+    return element;
 };
 
 void Character::XmlDeserialize(const QDomElement &element){};
+
+bool Character::XmlValidate() const {return true;};

@@ -25,17 +25,20 @@ qint16 EdgesAndHindrances::countBalance() const {
 
 }
 
-QDomElement EdgesAndHindrances::XmlSerialize(QDomDocument &doc) const {
-    QDomElement element = doc.createElement("edgesAndHindrances");
+QDomElement EdgesAndHindrances::XmlSerialize() const {
+    QDomElement element;
+    element.setTagName("edgesAndHindrances");
 
-    QDomElement edgesElement = doc.createElement("edges");
+    QDomElement edgesElement;
+    edgesElement.setTagName("edges");
     for(auto &edge : Edges){
-        edgesElement.appendChild(edge.XmlSerialize(doc));
+        edgesElement.appendChild(edge.XmlSerialize());
     }
 
-    QDomElement hindrancesElement = doc.createElement("hindrances");
+    QDomElement hindrancesElement;
+    hindrancesElement.setTagName("hindrances");
     for(auto &hind : Hindrances){
-        hindrancesElement.appendChild(hind.XmlSerialize(doc));
+        hindrancesElement.appendChild(hind.XmlSerialize());
     }
 
     return element;

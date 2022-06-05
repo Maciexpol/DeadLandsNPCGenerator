@@ -23,7 +23,7 @@ public:
     QString getDescription() const
         {return description;}
 
-    QDomElement XmlSerialize(QDomDocument &doc) const override;
+    QDomElement XmlSerialize() const override;
     void XmlDeserialize(const QDomElement &element) override;
 };
 

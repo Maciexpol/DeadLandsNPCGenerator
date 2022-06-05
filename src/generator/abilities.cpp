@@ -48,7 +48,7 @@ void Abilities::rollAbilitesLvl(const qint16 & points){
     }
 }
 
-QDomElement Abilities::XmlSerialize(QDomDocument &doc) const {
+QDomElement Abilities::XmlSerialize() const {
     return {};
 }
 

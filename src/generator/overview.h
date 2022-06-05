@@ -29,7 +29,7 @@ public:
     QString getOrigin() const{return this->origin;}
     qint16 getAge() const{return this->age;}
 
-    QDomElement XmlSerialize(QDomDocument &doc) const override;
+    QDomElement XmlSerialize() const override;
     void XmlDeserialize(const QDomElement &element) override;
 };
 

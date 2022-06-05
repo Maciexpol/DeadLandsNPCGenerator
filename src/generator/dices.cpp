@@ -14,10 +14,11 @@ void Dices::sortDices() {
    // RollDices::Private::sortCards(dices);
 }
 
-QDomElement Dices::XmlSerialize(QDomDocument &doc) const {
-    QDomElement element = doc.createElement("dices");
+QDomElement Dices::XmlSerialize() const {
+    QDomElement element;
+    element.setTagName("dices");
     for(auto &dice : dices){
-        element.appendChild(dice.XmlSerialize(doc));
+        element.appendChild(dice.XmlSerialize());
     }
     return element;
 }

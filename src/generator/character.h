@@ -16,7 +16,8 @@
 class Character : Serializable
 {
 private:
-//    Remember to serialize newly added objects in XmlSerialize
+    // Remember to serialize newly added objects in XmlSerialize
+    qint32 uniqueID;
     Attributes attributes;
     Dices dices;
     EdgesAndHindrances edgesAndHindrances;
@@ -24,16 +25,17 @@ private:
 
 public:
     Character();
+    
+    qint32 getUniqueID() const {return this->uniqueID;};
+    Attributes getAttributes() const{return this->attributes;}
+    Dices getDices() const{return this->dices;};
+
+    QDomElement XmlSerialize() const override;
+    void XmlDeserialize(const QDomElement &element) override;
+    bool XmlValidate() const override;
 
     void rollCharacter();
-
-    Attributes getAttributes() const{return this->attributes;}
-    Dices getDices() const{return this->dices;}
-
     void rollDices();
-
-    QDomElement XmlSerialize(QDomDocument &doc) const override;
-    void XmlDeserialize(const QDomElement &element) override;
 };
 
 #endif // CHARACTER_H

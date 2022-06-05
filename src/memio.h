@@ -5,8 +5,8 @@
 #include <QString>
 #include <QFile>
 #include <QFileDialog>
-
-#include "./sessions/session.h"
+#include <QDir>
+#include <QMessageBox>
 
 /*!
  *  \brief Provides saving and reading options for application objects.
@@ -18,6 +18,7 @@ namespace MemIO{
 
     extern QString mainSaveFolder;
     extern QString sessionsSavingFolder;
+    extern QString charactersSavingFolder;
 
     /*!
      * \brief Creates folder structure for entire program
@@ -34,18 +35,34 @@ namespace MemIO{
 
     /*!
      * \brief Saves session to file
-     * \param session Session to save
+     * \param node Serialized session to save
      */
-    void save(const Session &session);
+    bool saveSession(QDomElement node);
+
+    /*!
+     * \brief Saves character to file
+     * \param node Serialized character to save
+     */
+    bool saveCharacter(QDomElement node);
 
     /*!
      * @brief Loads session from file.
-     * @param session object on which deserialization will be performed.
-     * @return Whether operation was successful or not.
+     * @param filename name of the file in which wanted session is stored (normally it will be session name)
+     * @return Serialized session object
      */
-    bool load(Session &session);
+    QDomElement loadSession(QString &fileName);
+
+    //TODO: ADD BETTER OPIS
+    /*!
+     * @brief Loads character from file.
+     * @param character object on which deserialization will be performed.
+     * @param characterUniqueID unique ID of wanted character
+     * @return Serialized character object
+     */
+    QDomElement load(QString &uniqueID);
 
     QVector<QVector<QString>> loadAbilities();
+
 }
 
 #endif // MEMIO_H

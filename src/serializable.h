@@ -16,23 +16,23 @@ class Serializable
 public:
     /*!
      * \brief Implements process of objects serialization
-     * \param doc Usually provided by parent object in the process of cascade serialization.
      *
      * \paragraph example Example serialization:
      * \code{.cpp}
-            QDomElement Attribute::XmlSerialize(QDomDocument &doc) const {
-                QDomElement element = doc.createElement("attribute");
+            QDomElement Attribute::XmlSerialize() const {
+                QDomElement element;
+                element.setTagName("attribute");
 
                 element.setAttribute("name", this->name);
-                element.appendChild(dice.XmlSerialize(doc));
-                element.appendChild(abilities.XmlSerialize(doc));
+                element.appendChild(dice.XmlSerialize());
+                element.appendChild(abilities.XmlSerialize());
                 return element;
             }
      * \endcode
      *
      * \return Serialized object
      */
-    virtual QDomElement XmlSerialize(QDomDocument &doc) const = 0;
+    virtual QDomElement XmlSerialize() const = 0;
 
     /*!
      * \brief Implements process of objects deserialization

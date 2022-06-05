@@ -1,4 +1,5 @@
 #include "memio.h"
+#include <iostream>
 #include <QDir>
 #include <QMessageBox>
 
@@ -36,7 +37,7 @@ bool saveToFile(const QDomElement &root, const QString &path){
     QTextStream stream(&file);
     stream << document.toString();
     file.close();
-    qDebug("Saved on disk");
+    std::cout << "Saved '" << root.nodeValue().toStdString() << "' to '" << path.toStdString() + '/' + root.nodeValue().toStdString() + ".xml" << std::endl;
     return true;
 }
 
@@ -61,17 +62,15 @@ QDomElement loadSession(QString &fileName){
 }
 
 QDomElement loadCharacter(QString &uniqueID){
-//    QFile file(charactersSavingFolder + "/" + characterUniqueID);
-//    if(!file.open(QIODevice::ReadOnly)){
-//        qDebug("Error opening character file.");
-//        return false;
-//    }
-//    QDomDocument doc;
-//    doc.setContent(&file);
-//    file.close();
-//    QDomElement node= doc.firstChildElement();
-//    character.XmlDeserialize(node);
-//    return true;
+    QFile file(charactersSavingFolder + "/" + uniqueID);
+    if(!file.open(QIODevice::ReadOnly)){
+        qDebug("Error opening character file.");
+        return {};
+    }
+    QDomDocument doc;
+    doc.setContent(&file);
+    file.close();
+    return doc.firstChildElement();
 }
 
     QVector<QVector<QString>> loadAbilities(){

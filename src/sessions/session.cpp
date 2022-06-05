@@ -1,6 +1,8 @@
 #include "session.h"
 #include "sessioncharacter.h"
 
+#include <iostream>
+
 Session::Session() = default;
 Session::Session(const QString &name, const QString &description, const QDate &date, const qint16 &npcCount){
     this->name = name;
@@ -15,8 +17,7 @@ void Session::addCharacter(const qint32 &id, const QString &name) {
 
 QDomElement Session::XmlSerialize() const{
     // Create session element and add basic attributes
-    QDomElement element;
-    element.setTagName("session");
+    QDomElement element = QDomDocument().createElement("session");
     element.setAttribute("name", this->name);
     element.setAttribute("description", this->description);
     element.setAttribute("creationDate", this->creationDate.toString());

@@ -21,8 +21,10 @@ std::ostream& operator<<(std::ostream& out, const ATTRIBUTES value){
 }
 
 void Attribute::rollAbilitiesLvl(){
-    clearAbilitiesLvl();
-    abilities.rollAbilitesLvl(abilitiesLvlSum);
+    if(hasAbilities()){
+        clearAbilitiesLvl();
+        abilities.rollAbilitesLvl(abilitiesLvlSum);
+    }
 }
 
 void Attribute::rollAbilitiesLvl(qint16 newAbilitiesLvlSum){

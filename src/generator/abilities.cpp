@@ -36,14 +36,14 @@ void Abilities::clearLvl(){
 void Abilities::rollAbilitesLvl(const qint16 & points){
     // cleaning abilities
     clearLvl();
-    // random generator init
-    auto rng = std::default_random_engine {};
-    // function returns random indexes of abilities
-    std::uniform_int_distribution<qint16> num(0, abilities.length()-1);
+
+    std::random_device rd;   // non-deterministic generator
+    std::mt19937 gen(rd());  // to seed mersenne twister.
+    std::uniform_int_distribution<> num(0, abilities.length()-1); // distribute results between 1 and 6 inclusive.
 
     // randomly increasing abillities lvl by one
     for(qint16 i = 0; i < points; i++){
-        qint16 index = num(rng);
+        qint16 index = num(gen);
         abilities[index].addLvlPoint();
     }
 }

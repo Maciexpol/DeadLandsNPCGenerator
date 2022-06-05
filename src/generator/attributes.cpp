@@ -43,7 +43,8 @@ qint16 Attributes::generateLvlPoints(){
 
 void Attributes::clearAttributesLvlPoints(){
     for(auto & at : attributes){
-        at.clearAbilitiesLvl();
+        if(at.hasAbilities())
+            at.clearAbilitiesLvl();
     }
 }
 
@@ -51,19 +52,27 @@ void Attributes::rollAttributesLvlPoints(const qint16 & characterLvlPoints){
     // reseting lvl of all abilities in all attributes
     clearAttributesLvlPoints();
     // random generator init
-    auto rng = std::default_random_engine {};
-    // function returns random indexes of abilities
-    std::uniform_int_distribution<qint16> num(0, attributes.length());
+
+    std::random_device rd;   // non-deterministic generator
+    std::mt19937 gen(rd());  // to seed mersenne twister.
+    std::uniform_int_distribution<> num(0, attributes.length()-1); // distribute results between 1 and 6 inclusive.
 
     // randomly increasing abillities lvl by one
     for(qint16 i = 0; i < characterLvlPoints; i++){
-        qint16 index = num(rng);
+        qint16 index = num(gen);
+
+        // rolling as long as we find attribute with abilities
+        while(attributes[index].hasAbilities() == 0){
+            index = num(gen);
+        }
+
         attributes[index].increaseAbilitiesLvlSum();
     }
 
     // rolling abilities inside of abilities
     for(auto & at : attributes){
-        at.rollAbilitiesLvl();
+        if(at.hasAbilities())
+            at.rollAbilitiesLvl();
     }
 }
 
@@ -74,7 +83,8 @@ void Attributes::stdPrint(){
 }
 
 QDomElement Attributes::XmlSerialize() const {
-    QDomElement element = QDomDocument().createElement("attributes");
+    QDomElement element;
+    element.setTagName("attributes");
 
     for(auto &attribute : attributes){
         element.appendChild(attribute.XmlSerialize());

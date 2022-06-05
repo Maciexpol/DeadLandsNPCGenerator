@@ -27,18 +27,10 @@ public:
 
     bool operator == (Dice a)
         {return number == a.getNumber() and sides == a.getSides();}
-
-    bool operator < (Dice a)
-        {return number < a.getNumber() and sides <= a.getSides();}
-
-    bool operator > (Dice a)
-        {return number > a.getNumber() and sides >= a.getSides();}
-
-    bool operator <= (Dice a)
-        {return number <= a.getNumber() and sides <= a.getSides();}
-
-    bool operator >= (Dice a)
-        {return number >= a.getNumber() and sides >= a.getSides();}
+    bool operator < (Dice a);
+    bool operator > (Dice a);
+    bool operator <= (Dice a);
+    bool operator >= (Dice a);
 
     QDomElement XmlSerialize() const override;
     void XmlDeserialize(const QDomElement &element) override;

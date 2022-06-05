@@ -31,9 +31,10 @@ QVector<Card> RollDices::Private::rollCards(){
     // generate "deck" - numbers
     QVector<qint16> numbers = RollDices::generateBasicDeck();
 
-    // shuffle the deck
-    auto rng = std::default_random_engine {};
-    std::shuffle(std::begin(numbers), std::end(numbers), rng);
+    std::random_device rd;   // non-deterministic generator
+    std::mt19937 gen(rd());  // to seed mersenne twister.
+
+    std::shuffle(std::begin(numbers), std::end(numbers), gen);
 
     // translate numbers and make real deck
     QVector<Card> deck = RollDices::Private::translateNumbers(numbers);

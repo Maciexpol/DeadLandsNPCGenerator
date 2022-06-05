@@ -11,16 +11,16 @@ int main(int argc, char *argv[])
     MainWindow w;
     SessionManager sessionManager;
 
-    // ============ tests
-//    Character newCharacter = Character();
-//
-//    // Std Character overview
-//    for(int i = 0; i < 3; i++){
-//        newCharacter.stdPrint();
-//        std::cout << std::endl << std::endl << std::endl << std::endl << std::endl;
-//        newCharacter.rollCharacter();
-//    }
-    // =========== end test
+    //============ tests
+    Character newCharacter = Character();
+
+    // Std Character overview
+    for(int i = 0; i < 3; i++){
+        newCharacter.stdPrint();
+        std::cout << std::endl << std::endl << std::endl << std::endl << std::endl;
+        newCharacter.rollCharacter();
+    }
+    //=========== end test
 
     Character character;
     w.createConnections(sessionManager, character);

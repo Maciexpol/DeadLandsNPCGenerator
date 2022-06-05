@@ -67,6 +67,11 @@ public:
      */
     void rollAbilitesLvl(const qint16 & points);
 
+    /*!
+     * \brief Print all abilities on standard output
+     */
+    void stdPrint();
+
     QDomElement XmlSerialize() const override;
     void XmlDeserialize(const QDomElement &element) override;
 };

@@ -67,6 +67,12 @@ void Attributes::rollAttributesLvlPoints(const qint16 & characterLvlPoints){
     }
 }
 
+void Attributes::stdPrint(){
+    for(auto & at : attributes){
+        at.stdPrint();
+    }
+}
+
 QDomElement Attributes::XmlSerialize() const {
     QDomElement element;
     element.setTagName("attributes");

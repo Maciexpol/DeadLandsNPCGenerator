@@ -33,6 +33,20 @@ void Character::rollDices(){
     dices.rollDices();
 }
 
+void Character::stdPrint(){
+    // TODO:
+    //  1. print overview + ID
+    //  2. print dices
+    //  3. print attributes and abilities
+    //  4. print edges and hindrances
+
+    // 2. print dices
+    dices.stdPrint();
+
+    // 3. print attributes and abilities
+    attributes.stdPrint();
+}
+
 QDomElement Character::XmlSerialize() const{
     // Create character element
     QDomElement element;

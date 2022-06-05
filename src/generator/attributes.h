@@ -35,7 +35,16 @@ public:
      */
     void clearAttributesLvlPoints();
 
+    /*!
+     * \brief Counts lvl points from dices of cognition, knowledge and smarts attributes
+     * \return numbers of lvl points to spend
+     */
     qint16 generateLvlPoints();
+
+    /*!
+     * \brief Prints all attributes and all theirs abilities
+     */
+    void stdPrint();
 
     QDomElement XmlSerialize() const override;
     void XmlDeserialize(const QDomElement &element) override;

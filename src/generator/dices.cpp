@@ -11,7 +11,14 @@ void Dices::rollDices(){
 }
 
 void Dices::sortDices() {
-   // RollDices::Private::sortCards(dices);
+    RollDices::sortDices(dices);
+}
+
+void Dices::stdPrint(){
+    for(auto & d : dices){
+        std::cout << "  " << d;
+    }
+    std::cout << std::endl;
 }
 
 QDomElement Dices::XmlSerialize() const {

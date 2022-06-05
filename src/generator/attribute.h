@@ -90,6 +90,11 @@ public:
      */
     void rollAbilitiesLvl(qint16 newAbilitiesLvlSum);
 
+    /*!
+     * \brief Print whole character on standard output with all it's abilities
+     */
+    void stdPrint();
+
     QDomElement XmlSerialize() const override;
     void XmlDeserialize(const QDomElement &element) override;
 };

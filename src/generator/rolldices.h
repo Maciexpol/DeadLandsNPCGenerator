@@ -17,6 +17,8 @@ namespace RollDices {
         QVector<Card> selectCards(QVector<Card> deck);
     }
 
+    void sortDices(QVector<Dice> & dices);
+
     QVector<qint16> generateBasicDeck();
     /*!
      * \brief translateCards

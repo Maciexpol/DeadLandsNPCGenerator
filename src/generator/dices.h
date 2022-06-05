@@ -20,6 +20,8 @@ public:
     QVector<Dice> getDices() const {return dices;};
     Dice getDice(qint16 index) const {return dices[index];};
 
+    void stdPrint();
+
     QDomElement XmlSerialize() const override;
     void XmlDeserialize(const QDomElement &element) override;
 

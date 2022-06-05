@@ -3,12 +3,22 @@
 #include "src/generator/character.h"
 
 #include <QApplication>
+#include <iostream>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
     SessionManager sessionManager;
+    Character newCharacter = Character();
+
+    // Std Character overview
+    for(int i = 0; i < 3; i++){
+        newCharacter.stdPrint();
+        std::cout << std::endl << std::endl << std::endl << std::endl << std::endl;
+        newCharacter.rollCharacter();
+    }
+
     w.createConnections(sessionManager);
     w.setWindowState(Qt::WindowMaximized);
     w.show();

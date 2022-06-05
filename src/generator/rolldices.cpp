@@ -92,6 +92,10 @@ QVector<Dice> RollDices::translateCards(QVector<Card> deck){
     return dices;
 }
 
+void RollDices::sortDices(QVector<Dice> & dices){
+    std::sort(dices.begin(), dices.end());
+}
+
 QVector<Dice> RollDices::generateDices(){
     QVector<Card> cards = RollDices::Private::rollCards();
     cards = RollDices::Private::selectCards(cards);

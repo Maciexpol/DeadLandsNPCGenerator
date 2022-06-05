@@ -48,6 +48,13 @@ void Abilities::rollAbilitesLvl(const qint16 & points){
     }
 }
 
+void Abilities::stdPrint(){
+    for(auto & ab : abilities){
+        std::cout << "\t";
+        ab.stdPrint();
+    }
+}
+
 QDomElement Abilities::XmlSerialize() const {
     return {};
 }

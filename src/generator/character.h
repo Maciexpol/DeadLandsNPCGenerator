@@ -30,6 +30,8 @@ public:
     Attributes getAttributes() const{return this->attributes;}
     Dices getDices() const{return this->dices;};
 
+    void stdPrint();
+
     QDomElement XmlSerialize() const override;
     void XmlDeserialize(const QDomElement &element) override;
     bool XmlValidate() const override;

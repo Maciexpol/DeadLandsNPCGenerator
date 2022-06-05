@@ -2,6 +2,7 @@
 #define ABILITY_H
 
 #include "QString"
+#include <iostream>
 
 
 /*!
@@ -49,6 +50,11 @@ public:
      * \brief Zeros lvl
      */
     void clearLvl() {lvl = 0;};
+
+    /*!
+     * \brief Print ability on standard output
+     */
+    void stdPrint() {std::cout << name.toStdString() << " - " << lvl << std::endl;};
 };
 
 #endif // ABILITY_H

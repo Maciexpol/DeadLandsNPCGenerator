@@ -58,6 +58,10 @@ void MainWindow::updateSessionInfo(const Session& session){
     this->ui->sessionDescription->setText(session.getDescription());
 }
 
+void MainWindow::updateCharacterInfo(const Character &character) {
+
+}
+
 void MainWindow::on_actionSessionNew_triggered()
 {
     emit createNewSession();

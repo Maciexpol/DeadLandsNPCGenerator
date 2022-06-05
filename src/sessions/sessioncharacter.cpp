@@ -5,8 +5,7 @@
 #include "sessioncharacter.h"
 
 QDomElement SessionCharacter::XmlSerialize() const {
-    QDomElement element;
-    element.setTagName("sessionCharacter");
+    QDomElement element = QDomDocument().createElement("sessionCharacter");
 
     element.setAttribute("uniqueID", this->uniqueID);
     element.setAttribute("name", this->name);

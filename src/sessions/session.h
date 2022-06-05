@@ -37,7 +37,7 @@ public:
     void addCharacter(const qint32 &id, const QString &name);
     void removeCharacter(const qint32 &id);
 
-    QDomElement XmlSerialize(QDomDocument &doc) const override;
+    QDomElement XmlSerialize() const override;
     void XmlDeserialize(const QDomElement &element) override;
     bool XmlValidate() const override;
 };

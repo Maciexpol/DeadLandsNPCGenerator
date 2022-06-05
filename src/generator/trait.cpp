@@ -7,8 +7,9 @@ Trait::Trait(qint16 inputPoints, QString inputName, QString inputDescription)
     description = inputDescription;
 }
 
-QDomElement Trait::XmlSerialize(QDomDocument &doc) const {
-    QDomElement element = doc.createElement("trait");
+QDomElement Trait::XmlSerialize() const {
+    QDomElement element;
+    element.setTagName("trait");
 
     element.setAttribute("points", this->points);
     element.setAttribute("name", this->name);

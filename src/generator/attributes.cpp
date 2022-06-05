@@ -68,11 +68,12 @@ void Attributes::rollAttributesLvlPoints(const qint16 & characterLvlPoints){
     }
 }
 
-QDomElement Attributes::XmlSerialize(QDomDocument &doc) const {
-    QDomElement element = doc.createElement("attributes");
+QDomElement Attributes::XmlSerialize() const {
+    QDomElement element;
+    element.setTagName("attributes");
 
     for(auto &attribute : attributes){
-        element.appendChild(attribute.XmlSerialize(doc));
+        element.appendChild(attribute.XmlSerialize());
     }
     return element;
 }

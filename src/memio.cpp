@@ -2,6 +2,9 @@
 #include <QDir>
 #include <QMessageBox>
 
+class Character;
+class Session;
+
 namespace MemIO{
     QString mainSaveFolder = "./saves";
     QString sessionsSavingFolder = "./saves/sessions";
@@ -15,10 +18,14 @@ void createFolderStructure(){
     // Check if sessions saving folder exists
     if(!QDir(sessionsSavingFolder).exists())
         QDir().mkdir(sessionsSavingFolder);
+
+    //Check if characters saving folder exists
+    if(!QDir(charactersSavingFolder).exists())
+        QDir().mkdir(charactersSavingFolder);
 }
 
 bool saveToFile(const QDomElement &root, const QString &path){
-    QDomDocument document("MyDocument");
+    QDomDocument document("doc");
     document.appendChild(root);
 
     QFile file(path + '/' + root.nodeValue() + ".xml");
@@ -33,63 +40,38 @@ bool saveToFile(const QDomElement &root, const QString &path){
     return true;
 }
 
-void save(const Session &session){
-    if(!session.XmlValidate()){
-        QMessageBox message;
-        message.setText("Cannot save session, check if name is present.");
-        message.exec();
-        return;
-    }
-    QDomDocument doc("MyDocument");
-    QDomElement root = session.XmlSerialize(doc);
-    root.setNodeValue(session.getName());
-    saveToFile(root, sessionsSavingFolder);
+bool saveSession(QDomElement node){
+    return saveToFile(node, sessionsSavingFolder);
 }
 
-void save(const Character &character){
-    if(!character.XmlValidate()){
-        //TODO: IDK if I have to check this tbh, better leave it here for now
-        QMessageBox message;
-        message.setText("Cannot save character.");
-        message.exec();
-        return;
-    }
-    QDomDocument doc("MyDocument");
-    QDomElement root = character.XmlSerialize(doc);
-    root.setNodeValue(QString::number(character.getUniqueID()));
-    saveToFile(root, charactersSavingFolder);
+bool saveCharacter(QDomElement node){
+    return saveToFile(node, charactersSavingFolder);
 }
 
-bool load(Session &session){
-    QString filename = QFileDialog::getOpenFileName(nullptr,
-                                                    "Choose session.",
-                                                    MemIO::sessionsSavingFolder,
-                                                    "XML files (*.xml)");
-    QFile file(filename);
+QDomElement loadSession(QString &fileName){
+    QFile file(fileName);
     if(!file.open(QIODevice::ReadOnly)){
         qDebug("Error opening session file.");
-        return false;
+        return {};
     }
     QDomDocument document;
     document.setContent(&file);
     file.close();
-    QDomElement node = document.firstChildElement();
-    session.XmlDeserialize(node);
-    return true;
+    return document.firstChildElement();
 }
 
-bool load(Character &character, const QString &characterUniqueID){
-    QFile file(charactersSavingFolder + "/" + characterUniqueID);
-    if(!file.open(QIODevice::ReadOnly)){
-        qDebug("Error opening character file.");
-        return false;
-    }
-    QDomDocument doc;
-    doc.setContent(&file);
-    file.close();
-    QDomElement node= doc.firstChildElement();
-    character.XmlDeserialize(node);
-    return true;
+QDomElement loadCharacter(QString &uniqueID){
+//    QFile file(charactersSavingFolder + "/" + characterUniqueID);
+//    if(!file.open(QIODevice::ReadOnly)){
+//        qDebug("Error opening character file.");
+//        return false;
+//    }
+//    QDomDocument doc;
+//    doc.setContent(&file);
+//    file.close();
+//    QDomElement node= doc.firstChildElement();
+//    character.XmlDeserialize(node);
+//    return true;
 }
 
     QVector<QVector<QString>> loadAbilities(){
@@ -119,32 +101,4 @@ bool load(Character &character, const QString &characterUniqueID){
         }
         return attributesVector;
     }
-
-QVector<QVector<QString>> loadAbilities(){
-    QDomDocument readerDoc;
-    QFile file(":/files/attributes.xml");
-    if(!file.open(QIODevice::ReadOnly)){
-        qDebug("Error loading file!");
-        return {};
-    }
-    readerDoc.setContent(&file);
-    file.close();
-
-    QDomElement attributes = readerDoc.documentElement();
-    QVector<QVector<QString>> attributesVector;
-
-    // For each attribute
-    QDomElement attribute = attributes.firstChildElement();
-    while(!attribute.isNull()){
-        QVector<QString> abilities;
-        QDomElement ability = attribute.firstChildElement();
-        while(!ability.isNull()){
-            abilities.append(ability.attribute("name", ""));
-            ability = ability.nextSiblingElement();
-        }
-        attributesVector.append(abilities);
-        attribute = attribute.nextSiblingElement();
-    }
-    return attributesVector;
-}
 }

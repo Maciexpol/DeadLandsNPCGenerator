@@ -6,7 +6,7 @@
 #include "dices.h"
 #include "attribute.h"
 #include "src/serializable.h"
-//#include "src/memio.h"
+#include "src/memio.h"
 
 /*!
  * \brief Contains all attributes, rolls distribution of ability lvl points between attributes

@@ -8,8 +8,6 @@
 #include <QDir>
 #include <QMessageBox>
 
-#include "./sessions/session.h"
-
 /*!
  *  \brief Provides saving and reading options for application objects.
  *
@@ -37,24 +35,31 @@ namespace MemIO{
 
     /*!
      * \brief Saves session to file
-     * \param session Session to save
+     * \param node Serialized session to save
      */
-    void save(const Session &session);
+    bool saveSession(QDomElement node);
+
+    /*!
+     * \brief Saves character to file
+     * \param node Serialized character to save
+     */
+    bool saveCharacter(QDomElement node);
 
     /*!
      * @brief Loads session from file.
-     * @param session object on which deserialization will be performed.
-     * @return Whether operation was successful or not.
+     * @param filename name of the file in which wanted session is stored (normally it will be session name)
+     * @return Serialized session object
      */
-    bool load(Session &session);
+    QDomElement loadSession(QString &fileName);
 
+    //TODO: ADD BETTER OPIS
     /*!
      * @brief Loads character from file.
      * @param character object on which deserialization will be performed.
      * @param characterUniqueID unique ID of wanted character
-     * @return Whether operation was successful or not.
+     * @return Serialized character object
      */
-    bool load(Character &character, const QString &characterUniqueID);
+    QDomElement load(QString &uniqueID);
 
     QVector<QVector<QString>> loadAbilities();
 

@@ -67,7 +67,7 @@ public:
      */
     void rollAbilitesLvl(const qint16 & points);
 
-    QDomElement XmlSerialize(QDomDocument &doc) const override;
+    QDomElement XmlSerialize() const override;
     void XmlDeserialize(const QDomElement &element) override;
 };
 

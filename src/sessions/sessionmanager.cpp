@@ -1,3 +1,4 @@
+#include <QMessageBox>
 #include "sessionmanager.h"
 
 SessionManager::SessionManager() : _isActive(false)
@@ -19,7 +20,7 @@ void SessionManager::setActiveSession(const Session &session){
 void SessionManager::saveCurrentSession(){
     // Break if there is no active session
     if(!_isActive) return;
-    MemIO::save(activeSession);
+    MemIO::saveSession(activeSession.XmlSerialize());
 }
 
 void SessionManager::createNewSession(){
@@ -54,6 +55,19 @@ void SessionManager::closeCurrentSession() {
 void SessionManager::openNewSession() {
     this->saveCurrentSession();
     Session newSession = Session();
-    if(MemIO::load(newSession))
+    // Get session name
+    QString sessionName = QFileDialog::getOpenFileName(nullptr,
+                                                       "Choose session.",
+                                                       MemIO::sessionsSavingFolder,
+                                                       "XML files (*.xml)");
+    QDomElement sessionElement = MemIO::loadSession(sessionName);
+    if(!sessionElement.isNull()){
+        newSession.XmlDeserialize(sessionElement);
         setActiveSession(newSession);
+    }
+    else{
+        QMessageBox msgBox;
+        msgBox.setText("Could not load session.");
+        msgBox.exec();
+    }
 }

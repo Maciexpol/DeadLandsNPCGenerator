@@ -28,9 +28,9 @@ public:
     
     qint32 getUniqueID() const {return this->uniqueID;};
     Attributes getAttributes() const{return this->attributes;}
-    Dices getDices() const{return this->dices;
+    Dices getDices() const{return this->dices;};
 
-    QDomElement XmlSerialize(QDomDocument &doc) const override;
+    QDomElement XmlSerialize() const override;
     void XmlDeserialize(const QDomElement &element) override;
     bool XmlValidate() const override;
 

@@ -36,7 +36,7 @@ public:
     bool operator >= (Dice a)
         {return number >= a.getNumber() and sides >= a.getSides();}
 
-    QDomElement XmlSerialize(QDomDocument &doc) const override;
+    QDomElement XmlSerialize() const override;
     void XmlDeserialize(const QDomElement &element) override;
 };
 

@@ -38,6 +38,9 @@ public slots:
     void saveCurrentSession();
     void closeCurrentSession();
 
+    //Character
+    void addCharacterToSession(const qint32 &id, const QString &name);
+
 signals:
     void updateSessionInfo(Session session);
 

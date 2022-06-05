@@ -13,8 +13,10 @@
  *
  * Holds character data and manages its' generation.
  */
-class Character : Serializable
+class Character : public QObject, Serializable
 {
+    Q_OBJECT
+
 private:
     // Remember to serialize newly added objects in XmlSerialize
     qint32 uniqueID;
@@ -36,6 +38,19 @@ public:
 
     void rollCharacter();
     void rollDices();
+
+public slots:
+    void addCharacterToSession();
+    void generateCharacter();
+
+signals:
+    //Signals to MainWindow
+    void updateCharacterInfo(const Character&);
+
+    //Signals to SessionManager
+    void addCharacter(const qint32, const QString);
+    void removeCharacter(const qint32);
+
 };
 
 #endif // CHARACTER_H

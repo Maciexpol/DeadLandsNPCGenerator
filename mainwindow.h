@@ -16,11 +16,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    void createConnections(const SessionManager &sessionManager) const;
+    void createConnections(const SessionManager &sessionManager, const Character &character) const;
 
 private slots:
 
     void updateSessionInfo(const Session& session);
+    void updateCharacterInfo(const Character& character);
 
     void on_actionSessionNew_triggered();
 
@@ -30,11 +31,24 @@ private slots:
 
     void on_actionSessionOpen_triggered();
 
+    void on_actionAdd_to_session_triggered();
+
+    void on_actionGenerate_triggered();
+
+    void on_rerollCharacter_clicked();
+
+    void on_addToSession_clicked();
+
 signals:
+    //Session manager signals
     void createNewSession();
     void saveCurrentSession();
     void closeCurrentSession();
     void openNewSession();
+
+    //Character signals
+    void addCharacterToSession();
+    void reRollCharacter();
 
 private:
     Ui::MainWindow *ui;

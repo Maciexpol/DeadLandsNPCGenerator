@@ -33,6 +33,14 @@ void Character::rollDices(){
     dices.rollDices();
 }
 
+void Character::addCharacterToSession() {
+    emit addCharacter(this->uniqueID, this->overview.getFirstName() + " " + this->overview.getLastName());
+}
+
+void Character::generateCharacter() {
+    this->rollCharacter();
+}
+
 QDomElement Character::XmlSerialize() const{
     // Create character element
     QDomElement element;

@@ -140,14 +140,22 @@
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
             <item>
-             <widget class="QPushButton" name="pushButton">
+             <widget class="QPushButton" name="rerollCharacter">
               <property name="text">
-               <string>PushButton</string>
+               <string>Generate</string>
               </property>
              </widget>
             </item>
             <item>
-             <layout class="QGridLayout" name="gridLayout"/>
+             <layout class="QGridLayout" name="gridLayout">
+              <item row="0" column="0">
+               <widget class="QPushButton" name="addToSession">
+                <property name="text">
+                 <string>Add to session</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </item>
            </layout>
           </widget>
@@ -1125,6 +1133,8 @@
     <property name="toolTipsVisible">
      <bool>false</bool>
     </property>
+    <addaction name="actionGenerate"/>
+    <addaction name="actionAdd_to_session"/>
    </widget>
    <addaction name="menuSession"/>
    <addaction name="menuCharacter"/>
@@ -1171,6 +1181,16 @@
    </property>
    <property name="toolTip">
     <string>Close current session</string>
+   </property>
+  </action>
+  <action name="actionAdd_to_session">
+   <property name="text">
+    <string>Add to session</string>
+   </property>
+  </action>
+  <action name="actionGenerate">
+   <property name="text">
+    <string>Generate</string>
    </property>
   </action>
  </widget>

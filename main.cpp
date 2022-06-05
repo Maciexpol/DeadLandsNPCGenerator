@@ -9,7 +9,8 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     MainWindow w;
     SessionManager sessionManager;
-    w.createConnections(sessionManager);
+    Character character;
+    w.createConnections(sessionManager, character);
     w.setWindowState(Qt::WindowMaximized);
     w.show();
     return a.exec();

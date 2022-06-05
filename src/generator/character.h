@@ -36,6 +36,19 @@ public:
 
     void rollCharacter();
     void rollDices();
+
+public slots:
+    void addCharacterToSession();
+    void generateCharacter();
+
+signals:
+    //Signals to MainWindow
+    void updateCharacterInfo();
+
+    //Signals to SessionManager
+    void addCharacter(const qint32 &id, const QString &name);
+    void removeCharacter(const qint32 &id);
+
 };
 
 #endif // CHARACTER_H

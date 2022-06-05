@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include <QStringListModel>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -53,13 +54,14 @@ void MainWindow::createConnections(const SessionManager &sessionManager, const C
     QObject::connect(&character, &Character::addCharacter, &sessionManager, &SessionManager::addCharacterToSession);
 }
 
-void MainWindow::updateSessionInfo(const Session& session){
+void MainWindow::updateSessionInfo(const Session& session, QStringListModel *listModel){
     this->ui->sessionName->setText(session.getName());
     this->ui->sessionDescription->setText(session.getDescription());
+    this->ui->npcView->setModel(listModel);
 }
 
 void MainWindow::updateCharacterInfo(const Character &character) {
-
+    this->ui->NameInput->setText(character.getOverview().getFirstName() + character.getOverview().getLastName());
 }
 
 void MainWindow::on_actionSessionNew_triggered()

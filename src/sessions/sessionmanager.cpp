@@ -8,13 +8,19 @@ SessionManager::SessionManager() : _isActive(false)
                                        QDate::currentDate(),
                                        69);
     activeSession = placeholderSession;
-    updateSessionInfo(activeSession);
+    listModel = new QStringListModel();
+    createListModel();
+    emit updateSessionInfo(activeSession, listModel);
+}
+
+SessionManager::~SessionManager(){
+    delete listModel;
 }
 
 void SessionManager::setActiveSession(const Session &session){
     this->activeSession = session;
     this->_isActive = true;
-    emit updateSessionInfo(getActiveSession());
+    emit updateSessionInfo(activeSession, listModel);
 }
 
 void SessionManager::saveCurrentSession(){
@@ -42,6 +48,7 @@ void SessionManager::createNewSession(){
 
 
     Session newSession = Session(name, description, QDate::currentDate(), 0);
+    createListModel();
     this->setActiveSession(newSession);
 }
 
@@ -49,7 +56,8 @@ void SessionManager::closeCurrentSession() {
     this->saveCurrentSession();
     activeSession = placeholderSession;
     _isActive = false;
-    updateSessionInfo(activeSession);
+    createListModel();
+    emit updateSessionInfo(activeSession, listModel);
 }
 
 void SessionManager::openNewSession() {
@@ -64,6 +72,8 @@ void SessionManager::openNewSession() {
     if(!sessionElement.isNull()){
         newSession.XmlDeserialize(sessionElement);
         setActiveSession(newSession);
+        createListModel();
+        updateSessionInfo(activeSession, listModel);
     }
     else{
         QMessageBox msgBox;
@@ -74,4 +84,14 @@ void SessionManager::openNewSession() {
 
 void SessionManager::addCharacterToSession(const qint32 &id, const QString &name) {
     activeSession.addCharacter(id, name);
+    createListModel();
+    updateSessionInfo(activeSession, listModel);
+}
+
+void SessionManager::createListModel() {
+    QStringList stringList;
+    for(auto &str : activeSession.getCharacters()){
+        stringList << str.getName();
+    }
+    listModel->setStringList(stringList);
 }

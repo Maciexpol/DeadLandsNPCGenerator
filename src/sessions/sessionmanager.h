@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QProgressDialog>
 #include <QInputDialog>
+#include <QStringListModel>
 #include "../memio.h"
 #include "session.h"
 
@@ -22,14 +23,18 @@ private:
     bool _isActive;
     Session activeSession;
     Session placeholderSession;
+    QStringListModel *listModel;
 
     void setActiveSession(const Session &session);
 
 public:
     SessionManager();
+    ~SessionManager();
 
     bool isActive() const{return this->_isActive;};
     Session getActiveSession() const{return this->activeSession;};
+
+    void createListModel();
 
 public slots:
     void createNewSession();
@@ -42,7 +47,7 @@ public slots:
     void addCharacterToSession(const qint32 &id, const QString &name);
 
 signals:
-    void updateSessionInfo(Session session);
+    void updateSessionInfo(Session, QStringListModel*);
 
 };
 

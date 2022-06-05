@@ -53,7 +53,7 @@ void Attributes::rollAttributesLvlPoints(const qint16 & characterLvlPoints){
     // random generator init
     auto rng = std::default_random_engine {};
     // function returns random indexes of abilities
-    std::uniform_int_distribution<qint16> num(0, attributes.length());
+    std::uniform_int_distribution<qint16> num(0, attributes.length()-1);
 
     // randomly increasing abillities lvl by one
     for(qint16 i = 0; i < characterLvlPoints; i++){

@@ -1,14 +1,16 @@
 #include "session.h"
 #include "sessioncharacter.h"
 
-#include <iostream>
-
 Session::Session() = default;
 Session::Session(const QString &name, const QString &description, const QDate &date, const qint16 &npcCount){
     this->name = name;
     this->description = description;
     this->creationDate = date;
     this->npcCount = npcCount;
+
+    this->characters.append(SessionCharacter(10, "Byniu"));
+    this->characters.append(SessionCharacter(12, "Byniu2"));
+    this->characters.append(SessionCharacter(14, "Byniu3"));
 }
 
 void Session::addCharacter(const qint32 &id, const QString &name) {

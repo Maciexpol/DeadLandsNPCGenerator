@@ -22,8 +22,8 @@ void Dices::stdPrint(){
 }
 
 QDomElement Dices::XmlSerialize() const {
-    QDomElement element;
-    element.setTagName("dices");
+    QDomElement element = QDomDocument().createElement("dices");
+;
     for(auto &dice : dices){
         element.appendChild(dice.XmlSerialize());
     }

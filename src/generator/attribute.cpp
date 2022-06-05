@@ -36,10 +36,11 @@ void Attribute::stdPrint(){
 }
 
 QDomElement Attribute::XmlSerialize() const {
-    QDomElement element;
-    element.setTagName("attribute");
+    QDomElement element = QDomDocument().createElement("attribute");
 
+    // WARNING: Dealing with enum, might not work
     element.setAttribute("name", this->name);
+    element.setAttribute("lvlSum", this->abilitiesLvlSum);
     element.appendChild(dice.XmlSerialize());
     element.appendChild(abilities.XmlSerialize());
     return element;

@@ -27,8 +27,8 @@ Dice::Dice(Card card)
 }
 
 QDomElement Dice::XmlSerialize() const {
-    QDomElement element;
-    element.setTagName("dice");
+    QDomElement element = QDomDocument().createElement("dice");
+
     element.setAttribute("number", this->number);
     element.setAttribute("sides", this->sides);
     return element;

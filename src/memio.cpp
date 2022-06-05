@@ -75,7 +75,7 @@ QDomElement loadCharacter(QString &uniqueID){
 
     QVector<QVector<QString>> loadAbilities(){
         QDomDocument readerDoc;
-        QFile file(":/files/attributes.xml");
+        QFile file(":/files/resources/attributes.xml");
         if(!file.open(QIODevice::ReadOnly)){
             qDebug("Error loading file!");
             return {};

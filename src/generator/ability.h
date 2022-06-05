@@ -3,6 +3,7 @@
 
 #include "QString"
 #include <iostream>
+#include "src/serializable.h"
 
 
 /*!
@@ -10,7 +11,7 @@
  * \brief Contains name of the ability and it's level
  *
  */
-class Ability
+class Ability : Serializable
 {
 private:
     QString name;
@@ -55,6 +56,9 @@ public:
      * \brief Print ability on standard output
      */
     void stdPrint() {std::cout << name.toStdString() << " - " << lvl << std::endl;};
+
+    QDomElement XmlSerialize() const override;
+    void XmlDeserialize(const QDomElement &element) override;
 };
 
 #endif // ABILITY_H

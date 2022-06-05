@@ -6,8 +6,7 @@ Overview::Overview()
 }
 
 QDomElement Overview::XmlSerialize() const {
-    QDomElement element;
-    element.setTagName("overview");
+    QDomElement element = QDomDocument().createElement("overview");
 
     element.setAttribute("first_name", this->first_name);
     element.setAttribute("last_name", this->last_name);

@@ -56,7 +56,11 @@ void Abilities::stdPrint(){
 }
 
 QDomElement Abilities::XmlSerialize() const {
-    return {};
+    QDomElement element = QDomDocument().createElement("abilities");
+    for(auto &ability : this->abilities){
+        element.appendChild(ability.XmlSerialize());
+    }
+    return element;
 }
 
 void Abilities::XmlDeserialize(const QDomElement &element) {

@@ -29,10 +29,10 @@ enum ATTRIBUTES {
 class Attribute : Serializable
 {
 private:
+    qint16 abilitiesLvlSum;
     ATTRIBUTES name;
     Dice dice;
     Abilities abilities;
-    qint16 abilitiesLvlSum;
 
 public:
     /*!

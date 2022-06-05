@@ -12,14 +12,14 @@ int main(int argc, char *argv[])
     SessionManager sessionManager;
 
     // ============ tests
-    Character newCharacter = Character();
-
-    // Std Character overview
-    for(int i = 0; i < 3; i++){
-        newCharacter.stdPrint();
-        std::cout << std::endl << std::endl << std::endl << std::endl << std::endl;
-        newCharacter.rollCharacter();
-    }
+//    Character newCharacter = Character();
+//
+//    // Std Character overview
+//    for(int i = 0; i < 3; i++){
+//        newCharacter.stdPrint();
+//        std::cout << std::endl << std::endl << std::endl << std::endl << std::endl;
+//        newCharacter.rollCharacter();
+//    }
     // =========== end test
 
     Character character;

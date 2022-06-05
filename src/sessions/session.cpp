@@ -24,12 +24,10 @@ QDomElement Session::XmlSerialize() const{
     element.setAttribute("npcCount", this->npcCount);
 
     // Serialize all characters in this session
-    QDomElement npcs;
-    npcs.setTagName("characters");
+    QDomElement npcs = QDomDocument().createElement("characters");
     for(auto &npc : this->characters){
         npcs.appendChild(npc.XmlSerialize());
     }
-
     // Add serialized characters
     element.appendChild(npcs);
 

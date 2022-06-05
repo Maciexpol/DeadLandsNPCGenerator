@@ -57,8 +57,9 @@ void Character::generateCharacter() {
 
 QDomElement Character::XmlSerialize() const{
     // Create character element
-    QDomElement element;
-    element.setTagName("character");
+    QDomElement element = QDomDocument().createElement("character");
+
+    element.setAttribute("uniqueID", this->uniqueID);
 
     // Serialize Overview
     element.appendChild(this->overview.XmlSerialize());

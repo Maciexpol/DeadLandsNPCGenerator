@@ -71,3 +71,7 @@ void SessionManager::openNewSession() {
         msgBox.exec();
     }
 }
+
+void SessionManager::addCharacterToSession(const qint32 &id, const QString &name) {
+    activeSession.addCharacter(id, name);
+}

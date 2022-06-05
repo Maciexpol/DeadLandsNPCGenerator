@@ -10,6 +10,8 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     MainWindow w;
     SessionManager sessionManager;
+
+    // ============ tests
     Character newCharacter = Character();
 
     // Std Character overview
@@ -18,8 +20,10 @@ int main(int argc, char *argv[])
         std::cout << std::endl << std::endl << std::endl << std::endl << std::endl;
         newCharacter.rollCharacter();
     }
+    // =========== end test
 
-    w.createConnections(sessionManager);
+    Character character;
+    w.createConnections(sessionManager, character);
     w.setWindowState(Qt::WindowMaximized);
     w.show();
     return a.exec();

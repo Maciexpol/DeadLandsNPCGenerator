@@ -48,6 +48,7 @@ void Character::stdPrint(){
 }
 
 void Character::addCharacterToSession() {
+    emit updateCharacterInfo(*this);
     emit addCharacter(this->uniqueID, this->overview.getFirstName() + " " + this->overview.getLastName());
 }
 

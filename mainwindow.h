@@ -20,7 +20,7 @@ public:
 
 private slots:
 
-    void updateSessionInfo(const Session& session);
+    void updateSessionInfo(const Session& session, QStringListModel *listModel);
     void updateCharacterInfo(const Character& character);
 
     void on_actionSessionNew_triggered();

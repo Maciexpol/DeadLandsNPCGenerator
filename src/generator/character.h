@@ -31,6 +31,8 @@ public:
     qint32 getUniqueID() const {return this->uniqueID;};
     Attributes getAttributes() const{return this->attributes;}
     Dices getDices() const{return this->dices;};
+    EdgesAndHindrances getEdgesAndHindrances() const{return this->edgesAndHindrances;};
+    Overview getOverview() const{return this->overview;};
 
     void stdPrint();
 

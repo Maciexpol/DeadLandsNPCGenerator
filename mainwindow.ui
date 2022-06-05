@@ -46,7 +46,7 @@
         <property name="title">
          <string>Session</string>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,1,0,0,3,1">
+        <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,1,0,0,0,1">
          <item>
           <widget class="QLabel" name="sessionName">
            <property name="sizePolicy">
@@ -119,7 +119,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QListWidget" name="npcList"/>
+          <widget class="QListView" name="npcView"/>
          </item>
          <item>
           <widget class="QGroupBox" name="characterControls">
@@ -186,7 +186,7 @@
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_16" stretch="2,7">
          <item>
-          <layout class="QVBoxLayout" name="backgroundLayout" stretch="2,0">
+          <layout class="QVBoxLayout" name="backgroundLayout" stretch="1,4">
            <item>
             <widget class="QGroupBox" name="OverviewBox">
              <property name="title">

@@ -2,10 +2,10 @@
 
 Attributes::Attributes(const qint16 & characterLvlPoints, const Dices & dices){
 
-    return;
-    QVector<QVector<QString>> abilities{};
+//    return;
+//    QVector<QVector<QString>> abilities{};
 
-//    QVector<QVector<QString>> abilities = MemIO::loadAbilities();
+    QVector<QVector<QString>> abilities = MemIO::loadAbilities();
     for(qint16 i = 0; i < 10; i++){
         attributes.push_back(Attribute(ATTRIBUTES(i), abilities[i], dices.getDice(i)));
     }
@@ -13,11 +13,10 @@ Attributes::Attributes(const qint16 & characterLvlPoints, const Dices & dices){
 }
 
 Attributes::Attributes(const Dices & dices){
-    return;
+//    return;
+//    QVector<QVector<QString>> abilities{};
 
-
-//    QVector<QVector<QString>> abilities = MemIO::loadAbilities();
-    QVector<QVector<QString>> abilities{};
+    QVector<QVector<QString>> abilities = MemIO::loadAbilities();
     for(qint16 i = 0; i < 10; i++){
         attributes.push_back(Attribute(ATTRIBUTES(i), abilities[i], dices.getDice(i)));
     }

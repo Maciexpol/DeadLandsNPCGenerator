@@ -48,12 +48,16 @@ void Character::stdPrint(){
 }
 
 void Character::addCharacterToSession() {
-    emit updateCharacterInfo(*this);
-    emit addCharacter(this->uniqueID, this->overview.getFirstName() + " " + this->overview.getLastName());
+    SessionCharacter character(this->uniqueID, "Kurwibąk" + this->overview.getFirstName());
+    emit addCharacter(character);
 }
 
 void Character::generateCharacter() {
     this->rollCharacter();
+}
+
+void Character::loadCharacter(const SessionCharacter &) {
+
 }
 
 QDomElement Character::XmlSerialize() const{
@@ -76,4 +80,4 @@ QDomElement Character::XmlSerialize() const{
 
 void Character::XmlDeserialize(const QDomElement &element){};
 
-bool Character::XmlValidate() const {return true;};
+bool Character::XmlValidate() const {return true;}

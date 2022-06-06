@@ -24,6 +24,7 @@ int main(int argc, char *argv[])
 
     Character character;
     w.createConnections(sessionManager, character);
+    sessionManager.updateSessionInfo(sessionManager);
     w.setWindowState(Qt::WindowMaximized);
     w.show();
     return a.exec();

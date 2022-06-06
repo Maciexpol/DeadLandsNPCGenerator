@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "./src/sessions/sessionmanager.h"
+#include "src/generator/character.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,9 +20,10 @@ public:
     void createConnections(const SessionManager &sessionManager, const Character &character) const;
 
 private slots:
-
-    void updateSessionInfo(const Session& session, QStringListModel *listModel);
+    void linkCharacterList(QStringListModel *list);
+    void updateSessionInfo(const SessionManager& session);
     void updateCharacterInfo(const Character& character);
+    void tempStatusBar(QString message);
 
     void on_actionSessionNew_triggered();
 
@@ -39,6 +41,8 @@ private slots:
 
     void on_addToSession_clicked();
 
+    void on_deleteFromSession_clicked();
+
 signals:
     //Session manager signals
     void createNewSession();
@@ -48,6 +52,7 @@ signals:
 
     //Character signals
     void addCharacterToSession();
+    void deleteCharacterFromSession(QModelIndex);
     void reRollCharacter();
 
 private:

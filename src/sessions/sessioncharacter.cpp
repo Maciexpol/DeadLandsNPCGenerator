@@ -4,6 +4,11 @@
 
 #include "sessioncharacter.h"
 
+QString SessionCharacter::toStr() {
+    QString str = QString::number(uniqueID) + "-" + name;
+    return str;
+}
+
 QDomElement SessionCharacter::XmlSerialize() const {
     QDomElement element = QDomDocument().createElement("sessionCharacter");
 

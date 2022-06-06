@@ -55,7 +55,6 @@ set(PROJECT_SOURCES
         src/generator/ability.h src/generator/ability.cpp
 
         # -- sessions system
-        src/sessions/session.h src/sessions/session.cpp
         src/sessions/sessionmanager.h src/sessions/sessionmanager.cpp
         src/sessions/sessioncharacter.cpp src/sessions/sessioncharacter.h)
 

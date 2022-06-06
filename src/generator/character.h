@@ -1,7 +1,10 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
+#include <QModelIndex>
+
 #include "src/serializable.h"
+#include "src/sessions/sessioncharacter.h"
 #include "attributes.h"
 #include "dices.h"
 #include "edgesandhindrances.h"
@@ -46,13 +49,14 @@ public:
 public slots:
     void addCharacterToSession();
     void generateCharacter();
+    void loadCharacter(const SessionCharacter&);
 
 signals:
     //Signals to MainWindow
     void updateCharacterInfo(const Character&);
 
     //Signals to SessionManager
-    void addCharacter(const qint32, const QString);
+    void addCharacter(SessionCharacter&);
     void removeCharacter(const qint32);
 
 };

@@ -20,6 +20,8 @@ public:
     qint32 getUniqueID() const{return this->uniqueID;};
     QString getName() const{return this->name;};
 
+    QString toStr();
+
     QDomElement XmlSerialize() const override;
     void XmlDeserialize(const QDomElement &element) override;
 };

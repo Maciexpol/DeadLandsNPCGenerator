@@ -6,7 +6,7 @@
 #include <QInputDialog>
 #include <QStringListModel>
 #include "../memio.h"
-#include "session.h"
+#include "sessioncharacter.h"
 
 /*!
  * \brief Core of the session system. Manages sessions.
@@ -15,26 +15,40 @@
  * It is also responsible for updating MainWindow with session information.
  *
  */
-class SessionManager : public QObject
+class SessionManager : public QObject, Serializable
 {
     Q_OBJECT
 
 private:
-    bool _isActive;
-    Session activeSession;
-    Session placeholderSession;
-    QStringListModel *listModel;
+    QString defaultSessionName;
+    //Session specific fields
+    QString name;
+    QString description;
+    QDate creationDate;
+    qint16 npcCount;
+    QVector<SessionCharacter> characters;
 
-    void setActiveSession(const Session &session);
+    //Managing fields
+    bool isActive;
+    QStringListModel *characterModel;
+
+    void setSessionData(QString newName, QString newDescription, QDate newDate, qint16 newCount);
+    void createCharacterModel();
+    void updateInfo();
 
 public:
     SessionManager();
     ~SessionManager();
 
-    bool isActive() const{return this->_isActive;};
-    Session getActiveSession() const{return this->activeSession;};
+    QString getName() const{return this->name;};
+    QString getDescription() const{return this->description;};
+    QDate getCreationDate() const{return this->creationDate;};
+    qint16 getNpcCount() const{return this->npcCount;};
+    QStringListModel* getCharacterModel() const{return this->characterModel;};
+    QVector<SessionCharacter> getCharacters() const{return this->characters;};
 
-    void createListModel();
+    QDomElement XmlSerialize() const override;
+    void XmlDeserialize(const QDomElement &element) override;
 
 public slots:
     void createNewSession();
@@ -42,13 +56,17 @@ public slots:
     //void deleteCurrentSession();
     void saveCurrentSession();
     void closeCurrentSession();
+    void listDoubleClicked(const QModelIndex &index);
 
     //Character
-    void addCharacterToSession(const qint32 &id, const QString &name);
+    void addCharacter(const SessionCharacter &character);
+    void deleteCharacterFromSession(QModelIndex);
 
 signals:
-    void updateSessionInfo(Session, QStringListModel*);
-
+    void linkCharacterList(QStringListModel*);
+    void updateSessionInfo(SessionManager&);
+    void tempStatusBar(QString);
+    void loadCharacter(const SessionCharacter&);
 };
 
 #endif // SESSIONMANAGER_H

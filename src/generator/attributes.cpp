@@ -74,6 +74,7 @@ void Attributes::stdPrint(){
 }
 
 QDomElement Attributes::XmlSerialize() const {
+    //XD
     QDomElement element = QDomDocument().createElement("attributes");
 
     for(auto &attribute : attributes){

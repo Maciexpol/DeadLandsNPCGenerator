@@ -139,8 +139,8 @@ void SessionManager::deleteCharacterFromSession(QModelIndex index) {
     QMessageBox box;
     box.setText("Are you sure you want to delete this character?");
     box.setInformativeText(npc.toStr());
-    box.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
-    box.setDefaultButton(QMessageBox::Cancel);
+    box.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    box.setDefaultButton(QMessageBox::No);
     int ret = box.exec();
 
     if (ret == 0x00004000){

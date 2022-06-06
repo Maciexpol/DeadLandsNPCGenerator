@@ -4,21 +4,22 @@
 
 #include "sessioncharacter.h"
 
-QString SessionCharacter::toStr() {
-    QString str = QString::number(uniqueID) + "-" + name;
-    return str;
+QString SessionCharacter::toStr() const{
+    return QString::number(uniqueID)+"_"+this->first_name+"_"+this->last_name;
 }
 
 QDomElement SessionCharacter::XmlSerialize() const {
     QDomElement element = QDomDocument().createElement("sessionCharacter");
 
     element.setAttribute("uniqueID", this->uniqueID);
-    element.setAttribute("name", this->name);
+    element.setAttribute("firstName", this->first_name);
+    element.setAttribute("lastName", this->last_name);
 
     return element;
 }
 
 void SessionCharacter::XmlDeserialize(const QDomElement &element) {
     this->uniqueID = static_cast<qint32>(element.attribute("uniqueID", "0").toULong());
-    this->name = element.attribute("name", "UNKNOWN");
+    this->first_name = element.attribute("firstName", "UNKNOWN");
+    this->last_name = element.attribute("lastName", "UNKNOWN");
 }

@@ -59,7 +59,7 @@ namespace MemIO{
      * @param characterUniqueID unique ID of wanted character
      * @return Serialized character object
      */
-    QDomElement load(QString &uniqueID);
+    QDomElement loadCharacter(QString uniqueID);
 
     QVector<QVector<QString>> loadAbilities();
 

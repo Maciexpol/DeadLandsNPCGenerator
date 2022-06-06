@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1286</width>
+    <width>1319</width>
     <height>651</height>
    </rect>
   </property>
@@ -1126,7 +1126,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1286</width>
+     <width>1319</width>
      <height>21</height>
     </rect>
    </property>
@@ -1164,6 +1164,9 @@
    <property name="toolTip">
     <string>Create new session</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
   </action>
   <action name="actionSessionOpen">
    <property name="text">
@@ -1172,6 +1175,9 @@
    <property name="toolTip">
     <string>Open other session</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
   </action>
   <action name="actionSessionDelete">
    <property name="text">
@@ -1179,6 +1185,9 @@
    </property>
    <property name="toolTip">
     <string>Delete current session</string>
+   </property>
+   <property name="shortcut">
+    <string>Del</string>
    </property>
   </action>
   <action name="actionSessionSave">
@@ -1208,6 +1217,9 @@
   <action name="actionGenerate">
    <property name="text">
     <string>Generate</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
    </property>
   </action>
  </widget>

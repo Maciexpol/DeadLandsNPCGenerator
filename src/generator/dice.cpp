@@ -35,5 +35,6 @@ QDomElement Dice::XmlSerialize() const {
 }
 
 void Dice::XmlDeserialize(const QDomElement &element) {
-
+    this->number = static_cast<qint16>(element.attribute("number", "0").toInt());
+    this->sides = static_cast<qint16>(element.attribute("sides", "0").toInt());
 }

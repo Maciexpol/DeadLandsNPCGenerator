@@ -38,6 +38,11 @@ public:
     Overview getOverview() const{return this->overview;};
 
     void stdPrint();
+    void updateInfo();
+
+    //Reimplement this function also in SessionCharacter
+    QString toStr() const;
+    SessionCharacter toSessionCharacter() const;
 
     QDomElement XmlSerialize() const override;
     void XmlDeserialize(const QDomElement &element) override;
@@ -49,6 +54,7 @@ public:
 public slots:
     void addCharacterToSession();
     void generateCharacter();
+    void saveCharacter();
     void loadCharacter(const SessionCharacter&);
 
 signals:
@@ -57,7 +63,9 @@ signals:
 
     //Signals to SessionManager
     void addCharacter(SessionCharacter&);
-    void removeCharacter(const qint32);
+
+    //Probably should be removed, idk
+    //void removeCharacter(const qint32);
 
 };
 

@@ -31,4 +31,12 @@ QDomElement Dices::XmlSerialize() const {
 }
 
 void Dices::XmlDeserialize(const QDomElement &element) {
+    dices.clear();
+    QDomElement node = element.firstChildElement();
+    while(!node.isNull()){
+        Dice dice;
+        dice.XmlDeserialize(node);
+        dices.append(dice);
+        node = node.nextSiblingElement();
+    }
 }

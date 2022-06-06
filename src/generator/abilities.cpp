@@ -64,5 +64,12 @@ QDomElement Abilities::XmlSerialize() const {
 }
 
 void Abilities::XmlDeserialize(const QDomElement &element) {
-
+    abilities.clear();
+    QDomElement node = element.firstChildElement();
+    while(!node.isNull()){
+        Ability ability;
+        ability.XmlDeserialize(node);
+        abilities.append(ability);
+        node = node.nextSiblingElement();
+    }
 }

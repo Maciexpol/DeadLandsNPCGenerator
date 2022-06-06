@@ -61,7 +61,7 @@ QDomElement loadSession(QString &fileName){
     return document.firstChildElement();
 }
 
-QDomElement loadCharacter(QString &uniqueID){
+QDomElement loadCharacter(QString uniqueID){
     QFile file(charactersSavingFolder + "/" + uniqueID);
     if(!file.open(QIODevice::ReadOnly)){
         qDebug("Error opening character file.");

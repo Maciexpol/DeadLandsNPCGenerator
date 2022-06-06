@@ -7,11 +7,12 @@
 class Trait : Serializable
 {
 private:
-    qint16 points{};
-    QString name{};
-    QString description{};
+    qint16 points;
+    QString name;
+    QString description;
 
 public:
+    Trait(){};
     Trait(qint16 points, QString name, QString description);
 
     qint16 getPoints() const

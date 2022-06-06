@@ -93,5 +93,12 @@ QDomElement Attributes::XmlSerialize() const {
 }
 
 void Attributes::XmlDeserialize(const QDomElement &element) {
-
+    attributes.clear();
+    QDomElement node = element.firstChildElement();
+    while(!node.isNull()){
+        Attribute attribute;
+        attribute.XmlDeserialize(node);
+        attributes.append(attribute);
+        node = node.nextSiblingElement();
+    }
 }

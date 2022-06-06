@@ -42,5 +42,24 @@ QDomElement EdgesAndHindrances::XmlSerialize() const {
 }
 
 void EdgesAndHindrances::XmlDeserialize(const QDomElement &element) {
+    QDomElement edgesElement = element.firstChildElement();
+    QDomElement hindrancesElement = edgesElement.nextSiblingElement();
 
+    edgesElement.clear();
+    hindrancesElement.clear();
+
+    QDomElement node = edgesElement.firstChildElement();
+    while(!node.isNull()){
+        Trait edge;
+        edge.XmlDeserialize(node);
+        Edges.append(edge);
+        node = node.nextSiblingElement();
+    }
+    node = hindrancesElement.firstChildElement();
+    while(!node.isNull()){
+        Trait hind;
+        hind.XmlDeserialize(node);
+        Hindrances.append(hind);
+        node = node.nextSiblingElement();
+    }
 }

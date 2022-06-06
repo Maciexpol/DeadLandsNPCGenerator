@@ -10,8 +10,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     //Create folder structure
     MemIO::createFolderStructure();
-    // For now, invoke closeCurrentSession in orded to show placeholder session.
-    emit closeCurrentSession();
 }
 
 MainWindow::~MainWindow()
@@ -20,10 +18,16 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::createConnections(const SessionManager &sessionManager, const Character &character) const{
-    // ============================= SessionManager - MainWindow =================================
+    // ============================= SessionManager - MainWindow ==================================
 
     //Connection between SessionManager and MainWindow to handle updating UI
     QObject::connect(&sessionManager, &SessionManager::updateSessionInfo, this, &MainWindow::updateSessionInfo);
+
+    //Connection between SessionManager and MainWindow to link character list
+    QObject::connect(&sessionManager, &SessionManager::linkCharacterList, this, &MainWindow::linkCharacterList);
+
+    //Connection between SessionManager and MainWindow to handle temporary status bar messages
+    QObject::connect(&sessionManager, &SessionManager::tempStatusBar, this, &MainWindow::tempStatusBar);
 
     //Connection between SessionManager and MainWindow to handle creating new sessions
     QObject::connect(this, &MainWindow::createNewSession, &sessionManager, &SessionManager::createNewSession);
@@ -37,6 +41,12 @@ void MainWindow::createConnections(const SessionManager &sessionManager, const C
     //Connection between SessionManager and MainWindow to handle opening sessions
     QObject::connect(this, &MainWindow::openNewSession, &sessionManager, &SessionManager::openNewSession);
 
+    //Connection from QAbstractItemView to handle doubleClick events on QListView
+    QObject::connect(this->ui->npcView, &QListView::doubleClicked, &sessionManager, &SessionManager::listDoubleClicked);
+
+    //Connect to SessionManager in order to remove character from session
+    QObject::connect(this, &MainWindow::deleteCharacterFromSession, &sessionManager, &SessionManager::deleteCharacterFromSession);
+
     // ================================ Character - MainWindow ====================================
 
     //Connection between MainWindow and Character to handle updating character data
@@ -48,20 +58,31 @@ void MainWindow::createConnections(const SessionManager &sessionManager, const C
     //Connection between MainWindow and Character to handle adding character to active session
     QObject::connect(this, &MainWindow::addCharacterToSession, &character, &Character::addCharacterToSession);
 
-    // ============================== Character - SessionManager ==================================
+    // ============================== Character - SessionManager ===================================
 
     //Connection to handle adding character to session
-    QObject::connect(&character, &Character::addCharacter, &sessionManager, &SessionManager::addCharacterToSession);
+    QObject::connect(&character, &Character::addCharacter, &sessionManager, &SessionManager::addCharacter);
+
+    //Connection to handle loading character from session list
+    QObject::connect(&sessionManager, &SessionManager::loadCharacter, &character, &Character::loadCharacter);
 }
 
-void MainWindow::updateSessionInfo(const Session& session, QStringListModel *listModel){
+void MainWindow::linkCharacterList(QStringListModel *list) {
+    this->ui->npcView->setModel(list);
+}
+
+void MainWindow::updateSessionInfo(const SessionManager& session){
     this->ui->sessionName->setText(session.getName());
     this->ui->sessionDescription->setText(session.getDescription());
-    this->ui->npcView->setModel(listModel);
+    this->ui->npcView->setModel(session.getCharacterModel());
 }
 
 void MainWindow::updateCharacterInfo(const Character &character) {
     this->ui->NameInput->setText(character.getOverview().getFirstName() + character.getOverview().getLastName());
+}
+
+void MainWindow::tempStatusBar(QString message) {
+    this->ui->statusbar->showMessage(message, 3000);
 }
 
 void MainWindow::on_actionSessionNew_triggered()
@@ -99,8 +120,12 @@ void MainWindow::on_addToSession_clicked()
     emit addCharacterToSession();
 }
 
-
 void MainWindow::on_actionAdd_to_session_triggered()
 {
     emit addCharacterToSession();
+}
+
+void MainWindow::on_deleteFromSession_clicked()
+{
+    emit deleteCharacterFromSession(this->ui->npcView->currentIndex());
 }

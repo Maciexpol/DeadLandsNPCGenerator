@@ -47,13 +47,36 @@ void Character::stdPrint(){
     attributes.stdPrint();
 }
 
-void Character::addCharacterToSession() {
+void Character::updateInfo() {
     emit updateCharacterInfo(*this);
-    emit addCharacter(this->uniqueID, this->overview.getFirstName() + " " + this->overview.getLastName());
+}
+
+QString Character::toStr() const{
+    return QString::number(uniqueID)+"_"+this->overview.getFirstName()+"_"+this->overview.getLastName();
+}
+
+SessionCharacter Character::toSessionCharacter() const {
+
+}
+
+void Character::saveCharacter() {
+    MemIO::saveCharacter(this->XmlSerialize());
+}
+
+void Character::addCharacterToSession() {
+    SessionCharacter character(this->uniqueID, "Kurwibąk", "Kurwicki");
+    saveCharacter();
+    emit addCharacter(character);
 }
 
 void Character::generateCharacter() {
     this->rollCharacter();
+}
+
+void Character::loadCharacter(const SessionCharacter &character) {
+    QDomElement node = MemIO::loadCharacter(character.toStr());
+    this->XmlDeserialize(node);
+    updateInfo();
 }
 
 QDomElement Character::XmlSerialize() const{
@@ -71,9 +94,18 @@ QDomElement Character::XmlSerialize() const{
     // Serialize EdgesAndHindrances
     element.appendChild(this->edgesAndHindrances.XmlSerialize());
 
+    element.setNodeValue(this->toStr());
+
     return element;
 };
 
-void Character::XmlDeserialize(const QDomElement &element){};
+void Character::XmlDeserialize(const QDomElement &element){
+    this->uniqueID = static_cast<qint32>(element.attribute("uniqueID", "0").toInt());
+    QDomElement node;
+    overview.XmlDeserialize(node = element.firstChildElement());
+    attributes.XmlDeserialize(node = node.nextSiblingElement());
+    dices.XmlDeserialize(node = node.nextSiblingElement());
+    edgesAndHindrances.XmlDeserialize(node = node.nextSiblingElement());
+};
 
-bool Character::XmlValidate() const {return true;};
+bool Character::XmlValidate() const {return true;}

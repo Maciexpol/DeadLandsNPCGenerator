@@ -12,13 +12,22 @@ class SessionCharacter : Serializable
 {
 private:
     qint32 uniqueID;
-    QString name;
+    QString first_name;
+    QString last_name;
 public:
-    SessionCharacter() : uniqueID(0), name("UNKNOWN"){};
-    SessionCharacter(const qint32 &id, const QString &newName) : uniqueID(id), name(newName){};
+    SessionCharacter() : uniqueID(0), first_name("UNKNOWN"), last_name("UNKNOWN"){};
+    SessionCharacter(const qint32 &id, const QString &newFirstName, const QString &newLastName) :
+        uniqueID(id),
+        first_name(newFirstName),
+        last_name(newLastName)
+        {};
 
     qint32 getUniqueID() const{return this->uniqueID;};
-    QString getName() const{return this->name;};
+    QString getFirstName() const{return this->first_name;};
+    QString getLastName() const{return this->last_name;};
+
+    //Reimplement this function also in Character
+    QString toStr() const;
 
     QDomElement XmlSerialize() const override;
     void XmlDeserialize(const QDomElement &element) override;

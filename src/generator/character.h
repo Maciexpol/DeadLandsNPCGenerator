@@ -1,7 +1,10 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
+#include <QModelIndex>
+
 #include "src/serializable.h"
+#include "src/sessions/sessioncharacter.h"
 #include "attributes.h"
 #include "dices.h"
 #include "edgesandhindrances.h"
@@ -35,6 +38,11 @@ public:
     Overview getOverview() const{return this->overview;};
 
     void stdPrint();
+    void updateInfo();
+
+    //Reimplement this function also in SessionCharacter
+    QString toStr() const;
+    SessionCharacter toSessionCharacter() const;
 
     QDomElement XmlSerialize() const override;
     void XmlDeserialize(const QDomElement &element) override;
@@ -46,6 +54,8 @@ public:
 public slots:
     void addCharacterToSession();
     void generateCharacter();
+    void saveCharacter();
+    void loadCharacter(const SessionCharacter&);
 
     void rollCharacter();
 //    void rollFromDices();
@@ -63,8 +73,10 @@ signals:
     void updateCharacterInfo(const Character&);
 
     //Signals to SessionManager
-    void addCharacter(const qint32, const QString);
-    void removeCharacter(const qint32);
+    void addCharacter(SessionCharacter&);
+
+    //Probably should be removed, idk
+    //void removeCharacter(const qint32);
 
 };
 

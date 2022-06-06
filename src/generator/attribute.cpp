@@ -41,7 +41,7 @@ QDomElement Attribute::XmlSerialize() const {
     QDomElement element = QDomDocument().createElement("attribute");
 
     // WARNING: Dealing with enum, might not work
-    element.setAttribute("name", this->name);
+    element.setAttribute("name", (static_cast<qint16>(this->name)));
     element.setAttribute("lvlSum", this->abilitiesLvlSum);
     element.appendChild(dice.XmlSerialize());
     element.appendChild(abilities.XmlSerialize());
@@ -49,7 +49,11 @@ QDomElement Attribute::XmlSerialize() const {
 }
 
 void Attribute::XmlDeserialize(const QDomElement &element) {
-
+    this->name = static_cast<ATTRIBUTES>(element.attribute("name", "UNKNOWN").toInt());
+    this->abilitiesLvlSum = static_cast<qint16>(element.attribute("lvlSum", "0").toInt());
+    QDomElement node;
+    this->dice.XmlDeserialize(node = element.firstChildElement());
+    this->abilities.XmlDeserialize(node = node.nextSiblingElement());
 }
 
 

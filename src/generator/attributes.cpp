@@ -83,8 +83,7 @@ void Attributes::stdPrint(){
 }
 
 QDomElement Attributes::XmlSerialize() const {
-    QDomElement element;
-    element.setTagName("attributes");
+    QDomElement element = QDomDocument().createElement("attributes");
 
     for(auto &attribute : attributes){
         element.appendChild(attribute.XmlSerialize());
@@ -93,5 +92,12 @@ QDomElement Attributes::XmlSerialize() const {
 }
 
 void Attributes::XmlDeserialize(const QDomElement &element) {
-
+    attributes.clear();
+    QDomElement node = element.firstChildElement();
+    while(!node.isNull()){
+        Attribute attribute;
+        attribute.XmlDeserialize(node);
+        attributes.append(attribute);
+        node = node.nextSiblingElement();
+    }
 }

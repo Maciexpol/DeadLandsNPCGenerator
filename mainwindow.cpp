@@ -12,12 +12,35 @@ MainWindow::MainWindow(QWidget *parent)
     MemIO::createFolderStructure();
     // For now, invoke closeCurrentSession in orded to show placeholder session.
     emit closeCurrentSession();
+
+    // Generate attributes boxes
+    generateAttributesWidgets();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::generateAttributesWidgets(){
+    QVector<QVector<QString>> names = MemIO::loadAbilities();
+
+    for(qint16 i = 0; i < names.length(); i++){
+        AttributeWidget * newWidget = new AttributeWidget(ATTRIBUTES(i), names[i]);
+        switch(i%3){
+        case 0:
+            this->ui->firstColumn->addWidget(newWidget);
+            break;
+        case 1:
+            this->ui->secondColumn->addWidget(newWidget);
+            break;
+        case 2:
+            this->ui->thirdColumn->addWidget(newWidget);
+            break;
+        }
+    }
+}
+
 
 void MainWindow::createConnections(const SessionManager &sessionManager, const Character &character) const{
     // ============================= SessionManager - MainWindow =================================

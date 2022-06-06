@@ -1,6 +1,6 @@
 #include "attributewidget.h"
 
-AttributeWidget::AttributeWidget(Dice dice, const ATTRIBUTES name, QVector<QString> inputNames){
+AttributeWidget::AttributeWidget(const ATTRIBUTES name, QVector<QString> inputNames){
     // translate name from enum to string
     const char* s = 0;
 #define PROCESS_VAL(p) case(p): s = #p; break;
@@ -66,6 +66,8 @@ AttributeWidget::AttributeWidget(Dice dice, const ATTRIBUTES name, QVector<QStri
     lvlSumInput->setText("0");
     lvlSumInput->setAlignment(Qt::AlignRight);
     lvlSumBox->addWidget(lvlSumInput);
+
+    diceInput->setText("0d0");
 
     headerBox->addWidget(spacer);
     headerBox->addWidget(diceInput);

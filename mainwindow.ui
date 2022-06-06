@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1342</width>
-    <height>848</height>
+    <height>988</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -494,9 +494,9 @@
                </layout>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_6">
+               <layout class="QHBoxLayout" name="AttributesBoxesLayout">
                 <item>
-                 <layout class="QVBoxLayout" name="verticalLayout_7">
+                 <layout class="QVBoxLayout" name="firstColumn">
                   <item>
                    <widget class="QGroupBox" name="CognitionBox">
                     <property name="title">
@@ -951,7 +951,7 @@
                  </layout>
                 </item>
                 <item>
-                 <layout class="QVBoxLayout" name="verticalLayout_16">
+                 <layout class="QVBoxLayout" name="secondColumn">
                   <item>
                    <widget class="QGroupBox" name="KnowledgeBox">
                     <property name="title">
@@ -1082,38 +1082,8 @@
                         </layout>
                        </item>
                        <item>
-                        <layout class="QGridLayout" name="knowledgeNames">
-                         <item row="3" column="0">
-                          <widget class="QLabel" name="label_6">
-                           <property name="text">
-                            <string>0</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                         <item row="4" column="0">
-                          <widget class="QLabel" name="label_89">
-                           <property name="text">
-                            <string>0</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                         <item row="2" column="0">
-                          <widget class="QLabel" name="label_8">
-                           <property name="text">
-                            <string>0</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                         <item row="0" column="0">
+                        <layout class="QVBoxLayout" name="verticalLayout_18">
+                         <item>
                           <widget class="QLabel" name="label_5">
                            <property name="text">
                             <string>0</string>
@@ -1123,47 +1093,7 @@
                            </property>
                           </widget>
                          </item>
-                         <item row="7" column="0">
-                          <widget class="QLabel" name="label_91">
-                           <property name="text">
-                            <string>0</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                         <item row="6" column="0">
-                          <widget class="QLabel" name="label_94">
-                           <property name="text">
-                            <string>0</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                         <item row="8" column="0">
-                          <widget class="QLabel" name="label_93">
-                           <property name="text">
-                            <string>0</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                         <item row="5" column="0">
-                          <widget class="QLabel" name="label_90">
-                           <property name="text">
-                            <string>0</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                         <item row="1" column="0">
+                         <item>
                           <widget class="QLabel" name="label_7">
                            <property name="text">
                             <string>0</string>
@@ -1173,7 +1103,77 @@
                            </property>
                           </widget>
                          </item>
-                         <item row="9" column="0">
+                         <item>
+                          <widget class="QLabel" name="label_8">
+                           <property name="text">
+                            <string>0</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="label_6">
+                           <property name="text">
+                            <string>0</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="label_89">
+                           <property name="text">
+                            <string>0</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="label_90">
+                           <property name="text">
+                            <string>0</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="label_94">
+                           <property name="text">
+                            <string>0</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="label_91">
+                           <property name="text">
+                            <string>0</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="label_93">
+                           <property name="text">
+                            <string>0</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
                           <widget class="QLabel" name="label_92">
                            <property name="text">
                             <string>0</string>
@@ -1559,7 +1559,7 @@
                  </layout>
                 </item>
                 <item>
-                 <layout class="QVBoxLayout" name="verticalLayout_8">
+                 <layout class="QVBoxLayout" name="thirdColumn">
                   <item>
                    <widget class="QGroupBox" name="SmartsBox">
                     <property name="title">

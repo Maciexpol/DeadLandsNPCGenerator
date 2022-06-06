@@ -33,7 +33,7 @@ private:
 
 public:
     AttributeWidget() {};
-    AttributeWidget(Dice dice, ATTRIBUTES name, QVector<QString> abilitiesNames);
+    AttributeWidget(ATTRIBUTES name, QVector<QString> abilitiesNames);
 };
 
 #endif // ATTRIBUTEWIDGET_H

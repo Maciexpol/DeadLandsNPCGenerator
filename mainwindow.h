@@ -2,7 +2,13 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QVector>
+#include <QString>
+
 #include "./src/sessions/sessionmanager.h"
+#include "./src/widgets/attributewidget.h"
+#include "./src/memio.h"
+#include "./src/generator/attribute.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -52,6 +58,8 @@ signals:
 
 private:
     Ui::MainWindow *ui;
+
+    void generateAttributesWidgets();
 
 };
 #endif // MAINWINDOW_H

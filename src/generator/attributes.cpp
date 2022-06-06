@@ -35,9 +35,9 @@ Attribute Attributes::getAttribute(ATTRIBUTES sName) const{
 
 qint16 Attributes::generateLvlPoints(){
     qint16 sum = 0;
-    sum += getAttribute(ATTRIBUTES::cognition).getDice().getSides();
-    sum += getAttribute(ATTRIBUTES::knowledge).getDice().getSides();
-    sum += getAttribute(ATTRIBUTES::smarts).getDice().getSides();
+    sum += getAttribute(ATTRIBUTES::Cognition).getDice().getSides();
+    sum += getAttribute(ATTRIBUTES::Knowledge).getDice().getSides();
+    sum += getAttribute(ATTRIBUTES::Smarts).getDice().getSides();
     return sum;
 }
 

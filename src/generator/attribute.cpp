@@ -4,16 +4,16 @@ std::ostream& operator<<(std::ostream& out, const ATTRIBUTES value){
     const char* s = 0;
 #define PROCESS_VAL(p) case(p): s = #p; break;
     switch(value){
-        PROCESS_VAL(cognition);
-        PROCESS_VAL(knowledge);
-        PROCESS_VAL(smarts);
-        PROCESS_VAL(deftness);
-        PROCESS_VAL(nimbleness);
-        PROCESS_VAL(vigor);
-        PROCESS_VAL(spirit);
-        PROCESS_VAL(mien);
-        PROCESS_VAL(quickness);
-        PROCESS_VAL(strength);
+        PROCESS_VAL(Cognition);
+        PROCESS_VAL(Knowledge);
+        PROCESS_VAL(Smarts);
+        PROCESS_VAL(Deftness);
+        PROCESS_VAL(Nimbleness);
+        PROCESS_VAL(Vigor);
+        PROCESS_VAL(Spirit);
+        PROCESS_VAL(Mien);
+        PROCESS_VAL(Quickness);
+        PROCESS_VAL(Strength);
     }
 #undef PROCESS_VAL
 

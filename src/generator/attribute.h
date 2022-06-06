@@ -6,16 +6,16 @@
 #include "src/serializable.h"
 
 enum ATTRIBUTES {
-    cognition = 0,
-    knowledge,
-    smarts,
-    deftness,
-    nimbleness,
-    mien,
-    spirit,
-    strength,
-    vigor,
-    quickness
+    Cognition = 0,
+    Knowledge,
+    Smarts,
+    Deftness,
+    Nimbleness,
+    Mien,
+    Spirit,
+    Strength,
+    Vigor,
+    Quickness
 };
 
 /*!

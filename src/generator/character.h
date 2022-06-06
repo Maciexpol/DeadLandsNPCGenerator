@@ -48,14 +48,25 @@ public:
     void XmlDeserialize(const QDomElement &element) override;
     bool XmlValidate() const override;
 
-    void rollCharacter();
     void rollDices();
+    void rollEdgesAndHindrances();
 
 public slots:
     void addCharacterToSession();
     void generateCharacter();
     void saveCharacter();
     void loadCharacter(const SessionCharacter&);
+
+    void rollCharacter();
+//    void rollFromDices();
+//    void rollFromLvlPoints();
+//    void rollSpecificAbility();
+//    void rollFromEdgesAndHindrances();
+//    void rollFromOverview();
+//    void rollFromName();
+//    void rollAge();
+//    void rollOccupation();
+//    void rollFromOrigin();
 
 signals:
     //Signals to MainWindow

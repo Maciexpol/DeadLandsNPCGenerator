@@ -26,6 +26,42 @@ Dice::Dice(Card card)
     number = suit + 1;
 }
 
+bool Dice::operator < (Dice a){
+    if( a.getSides() > sides)
+        return true;
+    else if(a.getNumber() > number and a.getSides() == sides)
+        return true;
+    else
+        return false;
+}
+
+bool Dice::operator > (Dice a){
+    if( a.getSides() < sides )
+        return true;
+    else if(a.getNumber() < number and a.getSides() == sides)
+        return true;
+    else
+        return false;
+}
+
+bool Dice::operator <= (Dice a){
+    if( a.getSides() > sides)
+        return true;
+    else if(a.getNumber() >= number and a.getSides() == sides)
+        return true;
+    else
+        return false;
+}
+
+bool Dice::operator >= (Dice a){
+    if( a.getSides() < sides)
+        return true;
+    else if(a.getNumber() <= number and a.getSides() == sides)
+        return true;
+    else
+        return false;
+}
+
 QDomElement Dice::XmlSerialize() const {
     QDomElement element = QDomDocument().createElement("dice");
 

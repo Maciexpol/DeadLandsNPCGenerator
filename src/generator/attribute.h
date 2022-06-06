@@ -6,16 +6,16 @@
 #include "src/serializable.h"
 
 enum ATTRIBUTES {
-    cognition = 0,
-    knowledge,
-    smarts,
-    deftness,
-    nimbleness,
-    mien,
-    spirit,
-    strength,
-    vigor,
-    quickness
+    Cognition = 0,
+    Knowledge,
+    Smarts,
+    Deftness,
+    Nimbleness,
+    Mien,
+    Spirit,
+    Strength,
+    Vigor,
+    Quickness
 };
 
 /*!
@@ -58,6 +58,13 @@ public:
     Attribute(const ATTRIBUTES & inputName, const QVector<QString> & abilitiesNames, const Dice & inputDice, const qint16 & newAbilitiesLvlSum)
         {name = inputName; dice = inputDice; abilities = Abilities(abilitiesNames); abilitiesLvlSum = newAbilitiesLvlSum;};
 
+    /*!
+     * \brief Tells if we have any abilities
+     * \return status of having abilities
+     */
+    bool hasAbilities()
+        {return (bool)abilities.getAbilites().length();};
+
     void setName(const ATTRIBUTES & newName) {name = newName;};
     void setDice(const Dice & newDice) {dice = newDice;};
     void setAbilities(const QVector<QString> & abilitiesNames){abilities.setAbilities(abilitiesNames);};
@@ -69,9 +76,9 @@ public:
      */
     void increaseAbilitiesLvlSum() {abilitiesLvlSum++;};
     /*!
-     * \brief Zeros all abilities lvl and abilitiesLvlSum
+     * \brief Zeros all abilities lvl
      */
-    void clearAbilitiesLvl() {abilities.clearLvl(); abilitiesLvlSum = 0;};
+    void clearAbilitiesLvl() {abilities.clearLvl();};
 
 
     ATTRIBUTES getName() const {return name;};

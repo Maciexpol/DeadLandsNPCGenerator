@@ -2,7 +2,13 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "src/sessions/sessionmanager.h"
+#include <QVector>
+#include <QString>
+
+#include "./src/sessions/sessionmanager.h"
+#include "./src/widgets/attributewidget.h"
+#include "./src/memio.h"
+#include "./src/generator/attribute.h"
 #include "src/generator/character.h"
 #include "src/data/DataManager.h"
 
@@ -61,6 +67,8 @@ signals:
 
 private:
     Ui::MainWindow *ui;
+
+    void generateAttributesWidgets();
 
 };
 #endif // MAINWINDOW_H

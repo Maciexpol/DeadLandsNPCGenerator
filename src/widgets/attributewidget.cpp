@@ -52,38 +52,58 @@ AttributeWidget::AttributeWidget(const ATTRIBUTES name, QVector<QString> inputNa
 // ------------ Header Box -------------
 
     headerBox = new QHBoxLayout();
-    lvlSumBox = new QHBoxLayout();
-    lvlSumText = new QLabel();
-    lvlSumInput = new QLabel();
+
     spacer = new QLabel();
     diceInput = new QLabel();
 
+    if(inputNames.length() > 0){
+        lvlSumBox = new QHBoxLayout();
+        lvlSumText = new QLabel();
+        lvlSumInput = new QLabel();
 
-    lvlSumText->setText("lvl points");
-    lvlSumText->setAlignment(Qt::AlignLeft);
-    lvlSumBox->addWidget(lvlSumText);
+        lvlSumText->setText("<i>lvl points</i>");
+        lvlSumText->setAlignment(Qt::AlignCenter | Qt::AlignHCenter);
+        lvlSumBox->addWidget(lvlSumText);
 
-    lvlSumInput->setText("0");
-    lvlSumInput->setAlignment(Qt::AlignRight);
-    lvlSumBox->addWidget(lvlSumInput);
+        lvlSumInput->setText("0");
+        lvlSumInput->setAlignment(Qt::AlignCenter | Qt::AlignHCenter);
+        lvlSumBox->addWidget(lvlSumInput);
+
+        headerBox->addWidget(spacer);
+    }
+
 
     diceInput->setText("0d0");
+    diceInput->setAlignment(Qt::AlignCenter | Qt::AlignHCenter);
 
-    headerBox->addWidget(spacer);
     headerBox->addWidget(diceInput);
-    headerBox->addLayout(lvlSumBox);
+
+    if(inputNames.length() > 0)
+        headerBox->addLayout(lvlSumBox);
+
 
 // ------------ General Box -------------
     general = new QVBoxLayout();
-    rerollButton = new QPushButton();
 
     general->addLayout(headerBox);
-    general->addWidget(rerollButton);
+
+    // -- reroll button --
+    if(inputNames.length() > 1){
+        rerollButton = new QPushButton();
+        rerollButton->setText("x");
+        general->addWidget(rerollButton);
+    }
+
     general->addLayout(abilitiesBox);
+
 
 // ------------ Finish -------------
 
     setLayout(general);
+    QSizePolicy n = QSizePolicy();
+    n.setHorizontalPolicy(QSizePolicy::Policy::Preferred);
+    n.setVerticalPolicy(QSizePolicy::Policy::Fixed);
+    setSizePolicy(n);
     // Set name of Attribute box
     setTitle(s);
 }

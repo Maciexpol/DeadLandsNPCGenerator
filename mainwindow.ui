@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1342</width>
-    <height>988</height>
+    <width>1319</width>
+    <height>479</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -403,6 +403,12 @@
           <layout class="QVBoxLayout" name="attribuiteLayout" stretch="1,8">
            <item>
             <widget class="QGroupBox" name="AttributesTilesBox">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="title">
               <string>Attributes Priority</string>
              </property>
@@ -488,12 +494,21 @@
            </item>
            <item>
             <widget class="QGroupBox" name="AttributesBox">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="title">
               <string>Attributes</string>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_17">
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_4">
+                <property name="sizeConstraint">
+                 <enum>QLayout::SetFixedSize</enum>
+                </property>
                 <item>
                  <widget class="QPushButton" name="pushButton_4">
                   <property name="text">
@@ -512,11 +527,22 @@
               </item>
               <item>
                <layout class="QHBoxLayout" name="AttributesBoxesLayout">
+                <property name="sizeConstraint">
+                 <enum>QLayout::SetFixedSize</enum>
+                </property>
                 <item>
-                 <layout class="QVBoxLayout" name="firstColumn"/>
+                 <layout class="QVBoxLayout" name="firstColumn">
+                  <property name="sizeConstraint">
+                   <enum>QLayout::SetFixedSize</enum>
+                  </property>
+                 </layout>
                 </item>
                 <item>
-                 <layout class="QVBoxLayout" name="secondColumn"/>
+                 <layout class="QVBoxLayout" name="secondColumn">
+                  <property name="sizeConstraint">
+                   <enum>QLayout::SetNoConstraint</enum>
+                  </property>
+                 </layout>
                 </item>
                 <item>
                  <layout class="QVBoxLayout" name="thirdColumn"/>

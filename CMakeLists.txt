@@ -16,7 +16,7 @@ set(CMAKE_PREFIX_PATH "E:/Qt/6.2.4/mingw_64")
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 # -- Added by myself --
-find_package(Qt6 REQUIRED COMPONENTS Xml)
+find_package(Qt6 REQUIRED COMPONENTS Xml Sql)
 
 set(PROJECT_SOURCES
         # -- frontend section --
@@ -30,6 +30,7 @@ set(PROJECT_SOURCES
         # -- helper classes --
         src/serializable.h src/serializable.cpp
         src/memio.h src/memio.cpp
+        src/data/DataManager.h src/data/DataManager.cpp
 
         # -- edgesandhindrances class --
         src/generator/edgesandhindrances.h src/generator/edgesandhindrances.cpp
@@ -57,10 +58,11 @@ set(PROJECT_SOURCES
 
         # -- sessions system
         src/sessions/sessionmanager.h src/sessions/sessionmanager.cpp
-        src/sessions/sessioncharacter.cpp src/sessions/sessioncharacter.h)
+        src/sessions/sessioncharacter.cpp src/sessions/sessioncharacter.h
 
         # -- tests --
         # tests/rolldicestest.h tests/rolldicestest.cpp
+    )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(npc-generator
@@ -87,7 +89,7 @@ endif()
 
 target_link_libraries(npc-generator PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 # -- Added by myself --
-target_link_libraries(npc-generator PRIVATE Qt6::Xml)
+target_link_libraries(npc-generator PRIVATE Qt6::Xml Qt6::Sql)
 
 set_target_properties(npc-generator PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com

@@ -10,6 +10,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     //Create folder structure
     MemIO::createFolderStructure();
+    auto *connectionStatus = new QLabel(this);
+    connectionStatus->setText("No connection.");
+    connectionStatus->setObjectName("connectionStatus");
+    this->ui->statusbar->addPermanentWidget(connectionStatus);
 }
 
 MainWindow::~MainWindow()
@@ -17,7 +21,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::createConnections(const SessionManager &sessionManager, const Character &character) const{
+void MainWindow::createConnections(const SessionManager &sessionManager, const Character &character, const DataManager &dataManager) const{
     // ============================= SessionManager - MainWindow ==================================
 
     //Connection between SessionManager and MainWindow to handle updating UI
@@ -65,6 +69,11 @@ void MainWindow::createConnections(const SessionManager &sessionManager, const C
 
     //Connection to handle loading character from session list
     QObject::connect(&sessionManager, &SessionManager::loadCharacter, &character, &Character::loadCharacter);
+
+    // ============================== MainWindow - DataManager ===================================
+
+    //Connection to handle updating connection status
+    QObject::connect(&dataManager, &DataManager::updateConnectionStatus, this, &MainWindow::updateConnectionStatus);
 }
 
 void MainWindow::linkCharacterList(QStringListModel *list) {
@@ -79,6 +88,10 @@ void MainWindow::updateSessionInfo(const SessionManager& session){
 
 void MainWindow::updateCharacterInfo(const Character &character) {
     this->ui->NameInput->setText(character.getOverview().getFirstName() + character.getOverview().getLastName());
+}
+
+void MainWindow::updateConnectionStatus(QString message) {
+
 }
 
 void MainWindow::tempStatusBar(QString message) {

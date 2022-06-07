@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1319</width>
-    <height>651</height>
+    <height>988</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -161,7 +161,7 @@
               <item row="0" column="0">
                <widget class="QPushButton" name="addToSession">
                 <property name="text">
-                 <string>Add character</string>
+                 <string>Save NPC</string>
                 </property>
                </widget>
               </item>

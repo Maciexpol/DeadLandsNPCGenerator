@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "src/sessions/sessionmanager.h"
 #include "src/generator/character.h"
+#include "src/data/DataManager.h"
 
 #include <QApplication>
 #include <iostream>
@@ -23,7 +24,9 @@ int main(int argc, char *argv[])
     //=========== end test
 
     Character character;
-    w.createConnections(sessionManager, character);
+    DataManager dataManager;
+    w.createConnections(sessionManager, character, dataManager);
+    dataManager.initialConnection();
     sessionManager.updateSessionInfo(sessionManager);
     w.setWindowState(Qt::WindowMaximized);
     w.show();

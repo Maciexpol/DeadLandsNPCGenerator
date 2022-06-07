@@ -7,22 +7,17 @@ class Character;
 class Session;
 
 namespace MemIO{
-    QString mainSaveFolder = "./saves";
-    QString sessionsSavingFolder = "./saves/sessions";
-    QString charactersSavingFolder = "./saves/characters";
+    QString sessionsSavingFolder = "./data/saves/sessions";
+    QString charactersSavingFolder = "./data/saves/characters";
 
 void createFolderStructure(){
-    // Check if main saving folder exists
-    if(!QDir(mainSaveFolder).exists())
-        QDir().mkdir(mainSaveFolder);
-
     // Check if sessions saving folder exists
     if(!QDir(sessionsSavingFolder).exists())
-        QDir().mkdir(sessionsSavingFolder);
+        QDir().mkpath(sessionsSavingFolder);
 
     //Check if characters saving folder exists
     if(!QDir(charactersSavingFolder).exists())
-        QDir().mkdir(charactersSavingFolder);
+        QDir().mkpath(charactersSavingFolder);
 }
 
 bool saveToFile(const QDomElement &root, const QString &path){

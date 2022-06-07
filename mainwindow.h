@@ -2,8 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "./src/sessions/sessionmanager.h"
+#include "src/sessions/sessionmanager.h"
 #include "src/generator/character.h"
+#include "src/data/DataManager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,13 +18,16 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    void createConnections(const SessionManager &sessionManager, const Character &character) const;
+    void createConnections(const SessionManager &sessionManager,
+                           const Character &character,
+                           const DataManager &dataManager) const;
 
 private slots:
     void linkCharacterList(QStringListModel *list);
     void updateSessionInfo(const SessionManager& session);
     void updateCharacterInfo(const Character& character);
     void tempStatusBar(QString message);
+    void updateConnectionStatus(QString message);
 
     void on_actionSessionNew_triggered();
 

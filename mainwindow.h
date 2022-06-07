@@ -53,6 +53,8 @@ private slots:
 
     void on_deleteFromSession_clicked();
 
+    void on_actionGeneratorUpdate_triggered();
+
 signals:
     //Session manager signals
     void createNewSession();
@@ -65,9 +67,12 @@ signals:
     void deleteCharacterFromSession(QModelIndex);
     void reRollCharacter();
 
+    //Database signals
+    void updateGeneratorData();
+
 private:
     Ui::MainWindow *ui;
-
+    QLabel *connectionStatus;
     void generateAttributesWidgets();
 
 };

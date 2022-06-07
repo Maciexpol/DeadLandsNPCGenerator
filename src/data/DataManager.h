@@ -7,6 +7,9 @@
 #include <QDir>
 #include <QSqlDatabase>
 #include <QSqlError>
+#include <QSqlQuery>
+#include <QDomDocument>
+#include "src/memio.h"
 
 #ifndef NPC_GENERATOR_DATAMANAGER_H
 #define NPC_GENERATOR_DATAMANAGER_H
@@ -15,19 +18,23 @@
 class DataManager : public QObject {
     Q_OBJECT
 private:
+    QString databaseVersion;
     QSqlDatabase database;
-    bool isConnectionPossible;
-
-    QVector<QString> first_names;
-    QVector<QString> last_names;
-    QVector<QString> origins;
-    QVector<QString> occupations;
+    QSqlDatabase originDatabase;
 
 public:
     DataManager();
     ~DataManager();
 
-    void initialConnection();
+    bool openConnection();
+    void closeConnection();
+
+    bool updateGenerator();
+    bool updateNames();
+    bool updateOrigins();
+    bool updateOccupations();
+    bool updateEdges();
+    bool updateHindrances();
 
     void loadNames();
     void loadOrigins();
@@ -35,8 +42,12 @@ public:
 
     void fetchDataFromDatabase();
 
+public slots:
+    void updateGeneratorSignal();
+
 signals:
     void updateConnectionStatus(QString);
+    void tempStatusBar(QString message);
 };
 
 

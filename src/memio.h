@@ -16,7 +16,7 @@
  */
 namespace MemIO{
 
-    extern QString mainSaveFolder;
+    extern QString generatorSavingFolder;
     extern QString sessionsSavingFolder;
     extern QString charactersSavingFolder;
 
@@ -44,6 +44,12 @@ namespace MemIO{
      * \param node Serialized character to save
      */
     bool saveCharacter(QDomElement node);
+
+    /*!
+     * \brief Saves generator data to file
+     * \param node Serialized data to save
+     */
+    bool saveGeneratorFile(QDomElement node);
 
     /*!
      * @brief Loads session from file.

@@ -10,13 +10,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     //Create folder structure
     MemIO::createFolderStructure();
-    auto *connectionStatus = new QLabel(this);
-    connectionStatus->setText("No connection.");
-    connectionStatus->setObjectName("connectionStatus");
-    this->ui->statusbar->addPermanentWidget(connectionStatus);
 
     // For now, invoke closeCurrentSession in orded to show placeholder session.
-    emit closeCurrentSession();
+    // emit closeCurrentSession();
 
     // Generate attributes boxes
     generateAttributesWidgets();
@@ -44,10 +40,15 @@ void MainWindow::generateAttributesWidgets(){
             break;
         }
     }
+
+    connectionStatus = new QLabel(this);
+    connectionStatus->setText("No connection.");
+    connectionStatus->setObjectName(QString::fromUtf8("connectionStatus"));
+    this->ui->statusbar->addPermanentWidget(connectionStatus);
 }
 
 
-void MainWindow::createConnections(const SessionManager &sessionManager, const Character &character) const{
+void MainWindow::createConnections(const SessionManager &sessionManager, const Character &character, const DataManager &dataManager) const{
     // ============================= SessionManager - MainWindow ==================================
 
     //Connection between SessionManager and MainWindow to handle updating UI
@@ -100,6 +101,13 @@ void MainWindow::createConnections(const SessionManager &sessionManager, const C
 
     //Connection to handle updating connection status
     QObject::connect(&dataManager, &DataManager::updateConnectionStatus, this, &MainWindow::updateConnectionStatus);
+
+    //Connection to handle updating data
+    QObject::connect(this, &MainWindow::updateGeneratorData, &dataManager, &DataManager::updateGeneratorSignal);
+
+    //Connection to handle status bar update
+    QObject::connect(&dataManager, &DataManager::tempStatusBar, this, &MainWindow::tempStatusBar);
+
 }
 
 void MainWindow::linkCharacterList(QStringListModel *list) {
@@ -117,7 +125,7 @@ void MainWindow::updateCharacterInfo(const Character &character) {
 }
 
 void MainWindow::updateConnectionStatus(QString message) {
-
+    connectionStatus->setText("DB status: " + message);
 }
 
 void MainWindow::tempStatusBar(QString message) {
@@ -168,3 +176,9 @@ void MainWindow::on_deleteFromSession_clicked()
 {
     emit deleteCharacterFromSession(this->ui->npcView->currentIndex());
 }
+
+void MainWindow::on_actionGeneratorUpdate_triggered()
+{
+    emit updateGeneratorData();
+}
+

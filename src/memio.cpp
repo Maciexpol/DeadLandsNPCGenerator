@@ -7,8 +7,9 @@ class Character;
 class Session;
 
 namespace MemIO{
-    QString sessionsSavingFolder = "./data/saves/sessions";
-    QString charactersSavingFolder = "./data/saves/characters";
+    QString sessionsSavingFolder = "./data/saves/sessions/";
+    QString charactersSavingFolder = "./data/saves/characters/";
+    QString generatorSavingFolder = "./data/generator/";
 
 void createFolderStructure(){
     // Check if sessions saving folder exists
@@ -18,13 +19,17 @@ void createFolderStructure(){
     //Check if characters saving folder exists
     if(!QDir(charactersSavingFolder).exists())
         QDir().mkpath(charactersSavingFolder);
+
+    //Check for data folder and create if such folder does not exist
+    if(!QDir(generatorSavingFolder).exists())
+        QDir().mkpath(generatorSavingFolder);
 }
 
 bool saveToFile(const QDomElement &root, const QString &path){
     QDomDocument document("doc");
     document.appendChild(root);
 
-    QFile file(path + '/' + root.nodeValue() + ".xml");
+    QFile file(path + root.nodeValue() + ".xml");
     if(!file.open(QIODevice::WriteOnly | QIODevice::Text)){
         qDebug("Failed to open device for writing");
         return false;
@@ -42,6 +47,10 @@ bool saveSession(QDomElement node){
 
 bool saveCharacter(QDomElement node){
     return saveToFile(node, charactersSavingFolder);
+}
+
+bool saveGeneratorFile(QDomElement node){
+    return saveToFile(node, generatorSavingFolder);
 }
 
 QDomElement loadSession(QString &fileName){

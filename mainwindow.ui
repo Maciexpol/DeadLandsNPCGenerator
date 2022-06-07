@@ -593,8 +593,15 @@
     <addaction name="actionGenerate"/>
     <addaction name="actionAdd_to_session"/>
    </widget>
+   <widget class="QMenu" name="menuGenerator">
+    <property name="title">
+     <string>Generator</string>
+    </property>
+    <addaction name="actionGeneratorUpdate"/>
+   </widget>
    <addaction name="menuSession"/>
    <addaction name="menuCharacter"/>
+   <addaction name="menuGenerator"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionSessionNew">
@@ -660,6 +667,14 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionGeneratorUpdate">
+   <property name="text">
+    <string>Update</string>
+   </property>
+   <property name="toolTip">
+    <string>Update generator data</string>
    </property>
   </action>
  </widget>

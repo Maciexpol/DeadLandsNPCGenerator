@@ -45,15 +45,15 @@ private slots:
 
     void on_actionAdd_to_session_triggered();
 
-    void on_actionGenerate_triggered();
-
-    void on_rerollCharacter_clicked();
-
     void on_addToSession_clicked();
 
     void on_deleteFromSession_clicked();
 
     void on_actionGeneratorUpdate_triggered();
+
+    void on_actionGenerate_triggered();
+
+    void on_rerollCharacter_clicked();
 
 signals:
     //Session manager signals
@@ -74,6 +74,13 @@ private:
     Ui::MainWindow *ui;
     QLabel *connectionStatus;
     void generateAttributesWidgets();
+
+    void updateCharacterInfo();
+
+    void updateAttributesInfo();
+    void updateTraitsInfo();
+    void updateOverwievinfo();
+
 
 };
 #endif // MAINWINDOW_H

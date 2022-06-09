@@ -14,7 +14,7 @@ DataManager::DataManager(){
     originDatabase.close();
     databaseVersion = "1.0";
 
-    originDatabase.setHostName("local-serwer");
+    originDatabase.setHostName("83.29.116.62");
     originDatabase.setDatabaseName("deadlands");
     originDatabase.setUserName("lesio");
     originDatabase.setPassword("lesio");

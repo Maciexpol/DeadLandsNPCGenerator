@@ -36,21 +36,14 @@ private slots:
     void updateConnectionStatus(QString message);
 
     void on_actionSessionNew_triggered();
-
     void on_actionSessionSave_triggered();
-
     void on_actionSessionClose_triggered();
-
     void on_actionSessionOpen_triggered();
-
     void on_actionAdd_to_session_triggered();
-
     void on_addToSession_clicked();
-
     void on_deleteFromSession_clicked();
 
     void on_actionGeneratorUpdate_triggered();
-
     void on_actionGenerate_triggered();
 
     void on_rerollCharacter_clicked();

@@ -107,3 +107,42 @@ AttributeWidget::AttributeWidget(const ATTRIBUTES name, QVector<QString> inputNa
     // Set name of Attribute box
     setTitle(s);
 }
+
+void AttributeWidget::setDiceText(const QString & inputDice){
+    diceInput->setText(inputDice);
+}
+
+void AttributeWidget::setLvlSumText(const QString & inputLvlSum){
+//    lvlSumText->setText(inputLvlSum);
+}
+
+void AttributeWidget::setAbilitiesLvlsText(const QVector<QString> & inputLvls){
+    for(qint16 i = 0; i < lvlVector.length(); i++){
+        lvlVector[i]->setText(inputLvls[i]);
+    }
+}
+
+void AttributeWidget::clearDiceText(){
+    setDiceText("0d0");
+}
+
+void AttributeWidget::clearLvlSumText(){
+    setLvlSumText("0");
+}
+
+void AttributeWidget::clearAbilitiesLvlsText(){
+    QVector<QString> temp;
+    for(qint16 i = 0; i < lvlVector.length(); i++){
+        temp.append("0");
+    }
+
+    setAbilitiesLvlsText(temp);
+}
+
+void AttributeWidget::clear(){
+    clearDiceText();
+    clearLvlSumText();
+//    clearAbilitiesLvlsText();
+}
+
+

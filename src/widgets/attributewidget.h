@@ -34,6 +34,15 @@ private:
 public:
     AttributeWidget() {};
     AttributeWidget(ATTRIBUTES name, QVector<QString> abilitiesNames);
+
+    void setDiceText(const QString & inputDice);
+    void setLvlSumText(const QString & inputLvlSum);
+    void setAbilitiesLvlsText(const QVector<QString> & inputLvls);
+
+    void clearDiceText();
+    void clearLvlSumText();
+    void clearAbilitiesLvlsText();
+    void clear();
 };
 
 #endif // ATTRIBUTEWIDGET_H

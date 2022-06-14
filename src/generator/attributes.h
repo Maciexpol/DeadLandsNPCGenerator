@@ -23,6 +23,7 @@ public:
     Attributes(const Dices & dices);
 
     Attribute getAttribute(ATTRIBUTES sName) const;
+    QVector<Attribute> getAttributesVector() const {return attributes;};
 
     /*!
      * \brief distribute lvl points between attributes

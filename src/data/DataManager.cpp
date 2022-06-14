@@ -6,15 +6,15 @@
 
 DataManager::DataManager(){
     //Set connection info
-    QSqlDatabase::addDatabase("QSQLITE", "localDatabase");
-    QSqlDatabase::addDatabase("QMYSQL", "originDatabase");
-    database = QSqlDatabase::database("localDatabase");
+    QSqlDatabase::addDatabase("QSQLITE", "local");
+    QSqlDatabase::addDatabase("QMYSQL", "origin");
+    database = QSqlDatabase::database("local");
     database.close();
-    originDatabase = QSqlDatabase::database("originDatabase");
+    originDatabase = QSqlDatabase::database("origin");
     originDatabase.close();
     databaseVersion = "1.0";
 
-    originDatabase.setHostName("local-serwer");
+    originDatabase.setHostName("83.29.118.200");
     originDatabase.setDatabaseName("deadlands");
     originDatabase.setUserName("lesio");
     originDatabase.setPassword("lesio");
@@ -41,6 +41,8 @@ bool DataManager::openConnection() {
     }
     database.setDatabaseName(MemIO::generatorSavingFolder + "localDB-" + databaseVersion + ".db");
     if(database.open()){
+        database.exec("PRAGMA synchronous = OFF");
+        database.exec("PRAGMA journal_mode = MEMORY");
         emit updateConnectionStatus("connected to local database.");
         return true;
     }
@@ -59,14 +61,14 @@ bool DataManager::updateGenerator() {
         QMessageBox::warning(nullptr, "No connection.", "Connection to master database could not be established.");
         return false;
     }
-    if(!database.isOpen()){
+    if(!openConnection()){
         QMessageBox::warning(nullptr, "No connection.", "Not connected to local database.");
         return false;
     }
 
     QMessageBox box;
     box.setText("Local database update.");
-    box.setInformativeText("Are you sure you want to update local database? We cannot revert those changes.");
+    box.setInformativeText("Are you sure you want to update local database? We cannot revert these changes.");
     box.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
     box.setDefaultButton(QMessageBox::No);
     int ret = box.exec();
@@ -79,7 +81,7 @@ bool DataManager::updateGenerator() {
         QMessageBox::warning(nullptr, "Update failed.", "We have failed to update at least some of the data. Pretty normal thing for us to be honest.");
         return false;
     }
-    QMessageBox::information(nullptr, "Update successful", "We have successfully updated your local data!");
+    QMessageBox::information(nullptr, "Update successful", "We have successfully updated your local database!");
     return true;
 }
 

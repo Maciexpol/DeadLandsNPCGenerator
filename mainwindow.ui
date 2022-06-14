@@ -598,6 +598,7 @@
      <string>Generator</string>
     </property>
     <addaction name="actionGeneratorUpdate"/>
+    <addaction name="actionGeneratorConnect"/>
    </widget>
    <addaction name="menuSession"/>
    <addaction name="menuCharacter"/>
@@ -675,6 +676,11 @@
    </property>
    <property name="toolTip">
     <string>Update generator data</string>
+   </property>
+  </action>
+  <action name="actionGeneratorConnect">
+   <property name="text">
+    <string>Connect</string>
    </property>
   </action>
  </widget>

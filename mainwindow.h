@@ -55,6 +55,8 @@ private slots:
 
     void on_actionGeneratorUpdate_triggered();
 
+    void on_actionGeneratorConnect_triggered();
+
 signals:
     //Session manager signals
     void createNewSession();
@@ -69,6 +71,7 @@ signals:
 
     //Database signals
     void updateGeneratorData();
+    void openConnection();
 
 private:
     Ui::MainWindow *ui;

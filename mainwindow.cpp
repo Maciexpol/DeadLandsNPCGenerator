@@ -108,6 +108,9 @@ void MainWindow::createConnections(const SessionManager &sessionManager, const C
     //Connection to handle status bar update
     QObject::connect(&dataManager, &DataManager::tempStatusBar, this, &MainWindow::tempStatusBar);
 
+    //Connection to open database connection
+    QObject::connect(this, &MainWindow::openConnection, &dataManager, &DataManager::openConnection);
+
 }
 
 void MainWindow::linkCharacterList(QStringListModel *list) {
@@ -180,5 +183,10 @@ void MainWindow::on_deleteFromSession_clicked()
 void MainWindow::on_actionGeneratorUpdate_triggered()
 {
     emit updateGeneratorData();
+}
+
+void MainWindow::on_actionGeneratorConnect_triggered()
+{
+    emit openConnection();
 }
 

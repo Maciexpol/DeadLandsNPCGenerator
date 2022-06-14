@@ -2,7 +2,12 @@
 #define OVERVIEW_H
 
 #include <QString>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <random>
 #include "src/serializable.h"
+#include <iostream>
 
 /*!
  * \brief General information about NPC
@@ -18,7 +23,7 @@ private:
     QString occupation;
     QString origin;
     qint16 age;
-
+    qint8 gender;
 
 public:
     Overview();
@@ -28,6 +33,8 @@ public:
     QString getOccupation() const{return this->occupation;}
     QString getOrigin() const{return this->origin;}
     qint16 getAge() const{return this->age;}
+
+    void rollOverview();
 
     QDomElement XmlSerialize() const override;
     void XmlDeserialize(const QDomElement &element) override;

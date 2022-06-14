@@ -37,7 +37,7 @@ bool saveToFile(const QDomElement &root, const QString &path){
     QTextStream stream(&file);
     stream << document.toString();
     file.close();
-    std::cout << "Saved '" << root.nodeValue().toStdString() << "' to '" << path.toStdString() + '/' + root.nodeValue().toStdString() + ".xml" << std::endl;
+    std::cout << "Saved '" << root.nodeValue().toStdString() << "' to '" << path.toStdString() + root.nodeValue().toStdString() + ".xml" << std::endl;
     return true;
 }
 
@@ -66,7 +66,7 @@ QDomElement loadSession(QString &fileName){
 }
 
 QDomElement loadCharacter(QString uniqueID){
-    QFile file(charactersSavingFolder + "/" + uniqueID);
+    QFile file(charactersSavingFolder + uniqueID);
     if(!file.open(QIODevice::ReadOnly)){
         qDebug("Error opening character file.");
         return {};

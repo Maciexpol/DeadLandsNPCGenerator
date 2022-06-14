@@ -18,6 +18,7 @@ Character::Character()
 void Character::rollCharacter(){
     rollDices();
 
+
     attributes = Attributes(dices);
 
     edgesAndHindrances = EdgesAndHindrances(); //TODO:
@@ -64,7 +65,7 @@ void Character::saveCharacter() {
 }
 
 void Character::addCharacterToSession() {
-    SessionCharacter character(this->uniqueID, "Kurwibąk", "Kurwicki");
+    SessionCharacter character(this->uniqueID, this->overview.getFirstName(), this->overview.getLastName());
     saveCharacter();
     emit addCharacter(character);
 }

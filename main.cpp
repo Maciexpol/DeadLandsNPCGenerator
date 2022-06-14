@@ -13,13 +13,15 @@ int main(int argc, char *argv[])
     SessionManager sessionManager;
 
     //============ tests
-    Character newCharacter = Character();
+    {
+        Character newCharacter = Character();
 
-    // Std Character overview
-    for(int i = 0; i < 3; i++){
-        newCharacter.stdPrint();
-        std::cout << std::endl << std::endl << std::endl << std::endl << std::endl;
-        newCharacter.rollCharacter();
+        // Std Character overview
+        for (int i = 0; i < 3; i++) {
+            newCharacter.stdPrint();
+            std::cout << std::endl << std::endl << std::endl << std::endl << std::endl;
+            newCharacter.rollCharacter();
+        }
     }
     //=========== end test
 
@@ -27,6 +29,7 @@ int main(int argc, char *argv[])
     DataManager dataManager;
     w.createConnections(sessionManager, character, dataManager);
     dataManager.openConnection();
+    character.rollCharacter();
     sessionManager.updateSessionInfo(sessionManager);
     w.setWindowState(Qt::WindowMaximized);
     w.show();

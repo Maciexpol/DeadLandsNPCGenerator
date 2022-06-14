@@ -26,7 +26,6 @@ public:
     DataManager();
     ~DataManager();
 
-    bool openConnection();
     void closeConnection();
 
     bool updateGenerator();
@@ -44,6 +43,7 @@ public:
 
 public slots:
     void updateGeneratorSignal();
+    bool openConnection();
 
 signals:
     void updateConnectionStatus(QString);

@@ -28,6 +28,7 @@ void MainWindow::generateAttributesWidgets(){
 
     for(qint16 i = 0; i < names.length(); i++){
         AttributeWidget * newWidget = new AttributeWidget(ATTRIBUTES(i), names[i]);
+        attributesWidgetsVecotr.push_back(newWidget);
         switch(i%3){
         case 0:
             this->ui->firstColumn->addWidget(newWidget);
@@ -121,7 +122,33 @@ void MainWindow::updateSessionInfo(const SessionManager& session){
 }
 
 void MainWindow::updateCharacterInfo(const Character &character) {
-    this->ui->NameInput->setText(character.getOverview().getFirstName() + character.getOverview().getLastName());
+    // ---- Overview
+    this->ui->NameInput->setText( character.getOverview().getFirstName() + character.getOverview().getLastName());
+    this->ui->AgeInput->setText( QString::number(character.getOverview().getAge()) );
+    this->ui->OriginInput->setText( character.getOverview().getOrigin());
+    this->ui->OccuppationInput->setText( character.getOverview().getOccupation());
+
+    // ---- Edges and Hindrances
+
+    // ---- Attributes
+    QVector<Attribute> charAttributes= character.getAttributes().getAttributesVector();
+    for(qint16 i = 0; i < 10; i++){
+        std::cout << charAttributes.length();
+        // set dice
+        QString dc = QString::number(charAttributes[i].getDice().getNumber()) + "d" + QString::number(charAttributes[i].getDice().getSides());
+        attributesWidgetsVecotr[i]->setDiceText(dc);
+
+        if(charAttributes[i].hasAbilities()){ // if there is no abilities - skip
+            // set LvlSum
+            attributesWidgetsVecotr[i]->setLvlSumText(QString::number(charAttributes[i].getabilitiesLvlSum()));
+            // set abilities lvl
+            QVector<QString> lvls; // vector with lvl strings
+            for(auto i : charAttributes[i].getAbilities().getAbilites()){
+                lvls.push_back(QString::number(i.getLvl()));
+            }
+            attributesWidgetsVecotr[i]->setAbilitiesLvlsText(lvls);
+        }
+    }
 }
 
 void MainWindow::updateConnectionStatus(QString message) {

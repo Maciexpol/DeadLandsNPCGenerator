@@ -113,7 +113,7 @@ void AttributeWidget::setDiceText(const QString & inputDice){
 }
 
 void AttributeWidget::setLvlSumText(const QString & inputLvlSum){
-    lvlSumText->setText(inputLvlSum);
+//    lvlSumText->setText(inputLvlSum);
 }
 
 void AttributeWidget::setAbilitiesLvlsText(const QVector<QString> & inputLvls){
@@ -142,7 +142,7 @@ void AttributeWidget::clearAbilitiesLvlsText(){
 void AttributeWidget::clear(){
     clearDiceText();
     clearLvlSumText();
-    clearAbilitiesLvlsText();
+//    clearAbilitiesLvlsText();
 }
 
 

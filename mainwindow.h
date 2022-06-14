@@ -29,12 +29,14 @@ public:
                            const DataManager &dataManager) const;
 
 private slots:
+    //
     void linkCharacterList(QStringListModel *list);
     void updateSessionInfo(const SessionManager& session);
     void updateCharacterInfo(const Character& character);
     void tempStatusBar(QString message);
     void updateConnectionStatus(QString message);
 
+    //Sessions slots
     void on_actionSessionNew_triggered();
     void on_actionSessionSave_triggered();
     void on_actionSessionClose_triggered();
@@ -66,9 +68,10 @@ signals:
 private:
     Ui::MainWindow *ui;
     QLabel *connectionStatus;
-    void generateAttributesWidgets();
 
-    void updateCharacterInfo();
+    QVector<AttributeWidget*> attributesWidgetsVecotr;
+
+    void generateAttributesWidgets();
 
     void updateAttributesInfo();
     void updateTraitsInfo();

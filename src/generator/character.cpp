@@ -72,6 +72,7 @@ void Character::addCharacterToSession() {
 
 void Character::generateCharacter() {
     this->rollCharacter();
+    updateInfo();
 }
 
 void Character::loadCharacter(const SessionCharacter &character) {

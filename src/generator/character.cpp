@@ -111,3 +111,8 @@ void Character::XmlDeserialize(const QDomElement &element){
 };
 
 bool Character::XmlValidate() const {return true;}
+
+void Character::rollSpecificAbility(const ATTRIBUTES & name){
+    attributes.getAttribute(name).rollAbilitiesLvl();
+    emit updateCharacterInfo(*this);
+}

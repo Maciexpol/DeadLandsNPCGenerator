@@ -2,6 +2,7 @@
 
 AttributeWidget::AttributeWidget(const ATTRIBUTES name, QVector<QString> inputNames){
     // translate name from enum to string
+    enumName = name;
     const char* s = 0;
 #define PROCESS_VAL(p) case(p): s = #p; break;
     switch(name){
@@ -143,6 +144,10 @@ void AttributeWidget::clear(){
     clearDiceText();
     clearLvlSumText();
 //    clearAbilitiesLvlsText();
+}
+
+void AttributeWidget::connectButton(const Character & input){
+    QObject::connect(rerollButton, &QPushButton::clicked, &input, &Character::rollSpecificAbility);
 }
 
 

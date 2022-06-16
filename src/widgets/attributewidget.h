@@ -8,12 +8,14 @@
 #include <QLabel>
 #include "./src/generator/dice.h"
 #include "./src/generator/attribute.h"
+#include "./src/generator/character.h"
 
 
 class AttributeWidget : public QGroupBox
 {
     Q_OBJECT
 private:
+    ATTRIBUTES enumName;
     QVBoxLayout *general;
 
         QHBoxLayout *headerBox;
@@ -43,6 +45,8 @@ public:
     void clearLvlSumText();
     void clearAbilitiesLvlsText();
     void clear();
+
+    void connectButton(const Character & input);
 };
 
 #endif // ATTRIBUTEWIDGET_H

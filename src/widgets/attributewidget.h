@@ -47,6 +47,12 @@ public:
     void clear();
 
     void connectButton(const Character & input);
+
+signals:
+    void rollSpecificAbility(ATTRIBUTES);
+
+public slots:
+    void buttonEmitter();
 };
 
 #endif // ATTRIBUTEWIDGET_H

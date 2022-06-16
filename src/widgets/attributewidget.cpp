@@ -146,8 +146,14 @@ void AttributeWidget::clear(){
 //    clearAbilitiesLvlsText();
 }
 
+void AttributeWidget::buttonEmitter(){
+    emit rollSpecificAbility(enumName);
+}
+
+
 void AttributeWidget::connectButton(const Character & input){
-    QObject::connect(rerollButton, &QPushButton::clicked, &input, &Character::rollSpecificAbility);
+    QObject::connect(rerollButton, &QPushButton::clicked, this, &AttributeWidget::buttonEmitter);
+    QObject::connect(this, &AttributeWidget::rollSpecificAbility, &input, &Character::rollSpecificAbility);
 }
 
 

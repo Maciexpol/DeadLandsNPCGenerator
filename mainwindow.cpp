@@ -112,6 +112,9 @@ void MainWindow::createConnections(const SessionManager &sessionManager, const C
     //Connection to open database connection
     QObject::connect(this, &MainWindow::openConnection, &dataManager, &DataManager::openConnection);
 
+    for(auto & el : attributesWidgetsVecotr){
+        el->connectButton(character);
+    }
 }
 
 void MainWindow::linkCharacterList(QStringListModel *list) {

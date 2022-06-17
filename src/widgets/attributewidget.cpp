@@ -36,6 +36,7 @@ AttributeWidget::AttributeWidget(const ATTRIBUTES name, QVector<QString> inputNa
         QLabel *lvlLabel = new QLabel();
         lvlLabel->setText("0");
         lvlLabel->setAlignment(Qt::AlignCenter);
+        lvlLabel->setStyleSheet("font-weight: bold;");
         lvlVector.push_back(lvlLabel);
     }
 
@@ -68,6 +69,7 @@ AttributeWidget::AttributeWidget(const ATTRIBUTES name, QVector<QString> inputNa
 
         lvlSumInput->setText("0");
         lvlSumInput->setAlignment(Qt::AlignCenter | Qt::AlignHCenter);
+        lvlSumInput->setStyleSheet("font-weight: bold;");
         lvlSumBox->addWidget(lvlSumInput);
 
         headerBox->addWidget(spacer);
@@ -76,6 +78,7 @@ AttributeWidget::AttributeWidget(const ATTRIBUTES name, QVector<QString> inputNa
 
     diceInput->setText("0d0");
     diceInput->setAlignment(Qt::AlignCenter | Qt::AlignHCenter);
+    diceInput->setStyleSheet("font-weight: bold;");
 
     headerBox->addWidget(diceInput);
 

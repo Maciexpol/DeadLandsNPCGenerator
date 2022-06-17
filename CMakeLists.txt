@@ -31,6 +31,7 @@ set(PROJECT_SOURCES
         src/serializable.h src/serializable.cpp
         src/memio.h src/memio.cpp
         src/data/DataManager.h src/data/DataManager.cpp
+        src/data/uniqueid.h src/data/uniqueid.cpp
 
         # -- edgesandhindrances class --
         src/generator/edgesandhindrances.h src/generator/edgesandhindrances.cpp
@@ -90,6 +91,7 @@ endif()
 target_link_libraries(npc-generator PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 # -- Added by myself --
 target_link_libraries(npc-generator PRIVATE Qt6::Xml Qt6::Sql)
+target_link_libraries(npc-generator ${Boost_LIBRARIES})
 
 set_target_properties(npc-generator PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com

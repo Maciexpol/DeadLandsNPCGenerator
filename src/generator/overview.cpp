@@ -6,66 +6,87 @@ Overview::Overview()
     rollOverview();
 }
 
-void Overview::rollOverview() {
-    QSqlDatabase db = QSqlDatabase::database("local");
-    std::cout << db.isOpen() << std::endl;
+void Overview::rollAge() {
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_int_distribution<qint16> num(18, 90);
-
-    //Randomize age
     this->age = num(gen);
+}
 
-    //Check if roll data is available
-    if(!db.open()){
-        qDebug("NO connection.");
-        //There is no connection to database
-        //TODO: add temp prompt that there is no connection
-        first_name = "DEFAULT";
-        last_name = "DEFAULT";
-        occupation = "DEFAULT";
-        origin = "DEFAULT";
+void Overview::rollOrigin() {
+    QSqlDatabase db = QSqlDatabase::database("local");
+
+    //TODO: Add lost connection handling
+    if(!db.open())
         return;
-    }
-    qDebug("CONNECTED");
+
     QSqlQuery query( db);
-    int size;
+    std::random_device rd;
+    std::mt19937 gen(rd());
 
     //Generate origin
     //TODO: Set uniform to match number of records in origins
-    num = std::uniform_int_distribution<qint16> (1, 2);
-    qint16 originID = num(gen);
-    //There are no records in database with originID other than 1 at this moment
+    std::uniform_int_distribution<qint16> num(1, 2);
+    originID = num(gen);
+    //TODO: There are no records in database with originID other than 1 at this moment
     originID = 1;
     query.exec("SELECT origin FROM origins WHERE id=" + QString::number(originID) + ";");
     query.next();
     origin = query.value(0).toString();
+}
+
+void Overview::rollOccupation() {
+
+    QSqlDatabase db = QSqlDatabase::database("local");
+
+    //TODO: Add lost connection handling
+    if(!db.open())
+        return;
+
+    QSqlQuery query( db);
+    std::random_device rd;
+    std::mt19937 gen(rd());
 
     //Generate occupation
-    num = std::uniform_int_distribution<qint16> (1, 966);
+    //TODO: Check how many occupations are available
+    std::uniform_int_distribution<qint16> num(1, 966);
     qint16 occupationID = num(gen);
-    //std::cout << "Occupation ID: " << occupationID << std::endl;
     query.exec("SELECT occupation FROM occupations WHERE id=" + QString::number(occupationID) + ";");
-    //std::cout << "Occupation, num rows affected: " << query.numRowsAffected() << std::endl;
     query.next();
     occupation = query.value(0).toString();
+}
 
+void Overview::rollGender() {
     //Generate gender
     //TODO: Maybe there will be more genders in the future, randomize from list
-    num = std::uniform_int_distribution<qint16> (0, 1);
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<qint16> num(0, 1);
     auto genderID = static_cast<qint8>(num(gen));
     gender = genderID;
+}
 
+void Overview::rollFirstName() {
+    QSqlDatabase db = QSqlDatabase::database("local");
+
+    //TODO: Add lost connection handling
+    if(!db.open())
+        return;
+
+    QSqlQuery query( db);
+    int size;
+
+    std::random_device rd;
+    std::mt19937 gen(rd());
     //Generate first name
-    query.exec("SELECT COUNT(*) FROM first_names WHERE origin_id=" + QString::number(originID) + " AND gender=" + QString::number(genderID) + ";");
+    query.exec("SELECT COUNT(*) FROM first_names WHERE origin_id=" + QString::number(originID) + " AND gender=" + QString::number(gender) + ";");
     query.next();
     size = query.value(0).toInt();
-    query.exec("SELECT first_name FROM first_names WHERE"
-               "origin_id=" + QString::number(originID) +
-               " AND gender=" + QString::number(genderID) + ";");
-    std::cout << "First name, num rows affected: " << size << std::endl;
-    num = std::uniform_int_distribution<qint16> (0, size-1);
+    std::cout << "First name, size: " << size << std::endl;
+    query.exec("SELECT first_name FROM first_names WHERE origin_id=" + QString::number(originID) + " AND gender=" + QString::number(gender) + ";");
+    std::uniform_int_distribution<qint16> num(0, size-1);
     qint16 index = num(gen);
+    query.next();
     if(query.isSelect()){
         if(query.seek(index)){
             first_name = query.value(0).toString();
@@ -78,17 +99,29 @@ void Overview::rollOverview() {
         //TODO: Cokolwiek to ma nie robić
         return;
     }
+}
 
+void Overview::rollLastName() {
+    QSqlDatabase db = QSqlDatabase::database("local");
+
+    //TODO: Add lost connection handling
+    if(!db.open())
+        return;
+
+    QSqlQuery query( db);
+    int size;
+
+    std::random_device rd;
+    std::mt19937 gen(rd());
     //Generate last name
-    query.exec("SELECT COUNT(*) FROM last_names WHERE"
-               "origin_id=" + QString::number(originID) + ";");
+    query.exec("SELECT COUNT(*) FROM last_names WHERE origin_id=" + QString::number(originID) + ";");
     query.next();
     size = query.value(0).toInt();
-    query.exec("SELECT last_name FROM last_names WHERE"
-               "origin_id=" + QString::number(originID) + ";");
-    std::cout << "Last name, num rows affected: " << size<< std::endl;
-    num = std::uniform_int_distribution<qint16> (0, size-1);
-    index = num(gen);
+    query.exec("SELECT last_name FROM last_names WHERE origin_id=" + QString::number(originID) + ";");
+    std::cout << "Last name, size: " << size<< std::endl;
+    std::uniform_int_distribution<qint16> num(0, size-1);
+    qint16 index = num(gen);
+    query.next();
     if(query.isSelect()){
         if(query.seek(index)){
             last_name = query.value(0).toString();
@@ -101,6 +134,15 @@ void Overview::rollOverview() {
         //TODO: Cokolwiek to ma nie robić
         return;
     }
+}
+
+void Overview::rollOverview() {
+    rollAge();
+    rollOrigin();
+    rollOccupation();
+    rollGender();
+    rollFirstName();
+    rollLastName();
 }
 
 QDomElement Overview::XmlSerialize() const {

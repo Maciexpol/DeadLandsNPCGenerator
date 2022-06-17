@@ -11,18 +11,18 @@
 class SessionCharacter : Serializable
 {
 private:
-    qint32 uniqueID;
+    QString uniqueID;
     QString first_name;
     QString last_name;
 public:
-    SessionCharacter() : uniqueID(0), first_name("UNKNOWN"), last_name("UNKNOWN"){};
-    SessionCharacter(const qint32 &id, const QString &newFirstName, const QString &newLastName) :
+    SessionCharacter() : uniqueID(""), first_name("UNKNOWN"), last_name("UNKNOWN"){};
+    SessionCharacter(const QString &id, const QString &newFirstName, const QString &newLastName) :
         uniqueID(id),
         first_name(newFirstName),
         last_name(newLastName)
         {};
 
-    qint32 getUniqueID() const{return this->uniqueID;};
+    QString getUniqueID() const{return this->uniqueID;};
     QString getFirstName() const{return this->first_name;};
     QString getLastName() const{return this->last_name;};
 

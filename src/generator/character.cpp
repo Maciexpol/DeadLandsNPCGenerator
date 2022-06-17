@@ -2,17 +2,7 @@
 
 Character::Character()
 {
-    rollDices();
-
-    attributes = Attributes(dices);
-
-    edgesAndHindrances = EdgesAndHindrances(); //TODO:
-
-    qint16 lvlPoints = attributes.generateLvlPoints();
-    lvlPoints -= edgesAndHindrances.countBalance();
-    attributes.rollAttributesLvlPoints(lvlPoints);
-
-    overview = Overview();
+    rollCharacter();
 }
 
 void Character::rollCharacter(){
@@ -28,6 +18,7 @@ void Character::rollCharacter(){
     attributes.rollAttributesLvlPoints(lvlPoints);
 
     overview = Overview();
+    uniqueID = UniqueID::createUniqueID();
 }
 
 void Character::rollDices(){
@@ -53,7 +44,7 @@ void Character::updateInfo() {
 }
 
 QString Character::toStr() const{
-    return QString::number(uniqueID)+"_"+this->overview.getFirstName()+"_"+this->overview.getLastName();
+    return uniqueID+"_"+overview.getFirstName()+"_"+overview.getLastName();
 }
 
 //SessionCharacter Character::toSessionCharacter() const {
@@ -75,7 +66,8 @@ void Character::generateCharacter() {
 }
 
 void Character::loadCharacter(const SessionCharacter &character) {
-    QDomElement node = MemIO::loadCharacter(character.toStr());
+    QDomElement node = QDomDocument().createElement("node");
+    node = MemIO::loadCharacter(character.toStr());
     this->XmlDeserialize(node);
     updateInfo();
 }
@@ -101,7 +93,7 @@ QDomElement Character::XmlSerialize() const{
 };
 
 void Character::XmlDeserialize(const QDomElement &element){
-    this->uniqueID = static_cast<qint32>(element.attribute("uniqueID", "0").toInt());
+    this->uniqueID = element.attribute("uniqueID", "");
     QDomElement node;
     overview.XmlDeserialize(node = element.firstChildElement());
     attributes.XmlDeserialize(node = node.nextSiblingElement());
@@ -112,9 +104,7 @@ void Character::XmlDeserialize(const QDomElement &element){
 bool Character::XmlValidate() const {return true;}
 
 void Character::rollSpecificAbility(const ATTRIBUTES & name){
-    this->attributes.getAttribute(name)->stdPrint();
     this->attributes.getAttribute(name)->rollAbilitiesLvl();
-    this->attributes.getAttribute(name)->stdPrint();
     emit updateCharacterInfo(*this);
 }
 

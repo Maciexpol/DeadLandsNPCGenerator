@@ -10,6 +10,7 @@
 #include "edgesandhindrances.h"
 #include "overview.h"
 #include "rolldices.h"
+#include "src/data/uniqueid.h"
 
 /*!
  * \brief Character data
@@ -22,7 +23,7 @@ class Character : public QObject, Serializable
 
 private:
     // Remember to serialize newly added objects in XmlSerialize
-    qint32 uniqueID;
+    QString uniqueID;
     Attributes attributes;
     Dices dices;
     EdgesAndHindrances edgesAndHindrances;
@@ -31,7 +32,7 @@ private:
 public:
     Character();
     
-    qint32 getUniqueID() const {return this->uniqueID;};
+    QString getUniqueID() const {return this->uniqueID;};
     Attributes getAttributes() const{return this->attributes;}
     Dices getDices() const{return this->dices;};
     EdgesAndHindrances getEdgesAndHindrances() const{return this->edgesAndHindrances;};

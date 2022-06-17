@@ -61,7 +61,7 @@ public slots:
     void rollCharacter();
 //    void rollFromDices();
 //    void rollFromLvlPoints();
-//    void rollSpecificAbility();
+    void rollSpecificAbility(const ATTRIBUTES & name);
 //    void rollFromEdgesAndHindrances();
 //    void rollFromOverview();
 //    void rollFromName();

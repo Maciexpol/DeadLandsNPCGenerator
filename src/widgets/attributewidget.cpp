@@ -2,6 +2,7 @@
 
 AttributeWidget::AttributeWidget(const ATTRIBUTES name, QVector<QString> inputNames){
     // translate name from enum to string
+    enumName = name;
     const char* s = 0;
 #define PROCESS_VAL(p) case(p): s = #p; break;
     switch(name){
@@ -113,7 +114,7 @@ void AttributeWidget::setDiceText(const QString & inputDice){
 }
 
 void AttributeWidget::setLvlSumText(const QString & inputLvlSum){
-//    lvlSumText->setText(inputLvlSum);
+    lvlSumInput->setText(inputLvlSum);
 }
 
 void AttributeWidget::setAbilitiesLvlsText(const QVector<QString> & inputLvls){
@@ -143,6 +144,16 @@ void AttributeWidget::clear(){
     clearDiceText();
     clearLvlSumText();
 //    clearAbilitiesLvlsText();
+}
+
+void AttributeWidget::buttonEmitter(){
+    emit rollSpecificAbility(enumName);
+}
+
+
+void AttributeWidget::connectButton(const Character & input){
+    QObject::connect(rerollButton, &QPushButton::clicked, this, &AttributeWidget::buttonEmitter);
+    QObject::connect(this, &AttributeWidget::rollSpecificAbility, &input, &Character::rollSpecificAbility);
 }
 
 

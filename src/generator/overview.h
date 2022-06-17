@@ -38,7 +38,6 @@ public:
     QDomElement XmlSerialize() const override;
     void XmlDeserialize(const QDomElement &element) override;
 
-public slots:
     void rollOverview();
     void rollAge();
     void rollOrigin();

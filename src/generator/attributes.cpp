@@ -22,22 +22,23 @@ Attributes::Attributes(const Dices & dices){
     }
 }
 
-Attribute Attributes::getAttribute(ATTRIBUTES sName) const{
-//    // 1 option
+Attribute* Attributes::getAttribute(const ATTRIBUTES & sName){
+//  1 option
 //    return attributes[(qint16) sName];
-    // 2 option
-    for(auto & at : attributes){
-        if(at.getName() == sName)
-            return at;
+//    option may be bad, because it needs attributes to be in specific order
+//  2 option
+    for(qint16 i = 0; i < attributes.length(); i++){
+        if(attributes[i].getName() == sName)
+            return &attributes[i];
     }
     return {};
 }
 
 qint16 Attributes::generateLvlPoints(){
     qint16 sum = 0;
-    sum += getAttribute(ATTRIBUTES::Cognition).getDice().getSides();
-    sum += getAttribute(ATTRIBUTES::Knowledge).getDice().getSides();
-    sum += getAttribute(ATTRIBUTES::Smarts).getDice().getSides();
+    sum += getAttribute(ATTRIBUTES::Cognition)->getDice().getSides();
+    sum += getAttribute(ATTRIBUTES::Knowledge)->getDice().getSides();
+    sum += getAttribute(ATTRIBUTES::Smarts)->getDice().getSides();
     return sum;
 }
 
@@ -46,6 +47,14 @@ void Attributes::clearAttributesLvlPoints(){
         if(at.hasAbilities())
             at.clearAbilitiesLvl();
     }
+}
+
+void Attributes::clearAttributesLvlSum(){
+    for(auto & at : attributes){
+        if(at.hasAbilities())
+            at.clearAbilitiesLvlSum();
+    }
+    clearAttributesLvlPoints();
 }
 
 void Attributes::rollAttributesLvlPoints(const qint16 & characterLvlPoints){

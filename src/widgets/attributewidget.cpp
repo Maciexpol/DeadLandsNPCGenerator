@@ -58,10 +58,7 @@ AttributeWidget::AttributeWidget(const ATTRIBUTES name, QVector<QString> inputNa
     spacer = new QLabel();
     diceInput = new QLabel();
 
-    _hasAbilities = false;
-
     if(inputNames.length() > 0){
-        _hasAbilities = true;
         lvlSumBox = new QHBoxLayout();
         lvlSumText = new QLabel();
         lvlSumInput = new QLabel();
@@ -95,7 +92,9 @@ AttributeWidget::AttributeWidget(const ATTRIBUTES name, QVector<QString> inputNa
     general->addLayout(headerBox);
 
     // -- reroll button --
+    _hasAbilities = false;
     if(inputNames.length() > 1){
+        _hasAbilities = true;
         rerollButton = new QPushButton();
         rerollButton->setText("x");
         general->addWidget(rerollButton);

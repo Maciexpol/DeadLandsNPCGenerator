@@ -47,9 +47,8 @@ QString Character::toStr() const{
     return uniqueID+"_"+overview.getFirstName()+"_"+overview.getLastName();
 }
 
-SessionCharacter Character::toSessionCharacter() const {
-
-}
+//SessionCharacter Character::toSessionCharacter() const {
+//}
 
 void Character::saveCharacter() {
     MemIO::saveCharacter(this->XmlSerialize());
@@ -105,8 +104,36 @@ void Character::XmlDeserialize(const QDomElement &element){
 bool Character::XmlValidate() const {return true;}
 
 void Character::rollSpecificAbility(const ATTRIBUTES & name){
-    qDebug("DQIKWMDIQWMDIWQ");
-    attributes.getAttribute(name).rollAbilitiesLvl();
-    qDebug("diiqwodmqwd???????");
+    this->attributes.getAttribute(name)->rollAbilitiesLvl();
+    emit updateCharacterInfo(*this);
+}
+
+void Character::rollFromLvlPoints(){
+    attributes.clearAttributesLvlSum();
+    attributes.rollAttributesLvlPoints(attributes.generateLvlPoints());
+    emit updateCharacterInfo(*this);
+}
+
+void Character::rollFromOverview(){
+    overview.rollOverview();
+    emit updateCharacterInfo(*this);
+}
+
+void Character::rollFromName(){
+    emit updateCharacterInfo(*this);
+}
+
+void Character::rollAge(){
+
+    emit updateCharacterInfo(*this);
+}
+
+void Character::rollOccupation(){
+
+    emit updateCharacterInfo(*this);
+}
+
+void Character::rollFromOrigin(){
+
     emit updateCharacterInfo(*this);
 }

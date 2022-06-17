@@ -22,7 +22,7 @@ public:
     Attributes(const qint16 & characterLvlPoints, const Dices & dices);
     Attributes(const Dices & dices);
 
-    Attribute getAttribute(ATTRIBUTES sName) const;
+    Attribute* getAttribute(const ATTRIBUTES & sName);
     QVector<Attribute> getAttributesVector() const {return attributes;};
 
     /*!
@@ -35,6 +35,8 @@ public:
      * \brief zeoros abilities lvl and abilitiesLvlSum in all attributes
      */
     void clearAttributesLvlPoints();
+
+    void clearAttributesLvlSum();
 
     /*!
      * \brief Counts lvl points from dices of cognition, knowledge and smarts attributes

@@ -26,6 +26,11 @@
      <height>9999</height>
     </size>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
    <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,5">
     <item>
      <layout class="QVBoxLayout" name="sessionLayout">
@@ -57,6 +62,7 @@
            </property>
            <property name="font">
             <font>
+             <pointsize>10</pointsize>
              <bold>true</bold>
             </font>
            </property>
@@ -97,6 +103,7 @@
            </property>
            <property name="font">
             <font>
+             <pointsize>10</pointsize>
              <bold>true</bold>
             </font>
            </property>
@@ -216,6 +223,12 @@
           <layout class="QVBoxLayout" name="backgroundLayout" stretch="2,10">
            <item>
             <widget class="QGroupBox" name="OverviewBox">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
              <property name="title">
               <string>Overview</string>
              </property>
@@ -258,6 +271,7 @@
                  <widget class="QLabel" name="NameInput">
                   <property name="font">
                    <font>
+                    <pointsize>10</pointsize>
                     <bold>true</bold>
                    </font>
                   </property>
@@ -270,6 +284,7 @@
                  <widget class="QLabel" name="AgeInput">
                   <property name="font">
                    <font>
+                    <pointsize>10</pointsize>
                     <bold>true</bold>
                    </font>
                   </property>
@@ -282,6 +297,7 @@
                  <widget class="QLabel" name="OccuppationInput">
                   <property name="font">
                    <font>
+                    <pointsize>10</pointsize>
                     <bold>true</bold>
                    </font>
                   </property>
@@ -294,6 +310,7 @@
                  <widget class="QLabel" name="OriginInput">
                   <property name="font">
                    <font>
+                    <pointsize>10</pointsize>
                     <bold>true</bold>
                    </font>
                   </property>
@@ -466,6 +483,7 @@
                <widget class="QPushButton" name="Strength">
                 <property name="font">
                  <font>
+                  <pointsize>10</pointsize>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -484,6 +502,7 @@
                <widget class="QPushButton" name="Spirit">
                 <property name="font">
                  <font>
+                  <pointsize>10</pointsize>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -496,6 +515,7 @@
                <widget class="QPushButton" name="Vigor">
                 <property name="font">
                  <font>
+                  <pointsize>10</pointsize>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -508,6 +528,7 @@
                <widget class="QPushButton" name="Quickness">
                 <property name="font">
                  <font>
+                  <pointsize>10</pointsize>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -520,6 +541,7 @@
                <widget class="QPushButton" name="Nimbleness">
                 <property name="font">
                  <font>
+                  <pointsize>10</pointsize>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -532,6 +554,7 @@
                <widget class="QPushButton" name="Deftness">
                 <property name="font">
                  <font>
+                  <pointsize>10</pointsize>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -544,6 +567,7 @@
                <widget class="QPushButton" name="Mien">
                 <property name="font">
                  <font>
+                  <pointsize>10</pointsize>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -556,6 +580,7 @@
                <widget class="QPushButton" name="Smarts">
                 <property name="font">
                  <font>
+                  <pointsize>10</pointsize>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -568,6 +593,7 @@
                <widget class="QPushButton" name="Knowledge">
                 <property name="font">
                  <font>
+                  <pointsize>10</pointsize>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -580,6 +606,7 @@
                <widget class="QPushButton" name="Cognition">
                 <property name="font">
                  <font>
+                  <pointsize>10</pointsize>
                   <bold>true</bold>
                  </font>
                 </property>

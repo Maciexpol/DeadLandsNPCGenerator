@@ -110,8 +110,11 @@ AttributeWidget::AttributeWidget(const ATTRIBUTES name, QVector<QString> inputNa
     n.setHorizontalPolicy(QSizePolicy::Policy::Preferred);
     n.setVerticalPolicy(QSizePolicy::Policy::Fixed);
     setSizePolicy(n);
-    // Set name of Attribute box
-    setTitle(s);
+    // Set name of Attribute
+    QString title;
+    title.append(s);
+    setTitle(title);
+    setAlignment(Qt::AlignCenter);
 }
 
 void AttributeWidget::setDiceText(const QString & inputDice){

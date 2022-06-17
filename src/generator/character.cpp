@@ -120,20 +120,22 @@ void Character::rollFromOverview(){
 }
 
 void Character::rollFromName(){
+    overview.rollFirstName();
+    overview.rollLastName();
     emit updateCharacterInfo(*this);
 }
 
 void Character::rollAge(){
-
+    overview.rollAge();
     emit updateCharacterInfo(*this);
 }
 
 void Character::rollOccupation(){
-
+    overview.rollOccupation();
     emit updateCharacterInfo(*this);
 }
 
 void Character::rollFromOrigin(){
-
+    overview.rollOrigin();
     emit updateCharacterInfo(*this);
 }

@@ -127,7 +127,7 @@
             <set>QAbstractItemView::NoEditTriggers</set>
            </property>
            <property name="isWrapping" stdset="0">
-            <bool>true</bool>
+            <bool>false</bool>
            </property>
           </widget>
          </item>

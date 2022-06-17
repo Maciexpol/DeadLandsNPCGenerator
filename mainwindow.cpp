@@ -111,7 +111,6 @@ void MainWindow::createConnections(const SessionManager &sessionManager, const C
 
     //Connection to open database connection
     QObject::connect(this, &MainWindow::openConnection, &dataManager, &DataManager::openConnection);
-
 }
 
 void MainWindow::linkCharacterList(QStringListModel *list) {
@@ -126,7 +125,7 @@ void MainWindow::updateSessionInfo(const SessionManager& session){
 
 void MainWindow::updateCharacterInfo(const Character &character) {
     // ---- Overview
-    this->ui->NameInput->setText( character.getOverview().getFirstName() + character.getOverview().getLastName());
+    this->ui->NameInput->setText( character.getOverview().getFirstName() + " " + character.getOverview().getLastName());
     this->ui->AgeInput->setText( QString::number(character.getOverview().getAge()) );
     this->ui->OriginInput->setText( character.getOverview().getOrigin());
     this->ui->OccuppationInput->setText( character.getOverview().getOccupation());

@@ -60,12 +60,11 @@ void Overview::rollOverview() {
     query.exec("SELECT COUNT(*) FROM first_names WHERE origin_id=" + QString::number(originID) + " AND gender=" + QString::number(genderID) + ";");
     query.next();
     size = query.value(0).toInt();
-    query.exec("SELECT first_name FROM first_names WHERE"
-               "origin_id=" + QString::number(originID) +
-               " AND gender=" + QString::number(genderID) + ";");
-    std::cout << "First name, num rows affected: " << size << std::endl;
+    std::cout << "First name, size: " << size << std::endl;
+    query.exec("SELECT first_name FROM first_names WHERE origin_id=" + QString::number(originID) + " AND gender=" + QString::number(genderID) + ";");
     num = std::uniform_int_distribution<qint16> (0, size-1);
     qint16 index = num(gen);
+    query.next();
     if(query.isSelect()){
         if(query.seek(index)){
             first_name = query.value(0).toString();
@@ -80,15 +79,14 @@ void Overview::rollOverview() {
     }
 
     //Generate last name
-    query.exec("SELECT COUNT(*) FROM last_names WHERE"
-               "origin_id=" + QString::number(originID) + ";");
+    query.exec("SELECT COUNT(*) FROM last_names WHERE origin_id=" + QString::number(originID) + ";");
     query.next();
     size = query.value(0).toInt();
-    query.exec("SELECT last_name FROM last_names WHERE"
-               "origin_id=" + QString::number(originID) + ";");
-    std::cout << "Last name, num rows affected: " << size<< std::endl;
+    query.exec("SELECT last_name FROM last_names WHERE origin_id=" + QString::number(originID) + ";");
+    std::cout << "Last name, size: " << size<< std::endl;
     num = std::uniform_int_distribution<qint16> (0, size-1);
     index = num(gen);
+    query.next();
     if(query.isSelect()){
         if(query.seek(index)){
             last_name = query.value(0).toString();

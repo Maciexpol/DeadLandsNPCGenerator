@@ -39,8 +39,9 @@ void SessionManager::setSessionData(QString newName, QString newDescription, QDa
 
 void SessionManager::createCharacterModel() {
     QStringList strings;
+    int index = 0;
     for(auto &character : characters){
-        strings << character.toStr();
+        strings << (QString::number(++index) + ". " + character.getFirstName() + " " + character.getLastName());
     }
     characterModel->setStringList(strings);
 }
@@ -117,6 +118,10 @@ void SessionManager::openNewSession() {
 }
 
 void SessionManager::addCharacter(const SessionCharacter &character) {
+    if(!isActive){
+        QMessageBox::information(nullptr, "Session.", "No session opened.");
+        return;
+    }
     for (auto &npc: characters) {
         if (npc.getUniqueID() == character.getUniqueID()) {
             emit tempStatusBar("This character is already in this session.");

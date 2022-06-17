@@ -135,13 +135,6 @@ void MainWindow::createConnections(const SessionManager &sessionManager, const C
     //Connection to open database connection
     QObject::connect(this, &MainWindow::openConnection, &dataManager, &DataManager::openConnection);
 
-<<<<<<< HEAD
-=======
-    //Connection between custom widgets and character
-    for(auto & el : attributesWidgetsVecotr){
-        el->connectButton(character);
-    }
->>>>>>> 3c92d8c60617a59c14856ad983aff0d4ae1c5d97
 }
 
 void MainWindow::linkCharacterList(QStringListModel *list) {

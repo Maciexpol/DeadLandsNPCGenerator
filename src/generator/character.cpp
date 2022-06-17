@@ -105,6 +105,8 @@ void Character::XmlDeserialize(const QDomElement &element){
 bool Character::XmlValidate() const {return true;}
 
 void Character::rollSpecificAbility(const ATTRIBUTES & name){
+    qDebug("DQIKWMDIQWMDIWQ");
     attributes.getAttribute(name).rollAbilitiesLvl();
+    qDebug("diiqwodmqwd???????");
     emit updateCharacterInfo(*this);
 }

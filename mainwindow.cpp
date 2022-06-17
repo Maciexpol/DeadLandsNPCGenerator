@@ -112,6 +112,7 @@ void MainWindow::createConnections(const SessionManager &sessionManager, const C
     //Connection to open database connection
     QObject::connect(this, &MainWindow::openConnection, &dataManager, &DataManager::openConnection);
 
+    //Connection between custom widgets and character
     for(auto & el : attributesWidgetsVecotr){
         el->connectButton(character);
     }

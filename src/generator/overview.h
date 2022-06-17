@@ -22,6 +22,7 @@ private:
     QString last_name;
     QString occupation;
     QString origin;
+    qint16 originID;
     qint16 age;
     qint8 gender;
 
@@ -34,10 +35,17 @@ public:
     QString getOrigin() const{return this->origin;}
     qint16 getAge() const{return this->age;}
 
-    void rollOverview();
-
     QDomElement XmlSerialize() const override;
     void XmlDeserialize(const QDomElement &element) override;
+
+public slots:
+    void rollOverview();
+    void rollAge();
+    void rollOrigin();
+    void rollOccupation();
+    void rollGender();
+    void rollFirstName();
+    void rollLastName();
 };
 
 #endif // OVERVIEW_H

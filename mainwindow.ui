@@ -55,6 +55,11 @@
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
+           <property name="font">
+            <font>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="text">
             <string>Name</string>
            </property>
@@ -89,6 +94,11 @@
              <width>16777215</width>
              <height>70</height>
             </size>
+           </property>
+           <property name="font">
+            <font>
+             <bold>true</bold>
+            </font>
            </property>
            <property name="text">
             <string>Desc</string>
@@ -246,6 +256,11 @@
                <layout class="QVBoxLayout" name="overviewInput">
                 <item>
                  <widget class="QLabel" name="NameInput">
+                  <property name="font">
+                   <font>
+                    <bold>true</bold>
+                   </font>
+                  </property>
                   <property name="text">
                    <string>___</string>
                   </property>
@@ -253,6 +268,11 @@
                 </item>
                 <item>
                  <widget class="QLabel" name="AgeInput">
+                  <property name="font">
+                   <font>
+                    <bold>true</bold>
+                   </font>
+                  </property>
                   <property name="text">
                    <string>___</string>
                   </property>
@@ -260,6 +280,11 @@
                 </item>
                 <item>
                  <widget class="QLabel" name="OccuppationInput">
+                  <property name="font">
+                   <font>
+                    <bold>true</bold>
+                   </font>
+                  </property>
                   <property name="text">
                    <string>___</string>
                   </property>
@@ -267,6 +292,11 @@
                 </item>
                 <item>
                  <widget class="QLabel" name="OriginInput">
+                  <property name="font">
+                   <font>
+                    <bold>true</bold>
+                   </font>
+                  </property>
                   <property name="text">
                    <string>___</string>
                   </property>
@@ -415,6 +445,11 @@
              <layout class="QHBoxLayout" name="horizontalLayout_2">
               <item>
                <widget class="QPushButton" name="Strength">
+                <property name="font">
+                 <font>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>Strength</string>
                 </property>
@@ -428,6 +463,11 @@
               </item>
               <item>
                <widget class="QPushButton" name="Spirit">
+                <property name="font">
+                 <font>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>Spirit</string>
                 </property>
@@ -435,6 +475,11 @@
               </item>
               <item>
                <widget class="QPushButton" name="Vigor">
+                <property name="font">
+                 <font>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>Vigor</string>
                 </property>
@@ -442,6 +487,11 @@
               </item>
               <item>
                <widget class="QPushButton" name="Quickness">
+                <property name="font">
+                 <font>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>Quickness</string>
                 </property>
@@ -449,6 +499,11 @@
               </item>
               <item>
                <widget class="QPushButton" name="Nimbleness">
+                <property name="font">
+                 <font>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>Nimbleness</string>
                 </property>
@@ -456,6 +511,11 @@
               </item>
               <item>
                <widget class="QPushButton" name="Deftness">
+                <property name="font">
+                 <font>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>Deftness</string>
                 </property>
@@ -463,6 +523,11 @@
               </item>
               <item>
                <widget class="QPushButton" name="Mien">
+                <property name="font">
+                 <font>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>Mien</string>
                 </property>
@@ -470,6 +535,11 @@
               </item>
               <item>
                <widget class="QPushButton" name="Smarts">
+                <property name="font">
+                 <font>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>Smarts</string>
                 </property>
@@ -477,6 +547,11 @@
               </item>
               <item>
                <widget class="QPushButton" name="Knowledge">
+                <property name="font">
+                 <font>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>Knowledge</string>
                 </property>
@@ -484,6 +559,11 @@
               </item>
               <item>
                <widget class="QPushButton" name="Cognition">
+                <property name="font">
+                 <font>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>Cognition</string>
                 </property>

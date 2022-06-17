@@ -21,6 +21,7 @@ std::ostream& operator<<(std::ostream& out, const ATTRIBUTES value){
 }
 
 void Attribute::rollAbilitiesLvl(){
+    std::cout << "the rolling is starting" << std::endl;
     if(hasAbilities()){
         clearAbilitiesLvl();
         abilities.rollAbilitesLvl(abilitiesLvlSum);

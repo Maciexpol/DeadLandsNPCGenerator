@@ -90,6 +90,29 @@ void MainWindow::createConnections(const SessionManager &sessionManager, const C
     //Connection between MainWindow and Character to handle adding character to active session
     QObject::connect(this, &MainWindow::addCharacterToSession, &character, &Character::addCharacterToSession);
 
+    //Connection between MainWindow and Character to reroll lvlSum Distribution
+    QObject::connect(this->ui->buttonRollLvlSums, &QPushButton::clicked, &character, &Character::rollFromLvlPoints);
+
+    //Connection between MainWindow and Character to reroll Overview
+    QObject::connect(this->ui->buttonRollOverview, &QPushButton::clicked, &character, &Character::rollFromOverview);
+
+    //Connection between MainWindow and Character to reroll Name
+    QObject::connect(this->ui->buttonRollName, &QPushButton::clicked, &character, &Character::rollFromName);
+
+    //Connection between MainWindow and Character to reroll Age
+    QObject::connect(this->ui->buttonRollAge, &QPushButton::clicked, &character, &Character::rollAge);
+
+    //Connection between MainWindow and Character to reroll Occupation
+    QObject::connect(this->ui->buttonRollOccupation, &QPushButton::clicked, &character, &Character::rollOccupation);
+
+    //Connection between MainWindow and Character to reroll Origin
+    QObject::connect(this->ui->buttonRollOrigin, &QPushButton::clicked, &character, &Character::rollFromOrigin);
+
+    //Connection between every attribute's button and Character to reroll specific attribute
+    for(auto & el : attributesWidgetsVecotr){
+        el->connectButton(character);
+    }
+
     // ============================== Character - SessionManager ===================================
 
     //Connection to handle adding character to session
@@ -112,9 +135,6 @@ void MainWindow::createConnections(const SessionManager &sessionManager, const C
     //Connection to open database connection
     QObject::connect(this, &MainWindow::openConnection, &dataManager, &DataManager::openConnection);
 
-    for(auto & el : attributesWidgetsVecotr){
-        el->connectButton(character);
-    }
 }
 
 void MainWindow::linkCharacterList(QStringListModel *list) {

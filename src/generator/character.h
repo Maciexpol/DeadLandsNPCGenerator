@@ -59,14 +59,14 @@ public slots:
 
     void rollCharacter();
 //    void rollFromDices();
-//    void rollFromLvlPoints();
+    void rollFromLvlPoints();
     void rollSpecificAbility(const ATTRIBUTES & name);
 //    void rollFromEdgesAndHindrances();
-//    void rollFromOverview();
-//    void rollFromName();
-//    void rollAge();
-//    void rollOccupation();
-//    void rollFromOrigin();
+    void rollFromOverview();
+    void rollFromName();
+    void rollAge();
+    void rollOccupation();
+    void rollFromOrigin();
 
 signals:
     //Signals to MainWindow

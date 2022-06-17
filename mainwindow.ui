@@ -384,6 +384,25 @@
                 </item>
                </layout>
               </item>
+              <item>
+               <widget class="QPushButton" name="pushButton">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>25</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>x</string>
+                </property>
+               </widget>
+              </item>
              </layout>
             </widget>
            </item>
@@ -510,16 +529,16 @@
                  <enum>QLayout::SetFixedSize</enum>
                 </property>
                 <item>
-                 <widget class="QPushButton" name="pushButton_4">
+                 <widget class="QPushButton" name="buttonRollDices">
                   <property name="text">
-                   <string>x</string>
+                   <string>Roll Dices</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QPushButton" name="pushButton_12">
+                 <widget class="QPushButton" name="buttonRollLvlSums">
                   <property name="text">
-                   <string>x</string>
+                   <string>Roll lvl distribution</string>
                   </property>
                  </widget>
                 </item>

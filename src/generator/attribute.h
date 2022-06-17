@@ -80,6 +80,7 @@ public:
      */
     void clearAbilitiesLvl() {abilities.clearLvl();};
 
+    void clearAbilitiesLvlSum() {abilitiesLvlSum = 0; clearAbilitiesLvl();}
 
     ATTRIBUTES getName() const {return name;};
     Dice getDice() const {return dice;};

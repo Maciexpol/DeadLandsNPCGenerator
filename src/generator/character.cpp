@@ -2,12 +2,12 @@
 
 Character::Character()
 {
-    rollCharacter();
+    //rollCharacter();
 }
 
 void Character::rollCharacter(){
+    qDebug("Rolling character.");
     rollDices();
-
 
     attributes = Attributes(dices);
 

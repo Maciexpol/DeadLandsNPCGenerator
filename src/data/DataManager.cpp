@@ -10,8 +10,12 @@ DataManager::DataManager(){
     QSqlDatabase::addDatabase("QMYSQL", "origin");
     database = QSqlDatabase::database("local");
     database.close();
+    qDebug("Local database has been created and initially closed.");
+
     originDatabase = QSqlDatabase::database("origin");
     originDatabase.close();
+    qDebug("Connection to origin database has been created and initially closed.");
+
     databaseVersion = "1.0";
 
     originDatabase.setHostName("83.29.118.200");
@@ -31,12 +35,16 @@ void DataManager::updateGeneratorSignal() {
 }
 
 bool DataManager::openConnection() {
-    if(database.isOpen())
+    qDebug("Opening connection to local database.");
+    if(database.isOpen()){
         return true;
+        qDebug("Already opened.");
+    }
     //Check if correct local database file exists
     if(!QFile::exists(MemIO::generatorSavingFolder + "localDB-" + databaseVersion + ".db")){
         QMessageBox::warning(nullptr, "Database error.", "You have old version of local database or no database at all.");
         emit updateConnectionStatus("lack of proper database file.");
+        qDebug("There is no correct database file.");
         return false;
     }
     database.setDatabaseName(MemIO::generatorSavingFolder + "localDB-" + databaseVersion + ".db");
@@ -44,9 +52,11 @@ bool DataManager::openConnection() {
         database.exec("PRAGMA synchronous = OFF");
         database.exec("PRAGMA journal_mode = MEMORY");
         emit updateConnectionStatus("connected to local database.");
+        qDebug("Connection established.");
         return true;
     }
     emit updateConnectionStatus("cannot connect to local database.");
+    qDebug("Connection could not be established.");
     return false;
 }
 

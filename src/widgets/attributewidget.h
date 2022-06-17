@@ -15,6 +15,7 @@ class AttributeWidget : public QGroupBox
 {
     Q_OBJECT
 private:
+    bool _hasAbilities;
     ATTRIBUTES enumName;
     QVBoxLayout *general;
 
@@ -46,7 +47,9 @@ public:
     void clearAbilitiesLvlsText();
     void clear();
 
-    void connectButton(const Character & input);
+    void connectButton(const Character & character);
+
+    bool hasAbilities() const{return _hasAbilities;};
 
 signals:
     void rollSpecificAbility(ATTRIBUTES);

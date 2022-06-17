@@ -50,6 +50,7 @@ void MainWindow::generateAttributesWidgets(){
 
 
 void MainWindow::createConnections(const SessionManager &sessionManager, const Character &character, const DataManager &dataManager) const{
+    qDebug("Connections start");
     // ============================= SessionManager - MainWindow ==================================
 
     //Connection between SessionManager and MainWindow to handle updating UI
@@ -114,8 +115,10 @@ void MainWindow::createConnections(const SessionManager &sessionManager, const C
 
     //Connection between custom widgets and character
     for(auto & el : attributesWidgetsVecotr){
-        el->connectButton(character);
+        if(el->hasAbilities())
+            el->connectButton(character);
     }
+    qDebug("Connections end");
 }
 
 void MainWindow::linkCharacterList(QStringListModel *list) {

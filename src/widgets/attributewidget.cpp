@@ -58,7 +58,10 @@ AttributeWidget::AttributeWidget(const ATTRIBUTES name, QVector<QString> inputNa
     spacer = new QLabel();
     diceInput = new QLabel();
 
+    _hasAbilities = false;
+
     if(inputNames.length() > 0){
+        _hasAbilities = true;
         lvlSumBox = new QHBoxLayout();
         lvlSumText = new QLabel();
         lvlSumInput = new QLabel();
@@ -153,10 +156,10 @@ void AttributeWidget::buttonEmitter(){
     emit rollSpecificAbility(enumName);
 }
 
-
-void AttributeWidget::connectButton(const Character & input){
+void AttributeWidget::connectButton(const Character & character){
+    qDebug("WYPIERDALAM SIE 1 2 3");
     QObject::connect(rerollButton, &QPushButton::clicked, this, &AttributeWidget::buttonEmitter);
-    QObject::connect(this, &AttributeWidget::rollSpecificAbility, &input, &Character::rollSpecificAbility);
+    QObject::connect(this, &AttributeWidget::rollSpecificAbility, &character, &Character::rollSpecificAbility);
 }
 
 

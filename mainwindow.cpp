@@ -16,6 +16,17 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Generate attributes boxes
     generateAttributesWidgets();
+
+    ui->attributesPriorityQueueWidget->addItem("Cognition");
+    ui->attributesPriorityQueueWidget->addItem("Deftness");
+    ui->attributesPriorityQueueWidget->addItem("Smarts");
+    ui->attributesPriorityQueueWidget->addItem("Mien");
+    ui->attributesPriorityQueueWidget->addItem("Spirit");
+    ui->attributesPriorityQueueWidget->addItem("Vigor");
+    ui->attributesPriorityQueueWidget->addItem("Quickness");
+    ui->attributesPriorityQueueWidget->addItem("Nimbleness");
+    ui->attributesPriorityQueueWidget->addItem("Strength");
+    ui->attributesPriorityQueueWidget->addItem("Mien");
 }
 
 MainWindow::~MainWindow()

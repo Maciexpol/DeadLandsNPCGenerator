@@ -5,6 +5,8 @@
 #include <iostream>
 #include "src/serializable.h"
 
+// maximal lvl of ability
+constexpr int maxAbilityLvl = 5;
 
 /*!
  * \brief The Ability class

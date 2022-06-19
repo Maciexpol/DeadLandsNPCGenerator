@@ -82,6 +82,7 @@ public:
 
     void clearAbilitiesLvlSum() {abilitiesLvlSum = 0; clearAbilitiesLvl();}
 
+    qint16 getAbilitiesCount() const {return abilities.getAbilitiesCount();};
     ATTRIBUTES getName() const {return name;};
     Dice getDice() const {return dice;};
     Abilities getAbilities() const {return abilities;};

@@ -44,6 +44,8 @@ void Abilities::rollAbilitesLvl(const qint16 & points){
     // randomly increasing abillities lvl by one
     for(qint16 i = 0; i < points; i++){
         qint16 index = num(gen);
+        while(abilities[index].getLvl() >= maxAbilityLvl)
+            index = num(gen);
         abilities[index].addLvlPoint();
     }
 }

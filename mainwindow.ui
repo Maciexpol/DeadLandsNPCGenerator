@@ -6,12 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1341</width>
+    <width>1355</width>
     <height>988</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Deadlands NPC Generator</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
@@ -221,8 +227,17 @@
         <layout class="QHBoxLayout" name="horizontalLayout_16" stretch="3,7">
          <item>
           <layout class="QVBoxLayout" name="backgroundLayout" stretch="2,10">
+           <property name="spacing">
+            <number>0</number>
+           </property>
            <item>
             <widget class="QGroupBox" name="OverviewBox">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>150</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <pointsize>10</pointsize>
@@ -455,6 +470,12 @@
            </item>
            <item>
             <widget class="QGroupBox" name="TraitsBox">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="title">
               <string>Edges and Hindrances</string>
              </property>
@@ -480,138 +501,87 @@
              </property>
              <layout class="QHBoxLayout" name="horizontalLayout_2">
               <item>
-               <widget class="QPushButton" name="Strength">
-                <property name="font">
-                 <font>
-                  <pointsize>10</pointsize>
-                  <bold>true</bold>
-                 </font>
+               <widget class="QListWidget" name="attributesPriorityQueueWidget">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
                 </property>
-                <property name="text">
-                 <string>Strength</string>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>75</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::Panel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Sunken</enum>
+                </property>
+                <property name="verticalScrollBarPolicy">
+                 <enum>Qt::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="sizeAdjustPolicy">
+                 <enum>QAbstractScrollArea::AdjustIgnored</enum>
+                </property>
+                <property name="editTriggers">
+                 <set>QAbstractItemView::NoEditTriggers</set>
+                </property>
+                <property name="dragEnabled">
+                 <bool>true</bool>
+                </property>
+                <property name="dragDropOverwriteMode">
+                 <bool>true</bool>
+                </property>
+                <property name="dragDropMode">
+                 <enum>QAbstractItemView::DragDrop</enum>
+                </property>
+                <property name="defaultDropAction">
+                 <enum>Qt::MoveAction</enum>
+                </property>
+                <property name="alternatingRowColors">
+                 <bool>false</bool>
+                </property>
+                <property name="selectionMode">
+                 <enum>QAbstractItemView::SingleSelection</enum>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>16</width>
-                  <height>16</height>
+                  <width>0</width>
+                  <height>0</height>
                  </size>
                 </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="Spirit">
-                <property name="font">
-                 <font>
-                  <pointsize>10</pointsize>
-                  <bold>true</bold>
-                 </font>
+                <property name="textElideMode">
+                 <enum>Qt::ElideMiddle</enum>
                 </property>
-                <property name="text">
-                 <string>Spirit</string>
+                <property name="movement">
+                 <enum>QListView::Snap</enum>
                 </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="Vigor">
-                <property name="font">
-                 <font>
-                  <pointsize>10</pointsize>
-                  <bold>true</bold>
-                 </font>
+                <property name="flow">
+                 <enum>QListView::LeftToRight</enum>
                 </property>
-                <property name="text">
-                 <string>Vigor</string>
+                <property name="isWrapping" stdset="0">
+                 <bool>false</bool>
                 </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="Quickness">
-                <property name="font">
-                 <font>
-                  <pointsize>10</pointsize>
-                  <bold>true</bold>
-                 </font>
+                <property name="resizeMode">
+                 <enum>QListView::Fixed</enum>
                 </property>
-                <property name="text">
-                 <string>Quickness</string>
+                <property name="layoutMode">
+                 <enum>QListView::SinglePass</enum>
                 </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="Nimbleness">
-                <property name="font">
-                 <font>
-                  <pointsize>10</pointsize>
-                  <bold>true</bold>
-                 </font>
+                <property name="spacing">
+                 <number>0</number>
                 </property>
-                <property name="text">
-                 <string>Nimbleness</string>
+                <property name="viewMode">
+                 <enum>QListView::ListMode</enum>
                 </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="Deftness">
-                <property name="font">
-                 <font>
-                  <pointsize>10</pointsize>
-                  <bold>true</bold>
-                 </font>
+                <property name="uniformItemSizes">
+                 <bool>false</bool>
                 </property>
-                <property name="text">
-                 <string>Deftness</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="Mien">
-                <property name="font">
-                 <font>
-                  <pointsize>10</pointsize>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Mien</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="Smarts">
-                <property name="font">
-                 <font>
-                  <pointsize>10</pointsize>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Smarts</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="Knowledge">
-                <property name="font">
-                 <font>
-                  <pointsize>10</pointsize>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Knowledge</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="Cognition">
-                <property name="font">
-                 <font>
-                  <pointsize>10</pointsize>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Cognition</string>
+                <property name="itemAlignment">
+                 <set>Qt::AlignCenter</set>
                 </property>
                </widget>
               </item>
@@ -692,7 +662,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1341</width>
+     <width>1355</width>
      <height>21</height>
     </rect>
    </property>

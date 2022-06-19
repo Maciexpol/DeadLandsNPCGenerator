@@ -60,6 +60,7 @@ public:
     qint16 getAbilityLevel(const QString & name) const;
     qint16 getAbilityLevel(const qint16 & index) const {return abilities[index].getLvl();};
     QVector<Ability> getAbilites() const {return abilities;};
+    qint16 getAbilitiesCount() const {return abilities.length();};
 
     /*!
      * \brief Rolls *points* times which ability needs to gain one more lvl point

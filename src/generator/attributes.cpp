@@ -71,7 +71,7 @@ void Attributes::rollAttributesLvlPoints(const qint16 & characterLvlPoints){
         qint16 index = num(gen);
 
         // rolling as long as we find attribute with abilities
-        while(attributes[index].hasAbilities() == 0){
+        while(attributes[index].hasAbilities() == 0 or attributes[index].getAbilitiesCount() * maxAbilityLvl <= attributes[index].getabilitiesLvlSum()){
             index = num(gen);
         }
 

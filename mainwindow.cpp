@@ -177,10 +177,10 @@ void MainWindow::updateSessionInfo(const SessionManager& session){
 
 void MainWindow::updateCharacterInfo(const Character &character) {
     // ---- Overview
-    this->ui->NameInput->setText( character.getOverview().getFirstName() + " " + character.getOverview().getLastName());
-    this->ui->AgeInput->setText( QString::number(character.getOverview().getAge()) );
-    this->ui->OriginInput->setText( character.getOverview().getOrigin());
-    this->ui->OccuppationInput->setText( character.getOverview().getOccupation());
+    this->ui->NameInput->setText("<b>" + character.getOverview().getFirstName() + " " + character.getOverview().getLastName() + "</b>");
+    this->ui->AgeInput->setText("<b>" + QString::number(character.getOverview().getAge())+ "</b>");
+    this->ui->OriginInput->setText("<b>" + character.getOverview().getOrigin() + "</b>");
+    this->ui->OccuppationInput->setText("<b>" + character.getOverview().getOccupation() + "</b>");
 
     // ---- Edges and Hindrances
 
@@ -239,16 +239,16 @@ QVector<QString> MainWindow::getViewListAttributesPriority(){
 }
 
 void MainWindow::updateOutputDices(const QVector<Dice> & inputDices){
-    this->ui->Dice0->setText(inputDices[0].toQstring());
-    this->ui->Dice1->setText(inputDices[1].toQstring());
-    this->ui->Dice2->setText(inputDices[2].toQstring());
-    this->ui->Dice3->setText(inputDices[3].toQstring());
-    this->ui->Dice4->setText(inputDices[4].toQstring());
-    this->ui->Dice5->setText(inputDices[5].toQstring());
-    this->ui->Dice6->setText(inputDices[6].toQstring());
-    this->ui->Dice7->setText(inputDices[7].toQstring());
-    this->ui->Dice8->setText(inputDices[8].toQstring());
-    this->ui->Dice9->setText(inputDices[9].toQstring());
+    this->ui->Dice0->setText("<b>" + inputDices[0].toQstring() + "</b>");
+    this->ui->Dice1->setText("<b>" + inputDices[1].toQstring() + "</b>");
+    this->ui->Dice2->setText("<b>" + inputDices[2].toQstring() + "</b>");
+    this->ui->Dice3->setText("<b>" + inputDices[3].toQstring() + "</b>");
+    this->ui->Dice4->setText("<b>" + inputDices[4].toQstring() + "</b>");
+    this->ui->Dice5->setText("<b>" + inputDices[5].toQstring() + "</b>");
+    this->ui->Dice6->setText("<b>" + inputDices[6].toQstring() + "</b>");
+    this->ui->Dice7->setText("<b>" + inputDices[7].toQstring() + "</b>");
+    this->ui->Dice8->setText("<b>" + inputDices[8].toQstring() + "</b>");
+    this->ui->Dice9->setText("<b>" + inputDices[9].toQstring() + "</b>");
 }
 
 void MainWindow::updateOutputQueue(const QVector<ATTRIBUTES> & inputAttributes){
@@ -276,7 +276,7 @@ void MainWindow::updateConnectionStatus(QString message) {
 }
 
 void MainWindow::tempStatusBar(QString message) {
-    this->ui->statusbar->showMessage(message, 3000);
+    this->ui->statusbar->showMessage(message, 6000);
 }
 
 void MainWindow::on_actionSessionNew_triggered()

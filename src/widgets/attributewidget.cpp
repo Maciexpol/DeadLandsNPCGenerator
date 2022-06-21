@@ -99,7 +99,7 @@ AttributeWidget::AttributeWidget(const ATTRIBUTES name, QVector<QString> inputNa
     if(inputNames.length() > 1){
         _hasAbilities = true;
         rerollButton = new QPushButton();
-        rerollButton->setText("x");
+        rerollButton->setText("Roll Points Distribution");
         general->addWidget(rerollButton);
     }
 

@@ -489,7 +489,7 @@
                  </size>
                 </property>
                 <property name="text">
-                 <string>x</string>
+                 <string>X</string>
                 </property>
                </widget>
               </item>
@@ -514,7 +514,7 @@
               <item>
                <widget class="QPushButton" name="rerollTraits">
                 <property name="text">
-                 <string>x</string>
+                 <string>Roll Traits</string>
                 </property>
                </widget>
               </item>
@@ -884,7 +884,7 @@
                 <item>
                  <widget class="QPushButton" name="buttonRollLvlSums">
                   <property name="text">
-                   <string>Roll lvl distribution</string>
+                   <string>Roll Level Distribution</string>
                   </property>
                  </widget>
                 </item>

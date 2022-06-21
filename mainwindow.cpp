@@ -120,6 +120,9 @@ void MainWindow::createConnections(const SessionManager &sessionManager,const Ch
     //Connection between MainWindow and Character to reroll Origin
     QObject::connect(this->ui->buttonRollOrigin, &QPushButton::clicked, &character, &Character::rollFromOrigin);
 
+    //Connection between MainWindow and Character to reroll Dices of Character
+    QObject::connect(this->ui->buttonRollDices, &QPushButton::clicked, &character, &Character::rollFromDices);
+
     //Connection between every attribute's button and Character to reroll specific attribute
     for(auto & el : attributesWidgetsVecotr){
         if(el->hasAbilities())
@@ -129,6 +132,8 @@ void MainWindow::createConnections(const SessionManager &sessionManager,const Ch
     //Connection between Attributes rolling function and MainWindow AttributeQueuePriority to get priority
     QObject::connect(&character, &Character::getViewListAttributesPriority, this, &MainWindow::getViewListAttributesPriority);
 
+    //Connection between Attributes rolling function and MainWindow to acutalise actual dices and priority queue
+    QObject::connect(&character, &Character::updateOutputQueueAndDices, this, &MainWindow::updateOutputQueueAndDices);
 
     // ============================== Character - SessionManager ===================================
 
@@ -204,6 +209,39 @@ QVector<QString> MainWindow::getViewListAttributesPriority(){
         output.push_back((QString) model->index(i, 0).data(Qt::DisplayRole).toString());
     }
     return output;
+}
+
+void MainWindow::updateOutputDices(const QVector<Dice> & inputDices){
+    this->ui->Dice0->setText(inputDices[0].toQstring());
+    this->ui->Dice1->setText(inputDices[1].toQstring());
+    this->ui->Dice2->setText(inputDices[2].toQstring());
+    this->ui->Dice3->setText(inputDices[3].toQstring());
+    this->ui->Dice4->setText(inputDices[4].toQstring());
+    this->ui->Dice5->setText(inputDices[5].toQstring());
+    this->ui->Dice6->setText(inputDices[6].toQstring());
+    this->ui->Dice7->setText(inputDices[7].toQstring());
+    this->ui->Dice8->setText(inputDices[8].toQstring());
+    this->ui->Dice9->setText(inputDices[9].toQstring());
+}
+
+void MainWindow::updateOutputQueue(const QVector<ATTRIBUTES> & inputAttributes){
+    this->ui->At0->setText(translateATTRIBUTES(inputAttributes[0]));
+    this->ui->At1->setText(translateATTRIBUTES(inputAttributes[1]));
+    this->ui->At2->setText(translateATTRIBUTES(inputAttributes[2]));
+    this->ui->At3->setText(translateATTRIBUTES(inputAttributes[3]));
+    this->ui->At4->setText(translateATTRIBUTES(inputAttributes[4]));
+    this->ui->At5->setText(translateATTRIBUTES(inputAttributes[5]));
+    this->ui->At6->setText(translateATTRIBUTES(inputAttributes[6]));
+    this->ui->At7->setText(translateATTRIBUTES(inputAttributes[7]));
+    this->ui->At8->setText(translateATTRIBUTES(inputAttributes[8]));
+    this->ui->At9->setText(translateATTRIBUTES(inputAttributes[9]));
+}
+
+void MainWindow::updateOutputQueueAndDices(const QVector<ATTRIBUTES> & inputAttributes, const QVector<Dice> & inputDices){
+    if(inputAttributes.length() != 0){
+        updateOutputDices(inputDices);
+        updateOutputQueue(inputAttributes);
+    }
 }
 
 void MainWindow::updateConnectionStatus(QString message) {

@@ -53,6 +53,7 @@ public slots:
     void on_actionGeneratorConnect_triggered();
 
     QVector<QString> getViewListAttributesPriority();
+    void updateOutputQueueAndDices(const QVector<ATTRIBUTES> &, const QVector<Dice> &);
 
 
 signals:
@@ -76,6 +77,9 @@ private:
     QLabel *connectionStatus;
 
     QVector<AttributeWidget*> attributesWidgetsVecotr;
+
+    void updateOutputDices(const QVector<Dice> & );
+    void updateOutputQueue(const QVector<ATTRIBUTES> &);
 
     void generateAttributesWidgets();
 

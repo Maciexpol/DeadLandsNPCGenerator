@@ -18,6 +18,7 @@ class Attributes : Serializable
 private:
     // Remember to serialize newly added objects in XmlSerialize
     QVector<Attribute> attributes;
+    QVector<ATTRIBUTES> actualPriority;
 
 public:
     Attributes() {};
@@ -29,6 +30,7 @@ public:
 
     Attribute* getAttribute(const ATTRIBUTES & sName);
     QVector<Attribute> getAttributesVector() const {return attributes;};
+    QVector<ATTRIBUTES> getActualPriority() const {return actualPriority;};
 
     /*!
      * \brief distribute lvl points between attributes

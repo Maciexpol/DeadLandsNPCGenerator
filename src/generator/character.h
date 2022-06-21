@@ -60,7 +60,7 @@ public slots:
     void loadCharacter(const SessionCharacter&);
 
     void rollCharacter();
-//    void rollFromDices();
+    void rollFromDices();
     void rollFromLvlPoints();
     void rollSpecificAbility(const ATTRIBUTES & name);
 //    void rollFromEdgesAndHindrances();
@@ -73,6 +73,8 @@ public slots:
 signals:
     //Signals to MainWindow
     void updateCharacterInfo(const Character&);
+
+    void updateOutputQueueAndDices(const QVector<ATTRIBUTES> &, const QVector<Dice> &);
 
     //Signals to SessionManager
     void addCharacter(SessionCharacter&);

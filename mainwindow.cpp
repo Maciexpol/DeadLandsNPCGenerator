@@ -120,6 +120,9 @@ void MainWindow::createConnections(const SessionManager &sessionManager,const Ch
     //Connection between MainWindow and Character to reroll Origin
     QObject::connect(this->ui->buttonRollOrigin, &QPushButton::clicked, &character, &Character::rollFromOrigin);
 
+    //Connection between MainWindow and Character to reroll Traits
+    QObject::connect(this->ui->rerollTraits, &QPushButton::clicked, &character, &Character::rollTraits);
+
     //Connection between every attribute's button and Character to reroll specific attribute
     for(auto & el : attributesWidgetsVecotr){
         if(el->hasAbilities())
@@ -195,6 +198,29 @@ void MainWindow::updateCharacterInfo(const Character &character) {
             attributesWidgetsVecotr[i]->setAbilitiesLvlsText(lvls);
         }
     }
+
+    // ---- Traits
+    // Kill all children
+    while(QVBoxLayout* w = this->ui->traitsLayout->findChild<QVBoxLayout*>())
+        delete w;
+
+    if(character.getEdgesAndHindrances().getTraitsCount()){
+        // Add new edges
+        for(auto &trait : character.getEdgesAndHindrances().getEdges()){
+            this->ui->traitsLayout->addLayout(new TraitWidget(trait.getName(), trait.getPoints(), trait.getDescription(), TraitType::EDGE));
+        }
+
+        // Add new hindrances
+        for(auto &trait : character.getEdgesAndHindrances().getHindrances()){
+            this->ui->traitsLayout->addLayout(new TraitWidget(trait.getName(), trait.getPoints(), trait.getDescription(), TraitType::HINDRANCE));
+        }
+        //Check if any traits has been rolled
+    }else{
+        QLabel* label = new QLabel("<b>No traits have been rolled.</b>");
+        label->setAlignment(Qt::AlignCenter);
+        this->ui->traitsLayout->addWidget(label);
+    }
+
 }
 
 QVector<QString> MainWindow::getViewListAttributesPriority(){

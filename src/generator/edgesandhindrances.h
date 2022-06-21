@@ -22,6 +22,10 @@ public:
     void rollEdgesAndHindrances();
     qint16 countBalance() const;
 
+    qint8 getTraitsCount() const{return Edges.size() + Hindrances.size();}
+    QVector<Trait> getEdges() const{return this->Edges;}
+    QVector<Trait> getHindrances() const{return this->Hindrances;}
+
     void addEdge(const Trait & a)
         {Edges.push_back(a);}
 

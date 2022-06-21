@@ -7,6 +7,7 @@
 
 #include "./src/sessions/sessionmanager.h"
 #include "./src/widgets/attributewidget.h"
+#include "./src/widgets/traitwidget.h"
 #include "./src/memio.h"
 #include "./src/generator/attribute.h"
 #include "src/generator/character.h"

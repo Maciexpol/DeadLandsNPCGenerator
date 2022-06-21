@@ -30,9 +30,11 @@ void EdgesAndHindrances::rollEdgesAndHindrances() {
     //TODO: Add lost connection handling
     if(!db.open())
         return;
+    Edges.clear();
+    Hindrances.clear();
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<qint16> num(0, 3);
+    std::uniform_int_distribution<qint16> num(0, 2);
     int edgesCount = num(gen);
     int hindrancesCount = num(gen);
 
@@ -93,11 +95,13 @@ QDomElement EdgesAndHindrances::XmlSerialize() const {
     for(auto &edge : Edges){
         edgesElement.appendChild(edge.XmlSerialize());
     }
+    element.appendChild(edgesElement);
 
     QDomElement hindrancesElement = doc.createElement("hindrances");
     for(auto &hind : Hindrances){
         hindrancesElement.appendChild(hind.XmlSerialize());
     }
+    element.appendChild(hindrancesElement);
     return element;
 }
 
@@ -105,8 +109,8 @@ void EdgesAndHindrances::XmlDeserialize(const QDomElement &element) {
     QDomElement edgesElement = element.firstChildElement();
     QDomElement hindrancesElement = edgesElement.nextSiblingElement();
 
-    edgesElement.clear();
-    hindrancesElement.clear();
+    Edges.clear();
+    Hindrances.clear();
 
     QDomElement node = edgesElement.firstChildElement();
     while(!node.isNull()){

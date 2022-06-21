@@ -141,3 +141,8 @@ void Character::rollFromOrigin(){
     overview.rollOrigin();
     emit updateCharacterInfo(*this);
 }
+
+void Character::rollTraits() {
+    edgesAndHindrances.rollEdgesAndHindrances();
+    emit updateCharacterInfo(*this);
+}

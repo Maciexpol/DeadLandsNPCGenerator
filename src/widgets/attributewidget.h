@@ -9,7 +9,7 @@
 #include "./src/generator/dice.h"
 #include "./src/generator/attribute.h"
 #include "./src/generator/character.h"
-
+constexpr qint16 maxLabelSize = 15;
 
 class AttributeWidget : public QGroupBox
 {

@@ -31,13 +31,16 @@ AttributeWidget::AttributeWidget(const ATTRIBUTES name, QVector<QString> inputNa
         QLabel *nameLabel = new QLabel();
         nameLabel->setText(n);
         nameLabel->setAlignment(Qt::AlignRight);
+        nameLabel->setFixedHeight(maxLabelSize);
         namesVector.push_back(nameLabel);
 
         QLabel *lvlLabel = new QLabel();
         lvlLabel->setText("0");
         lvlLabel->setAlignment(Qt::AlignCenter);
         lvlLabel->setStyleSheet("font-weight: bold;");
+        lvlLabel->setFixedHeight(maxLabelSize);
         lvlVector.push_back(lvlLabel);
+
     }
 
     // adding labels from vectors

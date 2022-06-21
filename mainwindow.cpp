@@ -221,9 +221,10 @@ void MainWindow::updateCharacterInfo(const Character &character) {
         }
         //Check if any traits has been rolled
     }else{
-        QLabel* label = new QLabel("<b>No traits have been rolled.</b>");
-        label->setAlignment(Qt::AlignCenter);
-        this->ui->traitsLayout->addWidget(label);
+        QVBoxLayout* layout = new QVBoxLayout();
+        QLabel* label = new QLabel("");
+        layout->addWidget(label);
+        this->ui->traitsLayout->addLayout(layout);
     }
 
 }

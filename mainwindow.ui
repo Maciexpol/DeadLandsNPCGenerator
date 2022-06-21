@@ -521,7 +521,7 @@
               <item>
                <layout class="QVBoxLayout" name="traitsLayout">
                 <item>
-                 <layout class="QVBoxLayout" name="verticalLayout_5">
+                 <layout class="QVBoxLayout" name="verticalLayout_6">
                   <item>
                    <widget class="QLabel" name="label">
                     <property name="text">

@@ -8,9 +8,8 @@ Character::Character()
 void Character::rollCharacter(){
     qDebug("Rolling character.");
     rollDices();
-
     attributes = Attributes(dices, getViewListAttributesPriority());
-
+    updateOutputQueueAndDices(attributes.getActualPriority(), dices.getDices());
     edgesAndHindrances = EdgesAndHindrances(); //TODO:
 
     qint16 lvlPoints = attributes.generateLvlPoints();
@@ -18,7 +17,6 @@ void Character::rollCharacter(){
     attributes.rollAttributesLvlPoints(lvlPoints);
 
     overview = Overview();
-    edgesAndHindrances = EdgesAndHindrances();
     uniqueID = UniqueID::createUniqueID();
 }
 
@@ -104,6 +102,20 @@ void Character::XmlDeserialize(const QDomElement &element){
 };
 
 bool Character::XmlValidate() const {return true;}
+
+void Character::rollFromDices(){
+    rollDices();
+
+    attributes = Attributes(dices, getViewListAttributesPriority());
+    qint16 lvlPoints = attributes.generateLvlPoints();
+    lvlPoints -= edgesAndHindrances.countBalance();
+    attributes.rollAttributesLvlPoints(lvlPoints);
+
+    updateOutputQueueAndDices(attributes.getActualPriority(), dices.getDices());
+
+    emit updateCharacterInfo(*this);
+}
+
 
 void Character::rollSpecificAbility(const ATTRIBUTES & name){
     this->attributes.getAttribute(name)->rollAbilitiesLvl();

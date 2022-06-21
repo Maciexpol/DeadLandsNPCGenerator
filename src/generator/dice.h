@@ -16,6 +16,7 @@ public:
 
     qint16 getNumber() const{return this->number;}
     qint16 getSides() const{return this->sides;}
+    QString toQstring() const;
 
     Dice(){};
     // TODO:

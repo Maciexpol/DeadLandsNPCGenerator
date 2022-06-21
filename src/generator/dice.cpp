@@ -26,6 +26,12 @@ Dice::Dice(Card card)
     number = suit + 1;
 }
 
+QString Dice::toQstring() const{
+    QString output = QString::number(number) + QString("d") + QString::number(sides);
+    std::cout << "The dice: " << output.toStdString() << " --- expected: " << number << "d" << sides<< std::endl;
+    return output;
+}
+
 bool Dice::operator < (Dice a){
     if( a.getSides() > sides)
         return true;

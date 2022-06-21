@@ -13,22 +13,31 @@ Attributes::Attributes(const qint16 & characterLvlPoints, const Dices & dices){
 }
 
 Attributes::Attributes(const Attributes & at){
+    attributes = {};
     for(qint16 i = 0; i < at.getAttributesVector().length(); i++){
         attributes.push_back(at.getAttributesVector()[i]);
+    }
+    actualPriority = {};
+    for(qint16 i = 0; i < at.getActualPriority().length(); i++){
+        actualPriority.push_back(at.getActualPriority()[i]);
     }
 }
 
 Attributes::Attributes(const Dices & dices, QVector<QString> queue){
     QVector<QVector<QString>> abilities = MemIO::loadAbilities();
+    actualPriority.clear();
 
     Tiles tiles = Tiles(queue);
     tiles.shuffleTiles({70, 60, 50, 40, 30, 25, 20, 15, 10, 5});
 //    tiles.shuffleTiles({0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
-    QVector<ATTRIBUTES> priority = tiles.getTiles();
+    for(qint16 i = 0; i < 10; i++){
+        actualPriority.push_back(tiles.getTiles()[i]);
+    }
+    std::cout<< actualPriority.length() << " Length of Actual priority during rolling";
 
     for(qint16 i = 0; i < 10; i++){
         qint16 index = 0;
-        while(priority[index] != ATTRIBUTES(i)){
+        while(actualPriority[index] != ATTRIBUTES(i)){
             index++;
             if(index >= 10)
                 std::cout << "attributes constructor index error" << std::endl;
@@ -42,6 +51,10 @@ Attributes & Attributes::operator=(const Attributes & at){
     attributes = {};
     for(qint16 i = 0; i < at.getAttributesVector().length(); i++){
         attributes.push_back(at.getAttributesVector()[i]);
+    }
+    actualPriority = {};
+    for(qint16 i = 0; i < at.getActualPriority().length(); i++){
+        actualPriority.push_back(at.getActualPriority()[i]);
     }
     return *this;
 }

@@ -5,7 +5,8 @@
 #include "sessioncharacter.h"
 
 QString SessionCharacter::toStr() const{
-    return uniqueID+"_"+this->first_name+"_"+this->last_name;
+    //return uniqueID+"_"+this->first_name+"_"+this->last_name;
+    return uniqueID;
 }
 
 QDomElement SessionCharacter::XmlSerialize() const {

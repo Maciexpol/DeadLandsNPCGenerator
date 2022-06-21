@@ -3,4 +3,7 @@
     <qresource prefix="/files">
         <file>resources/attributes.xml</file>
     </qresource>
+    <qresource prefix="/fonts">
+        <file>resources/fonts/TheBrownDog.otf</file>
+    </qresource>
 </RCC>

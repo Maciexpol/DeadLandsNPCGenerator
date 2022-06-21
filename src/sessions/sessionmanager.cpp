@@ -23,6 +23,7 @@ SessionManager::SessionManager()
 }
 
 SessionManager::~SessionManager(){
+    saveCurrentSession();
     delete characterModel;
 }
 
@@ -124,7 +125,10 @@ void SessionManager::addCharacter(const SessionCharacter &character) {
     }
     for (auto &npc: characters) {
         if (npc.getUniqueID() == character.getUniqueID()) {
-            emit tempStatusBar("This character is already in this session.");
+            //emit tempStatusBar("This character is already in this session.");
+            npc = character;
+            createCharacterModel();
+            updateInfo();
             return;
         }
     }

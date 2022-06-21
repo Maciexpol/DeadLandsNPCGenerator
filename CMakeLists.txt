@@ -25,7 +25,9 @@ set(PROJECT_SOURCES
         mainwindow.h
         mainwindow.ui
         resources.qrc
+
         src/widgets/attributewidget.h src/widgets/attributewidget.cpp
+        src/widgets/traitwidget.h src/widgets/traitwidget.cpp
 
         # -- helper classes --
         src/serializable.h src/serializable.cpp

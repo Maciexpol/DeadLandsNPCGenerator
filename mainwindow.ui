@@ -10,6 +10,14 @@
     <height>988</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>MV Boli</family>
+    <pointsize>9</pointsize>
+    <italic>false</italic>
+    <bold>false</bold>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Deadlands NPC Generator</string>
   </property>
@@ -17,7 +25,7 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">font: 9pt &quot;MV Boli&quot;;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
@@ -34,7 +42,10 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
+     <family>MV Boli</family>
+     <pointsize>9</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,5">
@@ -54,6 +65,9 @@
       </property>
       <item>
        <widget class="QGroupBox" name="sessionBox">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
         <property name="title">
          <string>Session</string>
         </property>
@@ -68,8 +82,10 @@
            </property>
            <property name="font">
             <font>
-             <pointsize>10</pointsize>
-             <bold>true</bold>
+             <family>MV Boli</family>
+             <pointsize>9</pointsize>
+             <italic>false</italic>
+             <bold>false</bold>
             </font>
            </property>
            <property name="text">
@@ -109,8 +125,10 @@
            </property>
            <property name="font">
             <font>
-             <pointsize>10</pointsize>
-             <bold>true</bold>
+             <family>MV Boli</family>
+             <pointsize>9</pointsize>
+             <italic>false</italic>
+             <bold>false</bold>
             </font>
            </property>
            <property name="text">
@@ -240,7 +258,9 @@
              </property>
              <property name="font">
               <font>
-               <pointsize>10</pointsize>
+               <family>MV Boli</family>
+               <pointsize>9</pointsize>
+               <italic>false</italic>
                <bold>false</bold>
               </font>
              </property>
@@ -286,8 +306,10 @@
                  <widget class="QLabel" name="NameInput">
                   <property name="font">
                    <font>
-                    <pointsize>10</pointsize>
-                    <bold>true</bold>
+                    <family>MV Boli</family>
+                    <pointsize>9</pointsize>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="text">
@@ -299,8 +321,10 @@
                  <widget class="QLabel" name="AgeInput">
                   <property name="font">
                    <font>
-                    <pointsize>10</pointsize>
-                    <bold>true</bold>
+                    <family>MV Boli</family>
+                    <pointsize>9</pointsize>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="text">
@@ -312,8 +336,10 @@
                  <widget class="QLabel" name="OccuppationInput">
                   <property name="font">
                    <font>
-                    <pointsize>10</pointsize>
-                    <bold>true</bold>
+                    <family>MV Boli</family>
+                    <pointsize>9</pointsize>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="text">
@@ -325,8 +351,10 @@
                  <widget class="QLabel" name="OriginInput">
                   <property name="font">
                    <font>
-                    <pointsize>10</pointsize>
-                    <bold>true</bold>
+                    <family>MV Boli</family>
+                    <pointsize>9</pointsize>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="text">
@@ -663,7 +691,7 @@
      <x>0</x>
      <y>0</y>
      <width>1355</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuSession">

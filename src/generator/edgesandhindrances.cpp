@@ -2,7 +2,7 @@
 
 EdgesAndHindrances::EdgesAndHindrances()
 {
-
+    rollEdgesAndHindrances();
 }
 
 qint16 EdgesAndHindrances::countPoints(const QVector<Trait> & traits) const{
@@ -23,6 +23,66 @@ qint16 EdgesAndHindrances::countBalance() const {
 
     return hindrancesPoints - edgesPoints;
 
+}
+
+void EdgesAndHindrances::rollEdgesAndHindrances() {
+    QSqlDatabase db = QSqlDatabase::database("local");
+    //TODO: Add lost connection handling
+    if(!db.open())
+        return;
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<qint16> num(0, 3);
+    int edgesCount = num(gen);
+    int hindrancesCount = num(gen);
+
+    QSqlQuery query(db);
+    //TODO: Usunąć stąd zliczanie i zrobić w innym miejscu
+    int availableEdges;
+    int availableHindrances;
+    query.exec("SELECT COUNT(*) FROM edges");
+    query.next();
+    availableEdges = query.value(0).toInt();
+    query.exec("SELECT COUNT(*) FROM hindrances");
+    query.next();
+    availableHindrances = query.value(0).toInt();
+
+    num = std::uniform_int_distribution<qint16> (1, availableEdges);
+    while(edgesCount){
+        qDebug("EDGEE");
+        query.exec("SELECT edge, points, description FROM edges WHERE id=" + QString::number(num(gen)));
+        query.next();
+        Trait newEdge(query.value(1).toInt(), query.value(0).toString(), query.value(2).toString());
+        bool isIn = false;
+        for(auto &i : Edges){
+            if(newEdge.getName() == i.getName()){
+                isIn = true;
+            }
+        }
+        if(!isIn){
+            Edges.append(newEdge);
+            edgesCount--;
+        }
+    }
+    num = std::uniform_int_distribution<qint16> (1, availableHindrances);
+    while(hindrancesCount){
+        qDebug("HINDRANCE");
+        query.exec("SELECT hindrance, points, description FROM hindrances WHERE id=" + QString::number(num(gen)));
+        query.next();
+        Trait newHindrance(query.value(1).toInt(), query.value(0).toString(), query.value(2).toString());
+        bool isIn = false;
+        for(auto &i : Hindrances){
+            if(newHindrance.getName() == i.getName()){
+                isIn = true;
+            }
+        }
+        if(!isIn){
+            Hindrances.append(newHindrance);
+            hindrancesCount--;
+        }
+    }
+    std::cout << "Edges length: " << Edges.length() << std::endl;
+    std::cout << "Hindrances length: " << Hindrances.length() << std::endl;
 }
 
 QDomElement EdgesAndHindrances::XmlSerialize() const {

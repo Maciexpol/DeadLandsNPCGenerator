@@ -18,6 +18,7 @@ void Character::rollCharacter(){
     attributes.rollAttributesLvlPoints(lvlPoints);
 
     overview = Overview();
+    edgesAndHindrances = EdgesAndHindrances();
     uniqueID = UniqueID::createUniqueID();
 }
 
@@ -44,7 +45,8 @@ void Character::updateInfo() {
 }
 
 QString Character::toStr() const{
-    return uniqueID+"_"+overview.getFirstName()+"_"+overview.getLastName();
+    //return uniqueID+"_"+overview.getFirstName()+"_"+overview.getLastName();
+    return uniqueID;
 }
 
 //SessionCharacter Character::toSessionCharacter() const {

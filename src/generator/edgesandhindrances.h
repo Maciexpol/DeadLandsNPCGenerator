@@ -2,6 +2,10 @@
 #define EDGESANDHINDRANCES_H
 
 #include <QVector>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <iostream>
+#include <random>
 #include "trait.h"
 #include "src/serializable.h"
 
@@ -15,7 +19,7 @@ private:
 
 public:
     EdgesAndHindrances();
-
+    void rollEdgesAndHindrances();
     qint16 countBalance() const;
 
     void addEdge(const Trait & a)

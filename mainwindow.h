@@ -28,7 +28,7 @@ public:
                            const Character &character,
                            const DataManager &dataManager) const;
 
-private slots:
+public slots:
     //
     void linkCharacterList(QStringListModel *list);
     void updateSessionInfo(const SessionManager& session);
@@ -51,6 +51,9 @@ private slots:
     void on_rerollCharacter_clicked();
 
     void on_actionGeneratorConnect_triggered();
+
+    QVector<QString> getViewListAttributesPriority();
+
 
 signals:
     //Session manager signals

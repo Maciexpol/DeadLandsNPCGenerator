@@ -9,7 +9,7 @@ void Character::rollCharacter(){
     qDebug("Rolling character.");
     rollDices();
 
-    attributes = Attributes(dices);
+    attributes = Attributes(dices, getViewListAttributesPriority());
 
     edgesAndHindrances = EdgesAndHindrances(); //TODO:
 

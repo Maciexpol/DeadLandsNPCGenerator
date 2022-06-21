@@ -33,7 +33,8 @@ public:
     Character();
     
     QString getUniqueID() const {return this->uniqueID;};
-    Attributes getAttributes() const{return this->attributes;}
+    Attributes* getAttributes() {return &this->attributes;}
+    Attributes getAttributes() const {return this->attributes;}
     Dices getDices() const{return this->dices;};
     EdgesAndHindrances getEdgesAndHindrances() const{return this->edgesAndHindrances;};
     Overview getOverview() const{return this->overview;};
@@ -78,6 +79,7 @@ signals:
 
     //Probably should be removed, idk
     //void removeCharacter(const qint32);
+    QVector<QString> getViewListAttributesPriority();
 
 };
 

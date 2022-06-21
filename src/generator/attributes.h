@@ -7,20 +7,25 @@
 #include "attribute.h"
 #include "src/serializable.h"
 #include "src/memio.h"
+#include "tiles.h"
 
 /*!
  * \brief Contains all attributes, rolls distribution of ability lvl points between attributes
  */
 class Attributes : Serializable
 {
+
 private:
     // Remember to serialize newly added objects in XmlSerialize
     QVector<Attribute> attributes;
 
 public:
     Attributes() {};
+    Attributes(const Attributes & at);
     Attributes(const qint16 & characterLvlPoints, const Dices & dices);
-    Attributes(const Dices & dices);
+    Attributes(const Dices & dices, QVector<QString> queue);
+
+    Attributes & operator=(const Attributes & at);
 
     Attribute* getAttribute(const ATTRIBUTES & sName);
     QVector<Attribute> getAttributesVector() const {return attributes;};

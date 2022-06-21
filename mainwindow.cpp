@@ -26,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->attributesPriorityQueueWidget->addItem("Quickness");
     ui->attributesPriorityQueueWidget->addItem("Nimbleness");
     ui->attributesPriorityQueueWidget->addItem("Strength");
-    ui->attributesPriorityQueueWidget->addItem("Mien");
+    ui->attributesPriorityQueueWidget->addItem("Knowledge");
 }
 
 MainWindow::~MainWindow()
@@ -60,7 +60,7 @@ void MainWindow::generateAttributesWidgets(){
 }
 
 
-void MainWindow::createConnections(const SessionManager &sessionManager, const Character &character, const DataManager &dataManager) const{
+void MainWindow::createConnections(const SessionManager &sessionManager,const Character &character, const DataManager &dataManager) const{
     qDebug("Connections start");
     // ============================= SessionManager - MainWindow ==================================
 
@@ -125,6 +125,10 @@ void MainWindow::createConnections(const SessionManager &sessionManager, const C
         if(el->hasAbilities())
             el->connectButton(character);
     }
+
+    //Connection between Attributes rolling function and MainWindow AttributeQueuePriority to get priority
+    QObject::connect(&character, &Character::getViewListAttributesPriority, this, &MainWindow::getViewListAttributesPriority);
+
 
     // ============================== Character - SessionManager ===================================
 
@@ -191,6 +195,15 @@ void MainWindow::updateCharacterInfo(const Character &character) {
             attributesWidgetsVecotr[i]->setAbilitiesLvlsText(lvls);
         }
     }
+}
+
+QVector<QString> MainWindow::getViewListAttributesPriority(){
+    QVector<QString> output;
+    QAbstractItemModel* model = this->ui->attributesPriorityQueueWidget->model();
+    for(qint16 i = 0; i < 10; i ++){
+        output.push_back((QString) model->index(i, 0).data(Qt::DisplayRole).toString());
+    }
+    return output;
 }
 
 void MainWindow::updateConnectionStatus(QString message) {

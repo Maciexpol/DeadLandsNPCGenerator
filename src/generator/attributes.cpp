@@ -12,14 +12,38 @@ Attributes::Attributes(const qint16 & characterLvlPoints, const Dices & dices){
     rollAttributesLvlPoints(characterLvlPoints);
 }
 
-Attributes::Attributes(const Dices & dices){
-//    return;
-//    QVector<QVector<QString>> abilities{};
-
-    QVector<QVector<QString>> abilities = MemIO::loadAbilities();
-    for(qint16 i = 0; i < 10; i++){
-        attributes.push_back(Attribute(ATTRIBUTES(i), abilities[i], dices.getDice(i)));
+Attributes::Attributes(const Attributes & at){
+    for(qint16 i = 0; i < at.getAttributesVector().length(); i++){
+        attributes.push_back(at.getAttributesVector()[i]);
     }
+}
+
+Attributes::Attributes(const Dices & dices, QVector<QString> queue){
+    QVector<QVector<QString>> abilities = MemIO::loadAbilities();
+
+    Tiles tiles = Tiles(queue);
+    tiles.shuffleTiles({70, 60, 50, 40, 30, 25, 20, 15, 10, 5});
+//    tiles.shuffleTiles({0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
+    QVector<ATTRIBUTES> priority = tiles.getTiles();
+
+    for(qint16 i = 0; i < 10; i++){
+        qint16 index = 0;
+        while(priority[index] != ATTRIBUTES(i)){
+            index++;
+            if(index >= 10)
+                std::cout << "attributes constructor index error" << std::endl;
+        }
+
+        attributes.push_back(Attribute(ATTRIBUTES(i), abilities[i], dices.getDice(index)));
+    }
+}
+
+Attributes & Attributes::operator=(const Attributes & at){
+    attributes = {};
+    for(qint16 i = 0; i < at.getAttributesVector().length(); i++){
+        attributes.push_back(at.getAttributesVector()[i]);
+    }
+    return *this;
 }
 
 Attribute* Attributes::getAttribute(const ATTRIBUTES & sName){

@@ -18,6 +18,8 @@ enum ATTRIBUTES {
     Quickness
 };
 
+QString translateATTRIBUTES(const ATTRIBUTES value);
+
 /*!
  * \brief The Attribute class
  * \brief Represents one attribute of NPC character, stores abilities of this attribute, can reroll abilities lvl

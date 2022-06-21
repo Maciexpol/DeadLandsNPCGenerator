@@ -1,8 +1,7 @@
 #include "tiles.h"
-
 Tiles::Tiles(){
     for(qint16 i = 9; i >= 0; i--){
-        tiles.append(Tile(ATTRIBUTES(i)));
+        tiles.append(ATTRIBUTES(i));
     }
 }
 
@@ -10,8 +9,19 @@ Tiles::Tiles(QVector<ATTRIBUTES> priority){
     Tiles::setTiles(priority);
 }
 
+Tiles::Tiles(QVector<QString> priority){
+    for(auto & at : priority){
+        for(qint16 i = 0; i < 10; i++){
+            QString newWord = translateATTRIBUTES(ATTRIBUTES(i));
+            if(at == newWord){
+                tiles.push_back(ATTRIBUTES(i));
+            }
+        }
+    }
+}
+
 void Tiles::dropDown(qint16 index){
-    Tile temp = tiles[index];
+    ATTRIBUTES temp = tiles[index];
     tiles.erase(tiles.begin() + index);
     tiles.push_front(temp);
 }
@@ -19,14 +29,14 @@ void Tiles::dropDown(qint16 index){
 void Tiles::setTiles(QVector<ATTRIBUTES> priority){
     for(qint16 i = 0; i < 10; i ++){
         if(tiles.size() <= i)
-            tiles.append(Tile(priority[i]));
+            tiles.append(priority[i]);
         else
-            tiles[i] = Tile(priority[i]);
+            tiles[i] = priority[i];
     }
 }
 
 void Tiles::moveTile(qint16 source, qint16 destination){
-    Tile temp = tiles[source];
+    ATTRIBUTES temp = tiles[source];
     tiles.erase(tiles.begin() + source);
     tiles.emplace(tiles.begin() + destination, temp);
 }

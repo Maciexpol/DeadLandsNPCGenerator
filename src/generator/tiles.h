@@ -3,27 +3,28 @@
 
 #include <QVector>
 #include <random>
-#include "tile.h"
 #include "attribute.h"
 
 class Tiles
 {
 private:
-    QVector<Tile> tiles{};
+    QVector<ATTRIBUTES> tiles{};
 
     void dropDown(qint16 index);
 
 public:
     Tiles();
     Tiles(QVector<ATTRIBUTES> priority);
+    Tiles(QVector<QString> priority);
 
-    QVector<Tile> getTiles() const
+    QVector<ATTRIBUTES> getTiles() const
         {return tiles;}
 
     void shuffleTiles(QVector<qint16> chances);
     void setTiles(QVector<ATTRIBUTES> priority);
 
     void moveTile(qint16 source, qint16 destination);
+
 };
 
 #endif // TILES_H
